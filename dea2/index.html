@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="de" class="scroll-smooth">
 <head>
@@ -10,412 +11,661 @@
             theme: {
                 extend: {
                     colors: {
-                        'deep-blue': '#001a2e',
-                        'navy-blue': '#003366',
-                        'accent-blue': '#0052cc',
-                        'gold-yellow': '#ffd700',
-                        'warm-yellow': '#ffeb3b'
+                        'midnight': '#0f1419',
+                        'slate-dark': '#1e293b',
+                        'slate-medium': '#334155',
+                        'slate-light': '#475569',
+                        'navy-elite': '#1e3a8a',
+                        'blue-premium': '#3b82f6',
+                        'gold-premium': '#d4af37',
+                        'gold-accent': '#fbbf24',
+                        'silver-accent': '#e5e7eb'
                     },
                     fontFamily: {
                         'sans': ['Inter', 'system-ui', 'sans-serif']
+                    },
+                    backgroundImage: {
+                        'premium-gradient': 'linear-gradient(135deg, #0f1419 0%, #1e293b 25%, #1e3a8a 75%, #3b82f6 100%)',
+                        'gold-gradient': 'linear-gradient(135deg, #d4af37 0%, #fbbf24 100%)',
+                        'glass-gradient': 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)'
                     }
                 }
             }
         }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        .gradient-bg {
-            background: linear-gradient(135deg, #001a2e 0%, #003366 50%, #0052cc 100%);
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        .hero-pattern {
-            background-image: radial-gradient(circle at 25% 25%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
-                            radial-gradient(circle at 75% 75%, rgba(255, 235, 59, 0.1) 0%, transparent 50%);
+        .dark .glass-effect {
+            background: rgba(15, 20, 25, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .premium-shadow {
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+        }
+        .premium-text-shadow {
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+        .gradient-border {
+            background: linear-gradient(135deg, #d4af37, #fbbf24);
+            padding: 2px;
+            border-radius: 16px;
+        }
+        .gradient-border-content {
+            background: white;
+            border-radius: 14px;
+        }
+        .dark .gradient-border-content {
+            background: #0f1419;
+        }
+        .breathe-animation {
+            animation: breathe 3s ease-in-out infinite;
+        }
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        .mistake-card {
+            position: relative;
+            overflow: hidden;
+        }
+        .mistake-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+        .mistake-card:hover::before {
+            left: 100%;
+        }
+        .mentor-card {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .mentor-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .mentor-card:hover::after {
+            opacity: 1;
+        }
+        .floating-pulse {
+            animation: floating-pulse 2s ease-in-out infinite;
+        }
+        @keyframes floating-pulse {
+            0%, 100% { 
+                transform: translateY(0px) scale(1);
+                box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+            }
+            50% { 
+                transform: translateY(-5px) scale(1.02);
+                box-shadow: 0 20px 40px rgba(212, 175, 55, 0.5);
+            }
         }
     </style>
 </head>
-<body class="bg-white dark:bg-deep-blue text-gray-900 dark:text-white font-sans antialiased">
+<body class="bg-gray-50 dark:bg-midnight text-gray-900 dark:text-white font-sans antialiased">
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 bg-white/95 dark:bg-deep-blue/95 backdrop-blur-sm border-b border-gray-200 dark:border-navy-blue">
+    <nav class="fixed top-0 w-full z-50 glass-effect shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
+            <div class="flex justify-between items-center h-16 sm:h-20">
                 <div class="flex items-center">
-                    <h1 class="text-2xl font-bold text-accent-blue dark:text-gold-yellow">Sharix</h1>
+                    <div class="text-2xl sm:text-3xl font-black text-gold-premium">
+                        Sharix
+                    </div>
                 </div>
                 <div class="flex md:hidden">
-                    <button id="mobile-menu-button" class="text-gray-700 dark:text-gray-300 hover:text-accent-blue dark:hover:text-gold-yellow">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <button id="mobile-menu-button" class="text-gray-900 dark:text-white hover:text-gold-premium transition-colors">
+                        <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
                     </button>
                 </div>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#modules" class="text-gray-700 dark:text-gray-300 hover:text-accent-blue dark:hover:text-gold-yellow transition-colors">Lernmodule</a>
-                    <a href="#mentors" class="text-gray-700 dark:text-gray-300 hover:text-accent-blue dark:hover:text-gold-yellow transition-colors">Mentoren</a>
-                    <a href="#programs" class="text-gray-700 dark:text-gray-300 hover:text-accent-blue dark:hover:text-gold-yellow transition-colors">Programme</a>
-                    <a href="#faq" class="text-gray-700 dark:text-gray-300 hover:text-accent-blue dark:hover:text-gold-yellow transition-colors">FAQ</a>
+                <div class="hidden md:flex items-center space-x-6 lg:space-x-10">
+                    <a href="#modules" class="text-gray-900 dark:text-white hover:text-gold-premium dark:hover:text-gold-accent transition-colors font-semibold text-sm lg:text-base">Lernmodule</a>
+                    <a href="#mentors" class="text-gray-900 dark:text-white hover:text-gold-premium dark:hover:text-gold-accent transition-colors font-semibold text-sm lg:text-base">Mentoren</a>
+                    <a href="#programs" class="text-gray-900 dark:text-white hover:text-gold-premium dark:hover:text-gold-accent transition-colors font-semibold text-sm lg:text-base">Programme</a>
+                    <a href="#faq" class="text-gray-900 dark:text-white hover:text-gold-premium dark:hover:text-gold-accent transition-colors font-semibold text-sm lg:text-base">FAQ</a>
                 </div>
             </div>
         </div>
         <!-- Mobile menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-deep-blue border-t border-gray-200 dark:border-navy-blue">
-            <div class="px-2 pt-2 pb-3 space-y-1">
-                <a href="#modules" class="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-accent-blue dark:hover:text-gold-yellow">Lernmodule</a>
-                <a href="#mentors" class="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-accent-blue dark:hover:text-gold-yellow">Mentoren</a>
-                <a href="#programs" class="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-accent-blue dark:hover:text-gold-yellow">Programme</a>
-                <a href="#faq" class="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-accent-blue dark:hover:text-gold-yellow">FAQ</a>
+        <div id="mobile-menu" class="hidden md:hidden glass-effect border-t border-gray-200 dark:border-gray-700">
+            <div class="px-4 pt-4 pb-6 space-y-2">
+                <a href="#modules" class="block px-4 py-3 text-gray-900 dark:text-white hover:text-gold-premium rounded-lg transition-colors font-semibold">Lernmodule</a>
+                <a href="#mentors" class="block px-4 py-3 text-gray-900 dark:text-white hover:text-gold-premium rounded-lg transition-colors font-semibold">Mentoren</a>
+                <a href="#programs" class="block px-4 py-3 text-gray-900 dark:text-white hover:text-gold-premium rounded-lg transition-colors font-semibold">Programme</a>
+                <a href="#faq" class="block px-4 py-3 text-gray-900 dark:text-white hover:text-gold-premium rounded-lg transition-colors font-semibold">FAQ</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative min-h-screen bg-deep-blue flex items-center justify-center overflow-hidden">
-        <div class="absolute inset-0 bg-black/30"></div>
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <section class="relative min-h-screen bg-premium-gradient flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="absolute top-20 left-20 w-32 sm:w-72 h-32 sm:h-72 bg-gold-premium/20 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-20 right-20 w-48 sm:w-96 h-48 sm:h-96 bg-blue-premium/20 rounded-full blur-3xl"></div>
+        </div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-24 lg:pt-32">
             <div>
-                <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">
-                    Mit strukturellem Denken<br>
-                    <span class="text-gold-yellow">den Markt verstehen</span>
+                <h1 class="text-4xl sm:text-6xl lg:text-8xl font-black text-white mb-6 sm:mb-8 leading-[1.1] premium-text-shadow">
+                    <span class="block">Mit strukturellem Denken</span>
+                    <span class="block text-gold-accent">den Markt verstehen</span>
                 </h1>
-                <p class="text-xl md:text-2xl text-white mb-8 max-w-4xl mx-auto leading-relaxed font-semibold" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">
-                    Beherrschen Sie systematische Analyse- und Risikomanagement-Methoden,<br>
+                <p class="text-lg sm:text-2xl md:text-3xl text-gray-200 mb-8 sm:mb-12 max-w-5xl mx-auto leading-relaxed font-light premium-text-shadow px-4">
+                    Beherrschen Sie systematische Analyse- und Risikomanagement-Methoden,<br class="hidden sm:block">
                     damit jede Investitionsentscheidung rationaler und fundierter wird.
                 </p>
-                <div class="mb-12">
-                    <img src="img/1.jpg" alt="Investment Analysis" class="w-full max-w-2xl mx-auto rounded-2xl shadow-2xl">
+                <div class="mb-12 sm:mb-16">
+                    <img src="img/1.jpg" alt="Investment Analysis" class="w-full max-w-2xl sm:max-w-3xl mx-auto rounded-2xl sm:rounded-3xl premium-shadow">
                 </div>
-                <button class="cta-button inline-flex items-center px-6 py-4 md:px-8 md:py-4 bg-gold-yellow text-deep-blue font-semibold text-base md:text-lg rounded-full hover:bg-warm-yellow transform hover:scale-105 transition-all duration-300 shadow-lg">
-                    <span class="whitespace-nowrap">👉 Jetzt mit dem Lernen beginnen</span>
+                <button class="cta-button group relative inline-flex items-center px-6 sm:px-12 py-4 sm:py-6 bg-gold-premium text-midnight font-bold text-lg sm:text-xl rounded-xl sm:rounded-2xl hover:scale-105 transition-all duration-300 premium-shadow">
+                    <span class="relative z-10 whitespace-nowrap">👉 Jetzt mit dem Lernen beginnen</span>
+                    <div class="absolute inset-0 bg-white/20 rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </button>
             </div>
         </div>
     </section>
 
     <!-- Investment Strategy Section -->
-    <section class="py-20 bg-gray-50 dark:bg-navy-blue">
+    <section class="py-16 sm:py-24 bg-white dark:bg-slate-dark">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <div class="grid lg:grid-cols-2 gap-12 sm:gap-20 items-center">
                 <div>
-                    <h2 class="text-4xl md:text-5xl font-bold text-deep-blue dark:text-white mb-8">
+                    <h2 class="text-3xl sm:text-5xl md:text-6xl font-black text-slate-dark dark:text-white mb-6 sm:mb-10 leading-tight">
                         Investieren ist wie Schach spielen - jeder Zug braucht einen Plan
                     </h2>
-                    <p class="text-xl text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
+                    <p class="text-lg sm:text-2xl text-slate-medium dark:text-gray-300 mb-6 sm:mb-10 leading-relaxed font-light">
                         Die meisten Anleger treffen Entscheidungen erst bei Marktschwankungen – oft zu spät. 
                         Sharix lehrt Sie, wie Sie im Voraus planen und Struktur, Logik und Strategie beherrschen.
                     </p>
-                    <div class="space-y-4 mb-8">
-                        <div class="flex items-start space-x-4">
-                            <div class="w-2 h-2 bg-gold-yellow rounded-full mt-3"></div>
-                            <p class="text-lg text-gray-700 dark:text-gray-300">Markttrends und Wendepunkte identifizieren</p>
+                    <div class="space-y-4 sm:space-y-6 mb-8 sm:mb-12">
+                        <div class="flex items-start space-x-4 sm:space-x-6">
+                            <div class="w-2 sm:w-3 h-2 sm:h-3 bg-gold-premium rounded-full mt-2"></div>
+                            <p class="text-base sm:text-xl text-slate-medium dark:text-gray-300 font-medium">Markttrends und Wendepunkte identifizieren</p>
                         </div>
-                        <div class="flex items-start space-x-4">
-                            <div class="w-2 h-2 bg-gold-yellow rounded-full mt-3"></div>
-                            <p class="text-lg text-gray-700 dark:text-gray-300">Unternehmensgrundlagen und Cashflow analysieren</p>
+                        <div class="flex items-start space-x-4 sm:space-x-6">
+                            <div class="w-2 sm:w-3 h-2 sm:h-3 bg-gold-premium rounded-full mt-2"></div>
+                            <p class="text-base sm:text-xl text-slate-medium dark:text-gray-300 font-medium">Unternehmensgrundlagen und Cashflow analysieren</p>
                         </div>
-                        <div class="flex items-start space-x-4">
-                            <div class="w-2 h-2 bg-gold-yellow rounded-full mt-3"></div>
-                            <p class="text-lg text-gray-700 dark:text-gray-300">Take-Profit- und Stop-Loss-Pläne erstellen</p>
+                        <div class="flex items-start space-x-4 sm:space-x-6">
+                            <div class="w-2 sm:w-3 h-2 sm:h-3 bg-gold-premium rounded-full mt-2"></div>
+                            <p class="text-base sm:text-xl text-slate-medium dark:text-gray-300 font-medium">Take-Profit- und Stop-Loss-Pläne erstellen</p>
                         </div>
-                        <div class="flex items-start space-x-4">
-                            <div class="w-2 h-2 bg-gold-yellow rounded-full mt-3"></div>
-                            <p class="text-lg text-gray-700 dark:text-gray-300">Bei Volatilität rational und stabil bleiben</p>
+                        <div class="flex items-start space-x-4 sm:space-x-6">
+                            <div class="w-2 sm:w-3 h-2 sm:h-3 bg-gold-premium rounded-full mt-2"></div>
+                            <p class="text-base sm:text-xl text-slate-medium dark:text-gray-300 font-medium">Bei Volatilität rational und stabil bleiben</p>
                         </div>
                     </div>
-                    <button class="cta-button inline-flex items-center px-6 py-3 bg-accent-blue text-white font-semibold rounded-full hover:bg-navy-blue transition-colors">
-                        👉 Jetzt mit dem Lernen beginnen
+                    <button class="cta-button group relative inline-flex items-center px-6 sm:px-10 py-3 sm:py-5 bg-navy-elite text-white font-bold text-base sm:text-lg rounded-xl sm:rounded-2xl hover:scale-105 transition-all duration-300 premium-shadow">
+                        <span class="relative z-10">👉 Jetzt mit dem Lernen beginnen</span>
+                        <div class="absolute inset-0 bg-blue-premium rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </button>
                 </div>
-                <div>
-                    <img src="img/2.jpg" alt="Strategic Planning" class="w-full rounded-2xl shadow-xl">
+                <div class="relative order-first lg:order-last">
+                    <div class="absolute -inset-2 sm:-inset-4 bg-gold-premium rounded-2xl sm:rounded-3xl blur opacity-20"></div>
+                    <img src="img/2.jpg" alt="Strategic Planning" class="relative w-full rounded-2xl sm:rounded-3xl premium-shadow">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Common Mistakes Section -->
-    <section class="py-20 bg-white dark:bg-deep-blue">
+    <section class="py-16 sm:py-24 bg-gradient-to-br from-gray-50 via-blue-50/30 to-red-50/20 dark:from-midnight dark:via-slate-dark/50 dark:to-red-900/10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold text-deep-blue dark:text-white mb-8">
-                    Häufige Anlegerfehler
-                </h2>
+            <div class="text-center mb-12 sm:mb-20">
+                <div class="inline-block p-4 bg-red-100/80 dark:bg-red-900/30 rounded-2xl mb-6">
+                    <h2 class="text-3xl sm:text-5xl md:text-6xl font-black text-red-700 dark:text-red-300 mb-6 sm:mb-10">
+                        Häufige Anlegerfehler
+                    </h2>
+                </div>
+                <p class="text-lg sm:text-xl text-slate-medium dark:text-gray-300 max-w-3xl mx-auto">
+                    Erkennen Sie diese typischen Fallstricke und vermeiden Sie kostspielige Fehler
+                </p>
             </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-                <div class="bg-red-50 dark:bg-red-900/20 p-6 rounded-xl">
-                    <div class="text-red-500 text-2xl mb-4">❌</div>
-                    <p class="text-gray-800 dark:text-gray-200">Zum falschen Zeitpunkt kaufen oder verkaufen</p>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-20">
+                <div class="mistake-card group bg-gradient-to-br from-red-50 to-orange-50 dark:from-red-900/20 dark:to-orange-900/20 border border-red-200/50 dark:border-red-700/30 p-6 sm:p-8 rounded-2xl sm:rounded-3xl hover:scale-105 transition-all duration-300">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center mr-4 shadow-lg">
+                            <div class="text-white text-2xl">❌</div>
+                        </div>
+                        <div class="text-red-600 dark:text-red-400 font-bold text-lg">Timing-Fehler</div>
+                    </div>
+                    <p class="text-slate-dark dark:text-gray-200 text-base sm:text-lg font-medium leading-relaxed mb-4">
+                        Zum falschen Zeitpunkt kaufen oder verkaufen
+                    </p>
+                    <div class="bg-green-100 dark:bg-green-900/30 p-3 rounded-lg">
+                        <div class="text-sm text-green-700 dark:text-green-300 font-medium">
+                            💡 Lösung: Systematische Marktanalyse
+                        </div>
+                    </div>
                 </div>
-                <div class="bg-red-50 dark:bg-red-900/20 p-6 rounded-xl">
-                    <div class="text-red-500 text-2xl mb-4">❌</div>
-                    <p class="text-gray-800 dark:text-gray-200">Aktuelle Phase der Aktienkurse nicht verstehen</p>
+                <div class="mistake-card group bg-gradient-to-br from-orange-50 to-yellow-50 dark:from-orange-900/20 dark:to-yellow-900/20 border border-orange-200/50 dark:border-orange-700/30 p-6 sm:p-8 rounded-2xl sm:rounded-3xl hover:scale-105 transition-all duration-300">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center mr-4 shadow-lg">
+                            <div class="text-white text-2xl">📈</div>
+                        </div>
+                        <div class="text-orange-600 dark:text-orange-400 font-bold text-lg">Phasen-Unwissen</div>
+                    </div>
+                    <p class="text-slate-dark dark:text-gray-200 text-base sm:text-lg font-medium leading-relaxed mb-4">
+                        Aktuelle Phase der Aktienkurse nicht verstehen
+                    </p>
+                    <div class="bg-green-100 dark:bg-green-900/30 p-3 rounded-lg">
+                        <div class="text-sm text-green-700 dark:text-green-300 font-medium">
+                            💡 Lösung: Trendphasen-Analyse lernen
+                        </div>
+                    </div>
                 </div>
-                <div class="bg-red-50 dark:bg-red-900/20 p-6 rounded-xl">
-                    <div class="text-red-500 text-2xl mb-4">❌</div>
-                    <p class="text-gray-800 dark:text-gray-200">Keine feste Kauf-/Verkaufsstrategie haben</p>
+                <div class="mistake-card group bg-gradient-to-br from-yellow-50 to-amber-50 dark:from-yellow-900/20 dark:to-amber-900/20 border border-yellow-200/50 dark:border-yellow-700/30 p-6 sm:p-8 rounded-2xl sm:rounded-3xl hover:scale-105 transition-all duration-300">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-full flex items-center justify-center mr-4 shadow-lg">
+                            <div class="text-white text-2xl">🎯</div>
+                        </div>
+                        <div class="text-yellow-600 dark:text-yellow-400 font-bold text-lg">Strategie-Mangel</div>
+                    </div>
+                    <p class="text-slate-dark dark:text-gray-200 text-base sm:text-lg font-medium leading-relaxed mb-4">
+                        Keine feste Kauf-/Verkaufsstrategie haben
+                    </p>
+                    <div class="bg-green-100 dark:bg-green-900/30 p-3 rounded-lg">
+                        <div class="text-sm text-green-700 dark:text-green-300 font-medium">
+                            💡 Lösung: MAGICS 6+6 Modell
+                        </div>
+                    </div>
                 </div>
-                <div class="bg-red-50 dark:bg-red-900/20 p-6 rounded-xl">
-                    <div class="text-red-500 text-2xl mb-4">❌</div>
-                    <p class="text-gray-800 dark:text-gray-200">Nur bei Markthöchstständen profitieren, bei Tiefständen verlieren</p>
+                <div class="mistake-card group bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 border border-blue-200/50 dark:border-blue-700/30 p-6 sm:p-8 rounded-2xl sm:rounded-3xl hover:scale-105 transition-all duration-300">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mr-4 shadow-lg">
+                            <div class="text-white text-2xl">📊</div>
+                        </div>
+                        <div class="text-blue-600 dark:text-blue-400 font-bold text-lg">Zyklus-Blindheit</div>
+                    </div>
+                    <p class="text-slate-dark dark:text-gray-200 text-base sm:text-lg font-medium leading-relaxed mb-4">
+                        Nur bei Markthöchstständen profitieren, bei Tiefständen verlieren
+                    </p>
+                    <div class="bg-green-100 dark:bg-green-900/30 p-3 rounded-lg">
+                        <div class="text-sm text-green-700 dark:text-green-300 font-medium">
+                            💡 Lösung: Marktzyklen verstehen
+                        </div>
+                    </div>
                 </div>
-                <div class="bg-red-50 dark:bg-red-900/20 p-6 rounded-xl">
-                    <div class="text-red-500 text-2xl mb-4">❌</div>
-                    <p class="text-gray-800 dark:text-gray-200">Emotionale Entscheidungen, die Verluste verstärken</p>
+                <div class="mistake-card group bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 border border-purple-200/50 dark:border-purple-700/30 p-6 sm:p-8 rounded-2xl sm:rounded-3xl hover:scale-105 transition-all duration-300 sm:col-span-2 lg:col-span-1">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mr-4 shadow-lg">
+                            <div class="text-white text-2xl">😰</div>
+                        </div>
+                        <div class="text-purple-600 dark:text-purple-400 font-bold text-lg">Emotions-Falle</div>
+                    </div>
+                    <p class="text-slate-dark dark:text-gray-200 text-base sm:text-lg font-medium leading-relaxed mb-4">
+                        Emotionale Entscheidungen, die Verluste verstärken
+                    </p>
+                    <div class="bg-green-100 dark:bg-green-900/30 p-3 rounded-lg">
+                        <div class="text-sm text-green-700 dark:text-green-300 font-medium">
+                            💡 Lösung: Rationales Risikomanagement
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="text-center">
-                <p class="text-xl text-gray-700 dark:text-gray-300 mb-8 max-w-4xl mx-auto">
-                    Ob Anfänger oder Fortgeschrittene – das Kernproblem liegt im Fehlen eines systematischen Analyserahmens und der Ausführungsdisziplin. 
-                    Das Sharix-Lernsystem hilft Ihnen, diese grundlegenden Probleme zu korrigieren.
-                </p>
-                <button class="cta-button inline-flex items-center px-6 py-3 bg-gold-yellow text-deep-blue font-semibold rounded-full hover:bg-warm-yellow transition-colors">
-                    👉 Jetzt mit dem Lernen beginnen
+                <div class="bg-gradient-to-r from-red-500/10 via-orange-500/10 to-gold-premium/10 rounded-3xl p-8 mb-12 border border-red-200/30 dark:border-red-700/30">
+                    <p class="text-lg sm:text-2xl text-slate-medium dark:text-gray-300 font-light leading-relaxed">
+                        <span class="text-2xl">⚠️</span> Das Kernproblem: Fehlender systematischer Analyserahmen und mangelnde Ausführungsdisziplin.<br>
+                        <span class="text-gold-premium font-semibold">Das Sharix-Lernsystem behebt diese fundamentalen Probleme.</span>
+                    </p>
+                </div>
+                <button class="cta-button group relative inline-flex items-center px-6 sm:px-10 py-3 sm:py-5 bg-gold-premium text-midnight font-bold text-base sm:text-lg rounded-xl sm:rounded-2xl hover:scale-105 transition-all duration-300 premium-shadow">
+                    <span class="relative z-10">👉 Jetzt mit dem Lernen beginnen</span>
+                    <div class="absolute inset-0 bg-white/20 rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </button>
             </div>
         </div>
     </section>
 
     <!-- Learning Modules Section -->
-    <section id="modules" class="py-20 bg-gray-50 dark:bg-navy-blue">
+    <section id="modules" class="py-16 sm:py-24 bg-white dark:bg-slate-dark">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold text-deep-blue dark:text-white mb-8">
+            <div class="text-center mb-12 sm:mb-20">
+                <h2 class="text-3xl sm:text-5xl md:text-6xl font-black text-slate-dark dark:text-white mb-6 sm:mb-10">
                     Systematische Lernmodule: Von der Logik zur Strategie
                 </h2>
             </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-                <div class="bg-white dark:bg-deep-blue p-8 rounded-2xl shadow-lg border border-gray-200 dark:border-navy-blue">
-                    <h3 class="text-2xl font-bold text-accent-blue dark:text-gold-yellow mb-4">6 Aktienauswahl-Prinzipien</h3>
-                    <p class="text-gray-700 dark:text-gray-300">
-                        Sharix' einzigartiges MAGICS 6+6 Modell bewertet Rentabilität, Cashflow, Bewertung, Schulden, Wachstum und Branchenposition in sechs Dimensionen.
-                    </p>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
+                <div class="gradient-border">
+                    <div class="gradient-border-content p-6 sm:p-10 h-full hover:scale-105 transition-transform duration-300">
+                        <h3 class="text-xl sm:text-2xl font-bold text-navy-elite dark:text-gold-accent mb-4 sm:mb-6">6 Aktienauswahl-Prinzipien</h3>
+                        <p class="text-slate-medium dark:text-gray-300 leading-relaxed text-sm sm:text-base">
+                            Sharix' einzigartiges MAGICS 6+6 Modell bewertet Rentabilität, Cashflow, Bewertung, Schulden, Wachstum und Branchenposition in sechs Dimensionen.
+                        </p>
+                    </div>
                 </div>
-                <div class="bg-white dark:bg-deep-blue p-8 rounded-2xl shadow-lg border border-gray-200 dark:border-navy-blue">
-                    <h3 class="text-2xl font-bold text-accent-blue dark:text-gold-yellow mb-4">6 Trend-Phasen</h3>
-                    <p class="text-gray-700 dark:text-gray-300">
-                        Lernen Sie Branchenführer zu identifizieren, Trendbildung und Wendepunkte zu beurteilen und wissenschaftliche Take-Profit- und Stop-Loss-Strategien zu entwickeln.
-                    </p>
+                <div class="gradient-border">
+                    <div class="gradient-border-content p-6 sm:p-10 h-full hover:scale-105 transition-transform duration-300">
+                        <h3 class="text-xl sm:text-2xl font-bold text-navy-elite dark:text-gold-accent mb-4 sm:mb-6">6 Trend-Phasen</h3>
+                        <p class="text-slate-medium dark:text-gray-300 leading-relaxed text-sm sm:text-base">
+                            Lernen Sie Branchenführer zu identifizieren, Trendbildung und Wendepunkte zu beurteilen und wissenschaftliche Take-Profit- und Stop-Loss-Strategien zu entwickeln.
+                        </p>
+                    </div>
                 </div>
-                <div class="bg-white dark:bg-deep-blue p-8 rounded-2xl shadow-lg border border-gray-200 dark:border-navy-blue">
-                    <h3 class="text-2xl font-bold text-accent-blue dark:text-gold-yellow mb-4">Cashflow sieht die Zukunft</h3>
-                    <p class="text-gray-700 dark:text-gray-300">
-                        Beherrschen Sie Unternehmens-Cashflow-Analysemethoden und gewinnen Sie Einblicke in Unternehmensgesundheit und Wachstumspotenzial aus Betriebsdaten.
-                    </p>
+                <div class="gradient-border">
+                    <div class="gradient-border-content p-6 sm:p-10 h-full hover:scale-105 transition-transform duration-300">
+                        <h3 class="text-xl sm:text-2xl font-bold text-navy-elite dark:text-gold-accent mb-4 sm:mb-6">Cashflow sieht die Zukunft</h3>
+                        <p class="text-slate-medium dark:text-gray-300 leading-relaxed text-sm sm:text-base">
+                            Beherrschen Sie Unternehmens-Cashflow-Analysemethoden und gewinnen Sie Einblicke in Unternehmensgesundheit und Wachstumspotenzial aus Betriebsdaten.
+                        </p>
+                    </div>
                 </div>
-                <div class="bg-white dark:bg-deep-blue p-8 rounded-2xl shadow-lg border border-gray-200 dark:border-navy-blue">
-                    <h3 class="text-2xl font-bold text-accent-blue dark:text-gold-yellow mb-4">Operation vs. Risiko</h3>
-                    <p class="text-gray-700 dark:text-gray-300">
-                        Lernen Sie durch praktische Fälle der Mentoren operative Logik und verbessern Sie Ihre Risikokontrolle und Positionsmanagement-Fähigkeiten.
-                    </p>
+                <div class="gradient-border">
+                    <div class="gradient-border-content p-6 sm:p-10 h-full hover:scale-105 transition-transform duration-300">
+                        <h3 class="text-xl sm:text-2xl font-bold text-navy-elite dark:text-gold-accent mb-4 sm:mb-6">Operation vs. Risiko</h3>
+                        <p class="text-slate-medium dark:text-gray-300 leading-relaxed text-sm sm:text-base">
+                            Lernen Sie durch praktische Fälle der Mentoren operative Logik und verbessern Sie Ihre Risikokontrolle und Positionsmanagement-Fähigkeiten.
+                        </p>
+                    </div>
                 </div>
-                <div class="bg-white dark:bg-deep-blue p-8 rounded-2xl shadow-lg border border-gray-200 dark:border-navy-blue">
-                    <h3 class="text-2xl font-bold text-accent-blue dark:text-gold-yellow mb-4">Wachstumsunternehmen-Eigenschaften</h3>
-                    <p class="text-gray-700 dark:text-gray-300">
-                        Verstehen Sie Unternehmens-Burggraben und Geschäftsmodelle, identifizieren Sie Wachstumsunternehmen mit nachhaltigem Innovationspotenzial.
-                    </p>
+                <div class="gradient-border">
+                    <div class="gradient-border-content p-6 sm:p-10 h-full hover:scale-105 transition-transform duration-300">
+                        <h3 class="text-xl sm:text-2xl font-bold text-navy-elite dark:text-gold-accent mb-4 sm:mb-6">Wachstumsunternehmen-Eigenschaften</h3>
+                        <p class="text-slate-medium dark:text-gray-300 leading-relaxed text-sm sm:text-base">
+                            Verstehen Sie Unternehmens-Burggraben und Geschäftsmodelle, identifizieren Sie Wachstumsunternehmen mit nachhaltigem Innovationspotenzial.
+                        </p>
+                    </div>
                 </div>
-                <div class="bg-white dark:bg-deep-blue p-8 rounded-2xl shadow-lg border border-gray-200 dark:border-navy-blue">
-                    <h3 class="text-2xl font-bold text-accent-blue dark:text-gold-yellow mb-4">Unternehmensbewertung & Portfolio-Management</h3>
-                    <p class="text-gray-700 dark:text-gray-300">
-                        Lernen Sie, wie Sie Unternehmenswerte bewerten und diversifizierte Investmentportfolios aufbauen. Behalten Sie Ruhe, Rationalität und Disziplin bei.
-                    </p>
+                <div class="gradient-border">
+                    <div class="gradient-border-content p-6 sm:p-10 h-full hover:scale-105 transition-transform duration-300">
+                        <h3 class="text-xl sm:text-2xl font-bold text-navy-elite dark:text-gold-accent mb-4 sm:mb-6">Unternehmensbewertung & Portfolio-Management</h3>
+                        <p class="text-slate-medium dark:text-gray-300 leading-relaxed text-sm sm:text-base">
+                            Lernen Sie, wie Sie Unternehmenswerte bewerten und diversifizierte Investmentportfolios aufbauen. Behalten Sie Ruhe, Rationalität und Disziplin bei.
+                        </p>
+                    </div>
                 </div>
             </div>
             <div class="text-center">
-                <img src="img/3.jpg" alt="Learning Modules" class="w-full max-w-2xl mx-auto rounded-2xl shadow-xl mb-8">
-                <button class="cta-button inline-flex items-center px-6 py-3 bg-gold-yellow text-deep-blue font-semibold rounded-full hover:bg-warm-yellow transition-colors">
-                    👉 Jetzt mit dem Lernen beginnen
+                <div class="relative mb-8 sm:mb-12">
+                    <img src="img/3.jpg" alt="Learning Modules" class="relative w-full max-w-2xl sm:max-w-3xl mx-auto rounded-2xl sm:rounded-3xl premium-shadow">
+                </div>
+                <button class="cta-button group relative inline-flex items-center px-6 sm:px-10 py-3 sm:py-5 bg-gold-premium text-midnight font-bold text-base sm:text-lg rounded-xl sm:rounded-2xl hover:scale-105 transition-all duration-300 premium-shadow">
+                    <span class="relative z-10">👉 Jetzt mit dem Lernen beginnen</span>
+                    <div class="absolute inset-0 bg-white/20 rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </button>
             </div>
         </div>
     </section>
 
     <!-- Mentors Section -->
-    <section id="mentors" class="py-20 bg-white dark:bg-deep-blue">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold text-deep-blue dark:text-white mb-8">
+    <section id="mentors" class="py-16 sm:py-24 bg-gray-50 dark:bg-midnight relative overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-gold-premium/5 to-transparent"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-gold-premium/10 rounded-full blur-3xl"></div>
+        </div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 sm:mb-20">
+                <h2 class="text-3xl sm:text-5xl md:text-6xl font-black text-slate-dark dark:text-white mb-6 sm:mb-10">
                     Professionelle Mentoren vermitteln Erfahrung
                 </h2>
-                <p class="text-xl text-gray-700 dark:text-gray-300 max-w-4xl mx-auto">
+                <p class="text-lg sm:text-2xl text-slate-medium dark:text-gray-300 max-w-5xl mx-auto font-light leading-relaxed">
                     Sharix verfügt über 30+ professionelle Mentoren aus Banken, Fonds und Industrieforschung, 
                     die durch systematische Erklärungen und reale Fälle professionelle Investitionslogik und Risikokontrolldenken vermitteln.
                 </p>
             </div>
-            <div class="grid md:grid-cols-3 gap-12 mb-16">
-                <div class="text-center">
-                    <div class="w-32 h-32 mx-auto mb-6 overflow-hidden rounded-full">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face" alt="Dr. Markus Heller" class="w-full h-full object-cover">
+            <div class="grid lg:grid-cols-3 gap-8 sm:gap-12 mb-12 sm:mb-20">
+                <div class="mentor-card p-8 rounded-3xl hover:scale-105 transition-all duration-500 group">
+                    <div class="text-center relative z-10">
+                        <div class="relative w-32 sm:w-40 h-32 sm:h-40 mx-auto mb-6 sm:mb-8">
+                            <div class="absolute -inset-1 sm:-inset-2 bg-gold-premium rounded-full blur opacity-30 group-hover:opacity-70 transition-opacity duration-300"></div>
+                            <div class="relative w-32 sm:w-40 h-32 sm:h-40 overflow-hidden rounded-full premium-shadow">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face" alt="Dr. Markus Heller" class="w-full h-full object-cover">
+                            </div>
+                            <div class="absolute -bottom-2 -right-2 w-8 h-8 bg-gold-premium rounded-full flex items-center justify-center">
+                                <span class="text-xs font-bold text-midnight">⭐</span>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <h3 class="text-2xl sm:text-3xl font-bold text-slate-dark dark:text-white mb-2">Dr. Markus Heller</h3>
+                            <div class="text-gold-premium font-semibold text-base sm:text-lg mb-2">
+                                Ehemaliger Senior-Stratege der Deutschen Bank
+                            </div>
+                            <div class="flex justify-center space-x-1 mb-4">
+                                <span class="text-gold-premium">⭐⭐⭐⭐⭐</span>
+                            </div>
+                        </div>
+                        <p class="text-slate-medium dark:text-gray-300 leading-relaxed text-sm sm:text-base mb-4">
+                            Spezialisiert auf quantitative Modelle und Unternehmensbewertungsanalyse, 20+ Jahre Kapitalmarkterfahrung, 
+                            Experte für strukturierte Investitionen und Risiko-Hedging.
+                        </p>
+                        <div class="flex flex-wrap gap-2 justify-center">
+                            <span class="px-3 py-1 bg-navy-elite/20 text-navy-elite dark:text-gold-accent rounded-full text-xs font-medium">Quantitative Modelle</span>
+                            <span class="px-3 py-1 bg-navy-elite/20 text-navy-elite dark:text-gold-accent rounded-full text-xs font-medium">Risiko-Hedging</span>
+                        </div>
                     </div>
-                    <h3 class="text-2xl font-bold text-deep-blue dark:text-white mb-2">Dr. Markus Heller</h3>
-                    <p class="text-accent-blue dark:text-gold-yellow font-semibold mb-4">Ehemaliger Senior-Stratege der Deutschen Bank</p>
-                    <p class="text-gray-700 dark:text-gray-300">
-                        Spezialisiert auf quantitative Modelle und Unternehmensbewertungsanalyse, 20+ Jahre Kapitalmarkterfahrung, 
-                        Experte für strukturierte Investitionen und Risiko-Hedging.
-                    </p>
                 </div>
-                <div class="text-center">
-                    <div class="w-32 h-32 mx-auto mb-6 overflow-hidden rounded-full">
-                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face" alt="Thomas Weber" class="w-full h-full object-cover">
+                <div class="mentor-card p-8 rounded-3xl hover:scale-105 transition-all duration-500 group">
+                    <div class="text-center relative z-10">
+                        <div class="relative w-32 sm:w-40 h-32 sm:h-40 mx-auto mb-6 sm:mb-8">
+                            <div class="absolute -inset-1 sm:-inset-2 bg-gold-premium rounded-full blur opacity-30 group-hover:opacity-70 transition-opacity duration-300"></div>
+                            <div class="relative w-32 sm:w-40 h-32 sm:h-40 overflow-hidden rounded-full premium-shadow">
+                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face" alt="Thomas Weber" class="w-full h-full object-cover">
+                            </div>
+                            <div class="absolute -bottom-2 -right-2 w-8 h-8 bg-gold-premium rounded-full flex items-center justify-center">
+                                <span class="text-xs font-bold text-midnight">⭐</span>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <h3 class="text-2xl sm:text-3xl font-bold text-slate-dark dark:text-white mb-2">Thomas Weber</h3>
+                            <div class="text-gold-premium font-semibold text-base sm:text-lg mb-2">
+                                Europäischer Fondsforschungsberater
+                            </div>
+                            <div class="flex justify-center space-x-1 mb-4">
+                                <span class="text-gold-premium">⭐⭐⭐⭐⭐</span>
+                            </div>
+                        </div>
+                        <p class="text-slate-medium dark:text-gray-300 leading-relaxed text-sm sm:text-base mb-4">
+                            Ehemaliger Strategieleiter einer Frankfurter Vermögensverwaltungsgesellschaft, 
+                            führte Fondsoptimierungs- und Asset-Allokationsprojekte.
+                        </p>
+                        <div class="flex flex-wrap gap-2 justify-center">
+                            <span class="px-3 py-1 bg-navy-elite/20 text-navy-elite dark:text-gold-accent rounded-full text-xs font-medium">Fondsoptimierung</span>
+                            <span class="px-3 py-1 bg-navy-elite/20 text-navy-elite dark:text-gold-accent rounded-full text-xs font-medium">Asset-Allokation</span>
+                        </div>
                     </div>
-                    <h3 class="text-2xl font-bold text-deep-blue dark:text-white mb-2">Thomas Weber</h3>
-                    <p class="text-accent-blue dark:text-gold-yellow font-semibold mb-4">Europäischer Fondsforschungsberater</p>
-                    <p class="text-gray-700 dark:text-gray-300">
-                        Ehemaliger Strategieleiter einer Frankfurter Vermögensverwaltungsgesellschaft, 
-                        führte Fondsoptimierungs- und Asset-Allokationsprojekte.
-                    </p>
                 </div>
-                <div class="text-center">
-                    <div class="w-32 h-32 mx-auto mb-6 overflow-hidden rounded-full">
-                        <img src="img/11.jpg" alt="Dr. Anna Müller" class="w-full h-full object-cover">
+                <div class="mentor-card p-8 rounded-3xl hover:scale-105 transition-all duration-500 group lg:col-span-1">
+                    <div class="text-center relative z-10">
+                        <div class="relative w-32 sm:w-40 h-32 sm:h-40 mx-auto mb-6 sm:mb-8">
+                            <div class="absolute -inset-1 sm:-inset-2 bg-gold-premium rounded-full blur opacity-30 group-hover:opacity-70 transition-opacity duration-300"></div>
+                            <div class="relative w-32 sm:w-40 h-32 sm:h-40 overflow-hidden rounded-full premium-shadow">
+                                <img src="img/11.jpg" alt="Dr. Anna Müller" class="w-full h-full object-cover">
+                            </div>
+                            <div class="absolute -bottom-2 -right-2 w-8 h-8 bg-gold-premium rounded-full flex items-center justify-center">
+                                <span class="text-xs font-bold text-midnight">⭐</span>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <h3 class="text-2xl sm:text-3xl font-bold text-slate-dark dark:text-white mb-2">Dr. Anna Müller</h3>
+                            <div class="text-gold-premium font-semibold text-base sm:text-lg mb-2">
+                                Medizin- und Technologie-Investmentberaterin
+                            </div>
+                            <div class="flex justify-center space-x-1 mb-4">
+                                <span class="text-gold-premium">⭐⭐⭐⭐⭐</span>
+                            </div>
+                        </div>
+                        <p class="text-slate-medium dark:text-gray-300 leading-relaxed text-sm sm:text-base mb-4">
+                            Biotechnologie- und innovative Unternehmensanalystin, 
+                            Expertin darin, komplexe Branchenlogik in umsetzbare Strategien umzuwandeln.
+                        </p>
+                        <div class="flex flex-wrap gap-2 justify-center">
+                            <span class="px-3 py-1 bg-navy-elite/20 text-navy-elite dark:text-gold-accent rounded-full text-xs font-medium">Biotechnologie</span>
+                            <span class="px-3 py-1 bg-navy-elite/20 text-navy-elite dark:text-gold-accent rounded-full text-xs font-medium">Innovation</span>
+                        </div>
                     </div>
-                    <h3 class="text-2xl font-bold text-deep-blue dark:text-white mb-2">Dr. Anna Müller</h3>
-                    <p class="text-accent-blue dark:text-gold-yellow font-semibold mb-4">Medizin- und Technologie-Investmentberaterin</p>
-                    <p class="text-gray-700 dark:text-gray-300">
-                        Biotechnologie- und innovative Unternehmensanalystin, 
-                        Expertin darin, komplexe Branchenlogik in umsetzbare Strategien umzuwandeln.
-                    </p>
                 </div>
             </div>
             <div class="text-center">
-                <p class="text-xl text-gray-700 dark:text-gray-300 mb-8 max-w-4xl mx-auto">
-                    Das Sharix-Mentorenteam kombiniert internationale Analyserahmen mit deutscher Marktpraxis 
-                    und bietet Ihnen wirklich "lernbare und anwendbare" Entscheidungsunterstützung.
-                </p>
-                <button class="cta-button inline-flex items-center px-6 py-3 bg-gold-yellow text-deep-blue font-semibold rounded-full hover:bg-warm-yellow transition-colors">
-                    👉 Jetzt mit dem Lernen beginnen
+                <div class="glass-effect rounded-3xl p-8 mb-12 max-w-4xl mx-auto">
+                    <div class="flex items-center justify-center mb-4">
+                        <div class="w-12 h-12 bg-gold-premium rounded-full flex items-center justify-center mr-4">
+                            <span class="text-midnight font-bold">🏆</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-slate-dark dark:text-white">Gemeinsame Expertise</h3>
+                    </div>
+                    <p class="text-lg sm:text-xl text-slate-medium dark:text-gray-300 font-light leading-relaxed">
+                        Das Sharix-Mentorenteam kombiniert internationale Analyserahmen mit deutscher Marktpraxis 
+                        und bietet Ihnen wirklich <span class="text-gold-premium font-semibold">"lernbare und anwendbare"</span> Entscheidungsunterstützung.
+                    </p>
+                </div>
+                <button class="cta-button group relative inline-flex items-center px-6 sm:px-10 py-3 sm:py-5 bg-gold-premium text-midnight font-bold text-base sm:text-lg rounded-xl sm:rounded-2xl hover:scale-105 transition-all duration-300 premium-shadow">
+                    <span class="relative z-10">👉 Jetzt mit dem Lernen beginnen</span>
+                    <div class="absolute inset-0 bg-white/20 rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </button>
             </div>
         </div>
     </section>
 
     <!-- MAGICS System Section -->
-    <section class="py-20 bg-gradient-to-r from-accent-blue to-navy-blue">
+    <section class="py-16 sm:py-24 bg-premium-gradient">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div>
-                <h2 class="text-4xl md:text-5xl font-bold text-white mb-8">
+                <h2 class="text-3xl sm:text-5xl md:text-6xl font-black text-white mb-6 sm:mb-10 premium-text-shadow">
                     Sharix Innovation: MAGICS 6+6 Systemmodell
                 </h2>
-                <p class="text-xl text-gray-200 mb-12 max-w-4xl mx-auto">
+                <p class="text-lg sm:text-2xl text-gray-200 mb-12 sm:mb-16 max-w-5xl mx-auto font-light leading-relaxed premium-text-shadow">
                     Strukturelles Lernsystem basierend auf Datenanalyse und Marktlogik
                 </p>
-                <div class="grid md:grid-cols-2 gap-12 mb-12">
-                    <div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl">
-                        <h3 class="text-2xl font-bold text-gold-yellow mb-6">6 Fundamentale Indikatoren</h3>
-                        <div class="space-y-3 text-left">
-                            <div class="flex items-center space-x-3">
-                                <div class="w-2 h-2 bg-gold-yellow rounded-full"></div>
-                                <span class="text-white">Rentabilität</span>
+                <div class="grid md:grid-cols-2 gap-8 sm:gap-12 mb-12 sm:mb-16">
+                    <div class="bg-white/10 backdrop-blur-lg border border-white/20 p-6 sm:p-10 rounded-2xl sm:rounded-3xl hover:scale-105 transition-transform duration-300">
+                        <h3 class="text-2xl sm:text-3xl font-bold text-gold-accent mb-6 sm:mb-8">6 Fundamentale Indikatoren</h3>
+                        <div class="space-y-3 sm:space-y-4 text-left">
+                            <div class="flex items-center space-x-3 sm:space-x-4">
+                                <div class="w-2 sm:w-3 h-2 sm:h-3 bg-gold-accent rounded-full"></div>
+                                <span class="text-white text-base sm:text-lg font-medium">Rentabilität</span>
                             </div>
-                            <div class="flex items-center space-x-3">
-                                <div class="w-2 h-2 bg-gold-yellow rounded-full"></div>
-                                <span class="text-white">Cashflow</span>
+                            <div class="flex items-center space-x-3 sm:space-x-4">
+                                <div class="w-2 sm:w-3 h-2 sm:h-3 bg-gold-accent rounded-full"></div>
+                                <span class="text-white text-base sm:text-lg font-medium">Cashflow</span>
                             </div>
-                            <div class="flex items-center space-x-3">
-                                <div class="w-2 h-2 bg-gold-yellow rounded-full"></div>
-                                <span class="text-white">Bewertung</span>
+                            <div class="flex items-center space-x-3 sm:space-x-4">
+                                <div class="w-2 sm:w-3 h-2 sm:h-3 bg-gold-accent rounded-full"></div>
+                                <span class="text-white text-base sm:text-lg font-medium">Bewertung</span>
                             </div>
-                            <div class="flex items-center space-x-3">
-                                <div class="w-2 h-2 bg-gold-yellow rounded-full"></div>
-                                <span class="text-white">Schulden</span>
+                            <div class="flex items-center space-x-3 sm:space-x-4">
+                                <div class="w-2 sm:w-3 h-2 sm:h-3 bg-gold-accent rounded-full"></div>
+                                <span class="text-white text-base sm:text-lg font-medium">Schulden</span>
                             </div>
-                            <div class="flex items-center space-x-3">
-                                <div class="w-2 h-2 bg-gold-yellow rounded-full"></div>
-                                <span class="text-white">Wachstum</span>
+                            <div class="flex items-center space-x-3 sm:space-x-4">
+                                <div class="w-2 sm:w-3 h-2 sm:h-3 bg-gold-accent rounded-full"></div>
+                                <span class="text-white text-base sm:text-lg font-medium">Wachstum</span>
                             </div>
-                            <div class="flex items-center space-x-3">
-                                <div class="w-2 h-2 bg-gold-yellow rounded-full"></div>
-                                <span class="text-white">Branchenposition</span>
+                            <div class="flex items-center space-x-3 sm:space-x-4">
+                                <div class="w-2 sm:w-3 h-2 sm:h-3 bg-gold-accent rounded-full"></div>
+                                <span class="text-white text-base sm:text-lg font-medium">Branchenposition</span>
                             </div>
                         </div>
                     </div>
-                    <div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl">
-                        <h3 class="text-2xl font-bold text-gold-yellow mb-6">6 Marktsignale</h3>
-                        <div class="space-y-3 text-left">
-                            <div class="flex items-center space-x-3">
-                                <div class="w-2 h-2 bg-gold-yellow rounded-full"></div>
-                                <span class="text-white">Trends</span>
+                    <div class="bg-white/10 backdrop-blur-lg border border-white/20 p-6 sm:p-10 rounded-2xl sm:rounded-3xl hover:scale-105 transition-transform duration-300">
+                        <h3 class="text-2xl sm:text-3xl font-bold text-gold-accent mb-6 sm:mb-8">6 Marktsignale</h3>
+                        <div class="space-y-3 sm:space-y-4 text-left">
+                            <div class="flex items-center space-x-3 sm:space-x-4">
+                                <div class="w-2 sm:w-3 h-2 sm:h-3 bg-gold-accent rounded-full"></div>
+                                <span class="text-white text-base sm:text-lg font-medium">Trends</span>
                             </div>
-                            <div class="flex items-center space-x-3">
-                                <div class="w-2 h-2 bg-gold-yellow rounded-full"></div>
-                                <span class="text-white">Handelsvolumen</span>
+                            <div class="flex items-center space-x-3 sm:space-x-4">
+                                <div class="w-2 sm:w-3 h-2 sm:h-3 bg-gold-accent rounded-full"></div>
+                                <span class="text-white text-base sm:text-lg font-medium">Handelsvolumen</span>
                             </div>
-                            <div class="flex items-center space-x-3">
-                                <div class="w-2 h-2 bg-gold-yellow rounded-full"></div>
-                                <span class="text-white">Kapitalfluss</span>
+                            <div class="flex items-center space-x-3 sm:space-x-4">
+                                <div class="w-2 sm:w-3 h-2 sm:h-3 bg-gold-accent rounded-full"></div>
+                                <span class="text-white text-base sm:text-lg font-medium">Kapitalfluss</span>
                             </div>
-                            <div class="flex items-center space-x-3">
-                                <div class="w-2 h-2 bg-gold-yellow rounded-full"></div>
-                                <span class="text-white">Technische Unterstützung</span>
+                            <div class="flex items-center space-x-3 sm:space-x-4">
+                                <div class="w-2 sm:w-3 h-2 sm:h-3 bg-gold-accent rounded-full"></div>
+                                <span class="text-white text-base sm:text-lg font-medium">Technische Unterstützung</span>
                             </div>
-                            <div class="flex items-center space-x-3">
-                                <div class="w-2 h-2 bg-gold-yellow rounded-full"></div>
-                                <span class="text-white">Volatilität</span>
+                            <div class="flex items-center space-x-3 sm:space-x-4">
+                                <div class="w-2 sm:w-3 h-2 sm:h-3 bg-gold-accent rounded-full"></div>
+                                <span class="text-white text-base sm:text-lg font-medium">Volatilität</span>
                             </div>
-                            <div class="flex items-center space-x-3">
-                                <div class="w-2 h-2 bg-gold-yellow rounded-full"></div>
-                                <span class="text-white">Relative Stärke</span>
+                            <div class="flex items-center space-x-3 sm:space-x-4">
+                                <div class="w-2 sm:w-3 h-2 sm:h-3 bg-gold-accent rounded-full"></div>
+                                <span class="text-white text-base sm:text-lg font-medium">Relative Stärke</span>
                             </div>
                         </div>
                     </div>
                 </div>
-                <p class="text-lg text-gray-200 mb-8">
+                <p class="text-base sm:text-xl text-gray-200 mb-8 sm:mb-12 font-light leading-relaxed">
                     Hilft Lernenden, den Markt mit Daten zu verstehen, anstatt nach Gefühl zu handeln.
                 </p>
-                <button class="cta-button inline-flex items-center px-6 py-3 bg-gold-yellow text-deep-blue font-semibold rounded-full hover:bg-warm-yellow transition-colors">
-                    👉 Jetzt mit dem Lernen beginnen
+                <button class="cta-button group relative inline-flex items-center px-6 sm:px-10 py-3 sm:py-5 bg-gold-premium text-midnight font-bold text-base sm:text-lg rounded-xl sm:rounded-2xl hover:scale-105 transition-all duration-300 premium-shadow">
+                    <span class="relative z-10">👉 Jetzt mit dem Lernen beginnen</span>
+                    <div class="absolute inset-0 bg-white/20 rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </button>
             </div>
         </div>
     </section>
 
     <!-- Programs Section -->
-    <section id="programs" class="py-20 bg-gray-50 dark:bg-navy-blue">
+    <section id="programs" class="py-16 sm:py-24 bg-white dark:bg-slate-dark">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold text-deep-blue dark:text-white mb-8">
+            <div class="text-center mb-12 sm:mb-20">
+                <h2 class="text-3xl sm:text-5xl md:text-6xl font-black text-slate-dark dark:text-white mb-6 sm:mb-10">
                     Sharix Investment-Lernpfad
                 </h2>
-                <p class="text-xl text-gray-700 dark:text-gray-300">
+                <p class="text-lg sm:text-2xl text-slate-medium dark:text-gray-300 font-light leading-relaxed">
                     Sharix hat zwei Lernwege entwickelt, um Anlegern in verschiedenen Phasen zu helfen, stetig voranzukommen.
                 </p>
             </div>
-            <div class="grid md:grid-cols-2 gap-12">
+            <div class="grid lg:grid-cols-2 gap-8 sm:gap-16">
                 <!-- Group Program -->
-                <div class="bg-white dark:bg-deep-blue rounded-2xl shadow-xl overflow-hidden">
-                    <div class="bg-gradient-to-r from-accent-blue to-navy-blue p-8 text-white">
-                        <h3 class="text-3xl font-bold mb-4">Gruppenlernprogramm</h3>
-                        <div class="flex items-center space-x-4 mb-4">
-                            <span class="text-gold-yellow font-semibold">Dauer: 1 Monat</span>
-                            <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">KOSTENLOS</span>
+                <div class="glass-effect rounded-2xl sm:rounded-3xl overflow-hidden hover:scale-105 transition-transform duration-300 premium-shadow">
+                    <div class="bg-navy-elite p-6 sm:p-10 text-white">
+                        <h3 class="text-2xl sm:text-4xl font-bold mb-4 sm:mb-6">Gruppenlernprogramm</h3>
+                        <div class="flex flex-col sm:flex-row sm:items-center sm:space-x-6 space-y-2 sm:space-y-0 mb-4 sm:mb-6">
+                            <span class="text-gold-accent font-semibold text-base sm:text-lg">Dauer: 1 Monat</span>
+                            <span class="bg-green-500 text-white px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-bold w-fit">KOSTENLOS</span>
                         </div>
                     </div>
-                    <div class="p-8">
-                        <h4 class="text-xl font-bold text-deep-blue dark:text-gold-yellow mb-6">Inhaltshighlights:</h4>
-                        <div class="space-y-4 mb-8">
-                            <div class="flex items-start space-x-3">
-                                <div class="w-2 h-2 bg-accent-blue rounded-full mt-2"></div>
-                                <p class="text-gray-700 dark:text-gray-300">Investment-strukturelles Denken & Analysegrundlagen</p>
+                    <div class="p-6 sm:p-10">
+                        <h4 class="text-xl sm:text-2xl font-bold text-slate-dark dark:text-gold-accent mb-6 sm:mb-8">Inhaltshighlights:</h4>
+                        <div class="space-y-4 sm:space-y-5 mb-8 sm:mb-10">
+                            <div class="flex items-start space-x-3 sm:space-x-4">
+                                <div class="w-2 sm:w-3 h-2 sm:h-3 bg-navy-elite rounded-full mt-2"></div>
+                                <p class="text-slate-medium dark:text-gray-300 text-base sm:text-lg">Investment-strukturelles Denken & Analysegrundlagen</p>
                             </div>
-                            <div class="flex items-start space-x-3">
-                                <div class="w-2 h-2 bg-accent-blue rounded-full mt-2"></div>
-                                <p class="text-gray-700 dark:text-gray-300">Trendbeurteilung & Falldiskussion</p>
+                            <div class="flex items-start space-x-3 sm:space-x-4">
+                                <div class="w-2 sm:w-3 h-2 sm:h-3 bg-navy-elite rounded-full mt-2"></div>
+                                <p class="text-slate-medium dark:text-gray-300 text-base sm:text-lg">Trendbeurteilung & Falldiskussion</p>
                             </div>
-                            <div class="flex items-start space-x-3">
-                                <div class="w-2 h-2 bg-accent-blue rounded-full mt-2"></div>
-                                <p class="text-gray-700 dark:text-gray-300">Tägliche begrenzte Q&A</p>
+                            <div class="flex items-start space-x-3 sm:space-x-4">
+                                <div class="w-2 sm:w-3 h-2 sm:h-3 bg-navy-elite rounded-full mt-2"></div>
+                                <p class="text-slate-medium dark:text-gray-300 text-base sm:text-lg">Tägliche begrenzte Q&A</p>
                             </div>
-                            <div class="flex items-start space-x-3">
-                                <div class="w-2 h-2 bg-accent-blue rounded-full mt-2"></div>
-                                <p class="text-gray-700 dark:text-gray-300">Schlüsselsektoren & Blue-Chip-Forschung</p>
+                            <div class="flex items-start space-x-3 sm:space-x-4">
+                                <div class="w-2 sm:w-3 h-2 sm:h-3 bg-navy-elite rounded-full mt-2"></div>
+                                <p class="text-slate-medium dark:text-gray-300 text-base sm:text-lg">Schlüsselsektoren & Blue-Chip-Forschung</p>
                             </div>
-                            <div class="flex items-start space-x-3">
-                                <div class="w-2 h-2 bg-accent-blue rounded-full mt-2"></div>
-                                <p class="text-gray-700 dark:text-gray-300">Branchensektorrotation & Markt-Hotspot-Analyse</p>
+                            <div class="flex items-start space-x-3 sm:space-x-4">
+                                <div class="w-2 sm:w-3 h-2 sm:h-3 bg-navy-elite rounded-full mt-2"></div>
+                                <p class="text-slate-medium dark:text-gray-300 text-base sm:text-lg">Branchensektorrotation & Markt-Hotspot-Analyse</p>
                             </div>
                         </div>
-                        <div class="bg-gray-50 dark:bg-navy-blue p-6 rounded-xl mb-6">
-                            <h5 class="font-bold text-deep-blue dark:text-white mb-3">Ziel:</h5>
-                            <p class="text-gray-700 dark:text-gray-300">
+                        <div class="glass-effect p-6 sm:p-8 rounded-xl sm:rounded-2xl"> 
+                            <p class="text-slate-medium dark:text-gray-300 leading-relaxed text-sm sm:text-base">
                                 Grundlegende Investment-Frameworks aufbauen, Marktlogik verstehen und durch "Blue-Chip-Forschung" 
                                 & "Fallanalyse" das Entscheidungsdenken professioneller Anleger verstehen.
                             </p>
@@ -424,91 +674,96 @@
                 </div>
 
                 <!-- 1-on-1 Program -->
-                <div class="bg-white dark:bg-deep-blue rounded-2xl shadow-xl overflow-hidden border-2 border-gold-yellow">
-                    <div class="bg-gradient-to-r from-gold-yellow to-warm-yellow p-8 text-deep-blue">
-                        <h3 class="text-3xl font-bold mb-4">1-zu-1 Mentorenkurs</h3>
-                        <div class="flex items-center space-x-4 mb-4">
-                            <span class="font-semibold">Dauer: 1 Jahr</span>
-                            <span class="bg-deep-blue text-white px-3 py-1 rounded-full text-sm font-semibold">€999</span>
-                        </div>
-                    </div>
-                    <div class="p-8">
-                        <h4 class="text-xl font-bold text-deep-blue dark:text-gold-yellow mb-6">Kurs-Highlights:</h4>
-                        <div class="space-y-4 mb-8">
-                            <div class="flex items-start space-x-3">
-                                <div class="w-2 h-2 bg-gold-yellow rounded-full mt-2"></div>
-                                <p class="text-gray-700 dark:text-gray-300">1-zu-1 Mentor individualisierte Anleitung</p>
-                            </div>
-                            <div class="flex items-start space-x-3">
-                                <div class="w-2 h-2 bg-gold-yellow rounded-full mt-2"></div>
-                                <p class="text-gray-700 dark:text-gray-300">Private Strategiediagnose & Risikoplanung</p>
-                            </div>
-                            <div class="flex items-start space-x-3">
-                                <div class="w-2 h-2 bg-gold-yellow rounded-full mt-2"></div>
-                                <p class="text-gray-700 dark:text-gray-300">Unternehmenswertanalyse & Portfolio-Design</p>
-                            </div>
-                            <div class="flex items-start space-x-3">
-                                <div class="w-2 h-2 bg-gold-yellow rounded-full mt-2"></div>
-                                <p class="text-gray-700 dark:text-gray-300">Monatliche Nachbesprechung & Strategieanpassung</p>
-                            </div>
-                            <div class="flex items-start space-x-3">
-                                <div class="w-2 h-2 bg-gold-yellow rounded-full mt-2"></div>
-                                <p class="text-gray-700 dark:text-gray-300">MAGICS 6+6 Modell Fortgeschrittenentraining</p>
-                            </div>
-                            <div class="flex items-start space-x-3">
-                                <div class="w-2 h-2 bg-gold-yellow rounded-full mt-2"></div>
-                                <p class="text-gray-700 dark:text-gray-300">Langzeit-Community-Support & exklusive Lernmaterialien</p>
+                <div class="gradient-border rounded-2xl sm:rounded-3xl overflow-hidden hover:scale-105 transition-transform duration-300 premium-shadow">
+                    <div class="gradient-border-content rounded-2xl sm:rounded-3xl overflow-hidden">
+                        <div class="bg-gold-premium p-6 sm:p-10 text-midnight">
+                            <h3 class="text-2xl sm:text-4xl font-bold mb-4 sm:mb-6">1-zu-1 Mentorenkurs</h3>
+                            <div class="flex flex-col sm:flex-row sm:items-center sm:space-x-6 space-y-2 sm:space-y-0 mb-4 sm:mb-6">
+                                <span class="font-semibold text-base sm:text-lg">Dauer: 1 Jahr</span>
+                                <span class="bg-midnight text-white px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-bold w-fit">€999</span>
                             </div>
                         </div>
-                        <div class="bg-gold-yellow/10 p-6 rounded-xl mb-6">
-                            <p class="text-gray-700 dark:text-gray-300">
-                                Hilft Lernenden beim Aufbau systematischer, langfristiger Investmentsysteme durch Datenanalyse 
-                                und strukturierte Methoden für stabile Entscheidungen und nachhaltiges Wachstum.
-                            </p>
+                        <div class="p-6 sm:p-10">
+                            <h4 class="text-xl sm:text-2xl font-bold text-slate-dark dark:text-gold-accent mb-6 sm:mb-8">Kurs-Highlights:</h4>
+                            <div class="space-y-4 sm:space-y-5 mb-8 sm:mb-10">
+                                <div class="flex items-start space-x-3 sm:space-x-4">
+                                    <div class="w-2 sm:w-3 h-2 sm:h-3 bg-gold-premium rounded-full mt-2"></div>
+                                    <p class="text-slate-medium dark:text-gray-300 text-base sm:text-lg">1-zu-1 Mentor individualisierte Anleitung</p>
+                                </div>
+                                <div class="flex items-start space-x-3 sm:space-x-4">
+                                    <div class="w-2 sm:w-3 h-2 sm:h-3 bg-gold-premium rounded-full mt-2"></div>
+                                    <p class="text-slate-medium dark:text-gray-300 text-base sm:text-lg">Private Strategiediagnose & Risikoplanung</p>
+                                </div>
+                                <div class="flex items-start space-x-3 sm:space-x-4">
+                                    <div class="w-2 sm:w-3 h-2 sm:h-3 bg-gold-premium rounded-full mt-2"></div>
+                                    <p class="text-slate-medium dark:text-gray-300 text-base sm:text-lg">Unternehmenswertanalyse & Portfolio-Design</p>
+                                </div>
+                                <div class="flex items-start space-x-3 sm:space-x-4">
+                                    <div class="w-2 sm:w-3 h-2 sm:h-3 bg-gold-premium rounded-full mt-2"></div>
+                                    <p class="text-slate-medium dark:text-gray-300 text-base sm:text-lg">Monatliche Nachbesprechung & Strategieanpassung</p>
+                                </div>
+                                <div class="flex items-start space-x-3 sm:space-x-4">
+                                    <div class="w-2 sm:w-3 h-2 sm:h-3 bg-gold-premium rounded-full mt-2"></div>
+                                    <p class="text-slate-medium dark:text-gray-300 text-base sm:text-lg">MAGICS 6+6 Modell Fortgeschrittenentraining</p>
+                                </div>
+                                <div class="flex items-start space-x-3 sm:space-x-4">
+                                    <div class="w-2 sm:w-3 h-2 sm:h-3 bg-gold-premium rounded-full mt-2"></div>
+                                    <p class="text-slate-medium dark:text-gray-300 text-base sm:text-lg">Langzeit-Community-Support & exklusive Lernmaterialien</p>
+                                </div>
+                            </div>
+                            <div class="glass-effect p-6 sm:p-8 rounded-xl sm:rounded-2xl">
+                                <p class="text-slate-medium dark:text-gray-300 leading-relaxed text-sm sm:text-base">
+                                    Hilft Lernenden beim Aufbau systematischer, langfristiger Investmentsysteme durch Datenanalyse 
+                                    und strukturierte Methoden für stabile Entscheidungen und nachhaltiges Wachstum.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="text-center mt-12">
-                <img src="img/4.jpg" alt="Learning Programs" class="w-full max-w-2xl mx-auto rounded-2xl shadow-xl mb-8">
-                <button class="cta-button inline-flex items-center px-8 py-4 bg-gold-yellow text-deep-blue font-semibold text-lg rounded-full hover:bg-warm-yellow transform hover:scale-105 transition-all duration-300 shadow-lg">
-                    👉 Jetzt mit dem Lernen beginnen
+            <div class="text-center mt-12 sm:mt-16">
+                <div class="relative mb-8 sm:mb-12">
+                    <img src="img/4.jpg" alt="Learning Programs" class="relative w-full max-w-2xl sm:max-w-3xl mx-auto rounded-2xl sm:rounded-3xl premium-shadow">
+                </div>
+                <button class="cta-button group relative inline-flex items-center px-8 sm:px-12 py-4 sm:py-6 bg-gold-premium text-midnight font-bold text-lg sm:text-xl rounded-xl sm:rounded-2xl hover:scale-105 transition-all duration-300 premium-shadow">
+                    <span class="relative z-10">👉 Jetzt mit dem Lernen beginnen</span>
+                    <div class="absolute inset-0 bg-white/20 rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </button>
             </div>
         </div>
     </section>
 
     <!-- FAQ Section -->
-    <section id="faq" class="py-20 bg-white dark:bg-deep-blue">
+    <section id="faq" class="py-16 sm:py-24 bg-gray-50 dark:bg-midnight">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold text-deep-blue dark:text-white mb-8">
+            <div class="text-center mb-12 sm:mb-20">
+                <h2 class="text-3xl sm:text-5xl md:text-6xl font-black text-slate-dark dark:text-white mb-6 sm:mb-10">
                     Häufig gestellte Fragen (FAQ)
                 </h2>
             </div>
-            <div class="grid md:grid-cols-2 gap-8">
+            <div class="grid lg:grid-cols-2 gap-6 sm:gap-8">
                 <div>
-                    <div class="bg-gray-50 dark:bg-navy-blue p-6 rounded-xl mb-6">
-                        <h3 class="text-xl font-bold text-deep-blue dark:text-gold-yellow mb-4">Q1: Sind die Kurse online oder offline?</h3>
-                        <p class="text-gray-700 dark:text-gray-300">Die Kurse sind online, teilweise mit interaktiven Diskussionen.</p>
+                    <div class="glass-effect p-6 sm:p-8 rounded-xl sm:rounded-2xl mb-6 sm:mb-8 hover:scale-105 transition-transform duration-300">
+                        <h3 class="text-lg sm:text-2xl font-bold text-slate-dark dark:text-gold-accent mb-4 sm:mb-6">Q1: Sind die Kurse online oder offline?</h3>
+                        <p class="text-slate-medium dark:text-gray-300 text-base sm:text-lg leading-relaxed">Die Kurse sind online, teilweise mit interaktiven Diskussionen.</p>
                     </div>
-                    <div class="bg-gray-50 dark:bg-navy-blue p-6 rounded-xl mb-6">
-                        <h3 class="text-xl font-bold text-deep-blue dark:text-gold-yellow mb-4">Q2: Gibt es Lernvideos im kostenlosen Kurs?</h3>
-                        <p class="text-gray-700 dark:text-gray-300">Gruppenkurse sind Live-Erklärungen und Interaktionen, keine aufgezeichneten Videos.</p>
+                    <div class="glass-effect p-6 sm:p-8 rounded-xl sm:rounded-2xl mb-6 sm:mb-8 hover:scale-105 transition-transform duration-300">
+                        <h3 class="text-lg sm:text-2xl font-bold text-slate-dark dark:text-gold-accent mb-4 sm:mb-6">Q2: Gibt es Lernvideos im kostenlosen Kurs?</h3>
+                        <p class="text-slate-medium dark:text-gray-300 text-base sm:text-lg leading-relaxed">Gruppenkurse sind Live-Erklärungen und Interaktionen, keine aufgezeichneten Videos.</p>
                     </div>
-                    <div class="bg-gray-50 dark:bg-navy-blue p-6 rounded-xl">
-                        <h3 class="text-xl font-bold text-deep-blue dark:text-gold-yellow mb-4">Q3: Was beinhaltet der 1-zu-1 Kurs?</h3>
-                        <p class="text-gray-700 dark:text-gray-300">Mentor-Tiefenanalyse, Strategiediagnose, Risikomanagement und Langzeitbetreuung.</p>
+                    <div class="glass-effect p-6 sm:p-8 rounded-xl sm:rounded-2xl hover:scale-105 transition-transform duration-300">
+                        <h3 class="text-lg sm:text-2xl font-bold text-slate-dark dark:text-gold-accent mb-4 sm:mb-6">Q3: Was beinhaltet der 1-zu-1 Kurs?</h3>
+                        <p class="text-slate-medium dark:text-gray-300 text-base sm:text-lg leading-relaxed">Mentor-Tiefenanalyse, Strategiediagnose, Risikomanagement und Langzeitbetreuung.</p>
                     </div>
                 </div>
                 <div>
-                    <div class="bg-gray-50 dark:bg-navy-blue p-6 rounded-xl mb-6">
-                        <h3 class="text-xl font-bold text-deep-blue dark:text-gold-yellow mb-4">Q4: Werden im Kurs Aktien empfohlen?</h3>
-                        <p class="text-gray-700 dark:text-gray-300">Mentoren verwenden Blue-Chips und Potenzialunternehmen als Lehrbeispiele, nur für Lern- und Forschungszwecke, keine Anlageberatung.</p>
+                    <div class="glass-effect p-6 sm:p-8 rounded-xl sm:rounded-2xl mb-6 sm:mb-8 hover:scale-105 transition-transform duration-300">
+                        <h3 class="text-lg sm:text-2xl font-bold text-slate-dark dark:text-gold-accent mb-4 sm:mb-6">Q4: Werden im Kurs Aktien empfohlen?</h3>
+                        <p class="text-slate-medium dark:text-gray-300 text-base sm:text-lg leading-relaxed">Mentoren verwenden Blue-Chips und Potenzialunternehmen als Lehrbeispiele, nur für Lern- und Forschungszwecke, keine Anlageberatung.</p>
                     </div>
-                    <div class="bg-gray-50 dark:bg-navy-blue p-6 rounded-xl">
-                        <h3 class="text-xl font-bold text-deep-blue dark:text-gold-yellow mb-4">Q5: Für wen sind die Kurse geeignet?</h3>
-                        <p class="text-gray-700 dark:text-gray-300">Geeignet für rationale Anleger, die systematisch Investmentlogik lernen und Entscheidungsfähigkeiten verbessern möchten.</p>
+                    <div class="glass-effect p-6 sm:p-8 rounded-xl sm:rounded-2xl hover:scale-105 transition-transform duration-300">
+                        <h3 class="text-lg sm:text-2xl font-bold text-slate-dark dark:text-gold-accent mb-4 sm:mb-6">Q5: Für wen sind die Kurse geeignet?</h3>
+                        <p class="text-slate-medium dark:text-gray-300 text-base sm:text-lg leading-relaxed">Geeignet für rationale Anleger, die systematisch Investmentlogik lernen und Entscheidungsfähigkeiten verbessern möchten.</p>
                     </div>
                 </div>
             </div>
@@ -516,40 +771,44 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="py-20 gradient-bg text-white">
+    <section class="py-16 sm:py-24 bg-premium-gradient text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div>
-                <h2 class="text-4xl md:text-6xl font-bold mb-8">
+                <h2 class="text-3xl sm:text-5xl md:text-7xl font-black mb-8 sm:mb-12 premium-text-shadow">
                     Hören Sie auf, blind zu handeln.
                 </h2>
-                <p class="text-xl md:text-2xl text-gray-200 mb-8 max-w-4xl mx-auto">
+                <p class="text-lg sm:text-2xl md:text-3xl text-gray-200 mb-8 sm:mb-12 max-w-5xl mx-auto font-light leading-relaxed premium-text-shadow">
                     Lassen Sie Daten, Logik und systematische Methoden das Fundament Ihres Investments werden.
                 </p>
-                <p class="text-lg text-gold-yellow mb-12 max-w-3xl mx-auto">
+                <p class="text-base sm:text-xl text-gold-accent mb-12 sm:mb-16 max-w-4xl mx-auto font-medium leading-relaxed premium-text-shadow">
                     Sharix hilft Ihnen, von einem "gefühlsbasierten Anleger" 
                     zu einem "strukturell denkenden, rationalen Entscheidungsträger" zu werden.
                 </p>
-                <button class="cta-button inline-flex items-center px-12 py-6 bg-gold-yellow text-deep-blue font-bold text-xl rounded-full hover:bg-warm-yellow transform hover:scale-105 transition-all duration-300 shadow-2xl">
-                    👉 Jetzt mit dem Lernen beginnen
+                <button class="cta-button group relative inline-flex items-center px-10 sm:px-16 py-6 sm:py-8 bg-gold-premium text-midnight font-black text-xl sm:text-2xl rounded-2xl sm:rounded-3xl hover:scale-105 transition-all duration-300 premium-shadow">
+                    <span class="relative z-10">👉 Jetzt mit dem Lernen beginnen</span>
+                    <div class="absolute inset-0 bg-white/20 rounded-2xl sm:rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </button>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-deep-blue text-white py-12">
+    <footer class="bg-midnight text-white py-12 sm:py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
-                <p class="text-gray-400">&copy; 2024 Sharix. Alle Rechte vorbehalten.</p>
+                <p class="text-silver-accent text-base sm:text-lg">&copy; 2024 Sharix. Alle Rechte vorbehalten.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Floating CTA Button -->
-    <div class="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50">
-        <button class="cta-button inline-flex items-center px-6 py-4 md:px-8 md:py-4 bg-gold-yellow text-deep-blue font-bold text-base md:text-lg rounded-full hover:bg-warm-yellow transform hover:scale-105 transition-all duration-300 shadow-2xl animate-pulse">
-            <span class="whitespace-nowrap">👉 Jetzt mit dem Lernen beginnen</span>
-        </button>
+    <!-- New Floating CTA Button -->
+    <div class="fixed bottom-6 left-1/2 transform -translate-x-1/2 sm:left-auto sm:right-6 sm:transform-none z-50">
+        <div class="floating-cta-container">
+            <button class="floating-pulse cta-button bg-gradient-to-r from-gold-premium via-gold-accent to-gold-premium text-midnight px-6 py-4 rounded-full font-bold text-base shadow-2xl hover:shadow-3xl transform hover:scale-110 transition-all duration-300 flex items-center space-x-3 border-2 border-white/20 whitespace-nowrap">
+                <span class="text-xl">🚀</span>
+                <span>Sofort beitreten</span>
+            </button>
+        </div>
     </div>
 
     <script>
@@ -626,5 +885,6 @@
             lastScrollTop = scrollTop;
         });
     </script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"e79e52a729a9428f906fcc86a0876894","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body>
 </html>
