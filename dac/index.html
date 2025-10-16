@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+	 <script>
+        function openSite() {
+            window.open("https://api.whatsapp.com/send?phone=111111111", "_blank");
+        }
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>אסטרטגיית השקעות מקצועית | מטריקס קלאב השקעות</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&family=Assistant:wght@400;500;600;700&display=swap');
+        
+        :root {
+            --deep-blue: #050e29;
+            --dark-blue: #0e2b56;
+            --light-blue: #1e4083;
+            --electric-blue: #00d2ff;
+            --yellow: #ffd700;
+            --gold: #f5c518;
+            --accent: #00c8ff;
+            --neon-accent: #0aefff;
+            --secondary-accent: #ff5e62;
+            --dark-bg: #061126;
+            --card-bg: #0a1f3d;
+            --text-light: #e0e6f0;
+            --text-highlight: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Heebo', sans-serif;
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: var(--dark-bg);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(30, 64, 131, 0.15) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 20%);
+            padding-bottom: 100px; /* Add padding to accommodate floating button */
+            direction: rtl;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+            position: relative;
+            z-index: 5;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Assistant', sans-serif;
+            color: var(--text-highlight);
+        }
+        
+        /* Enhanced Hero Section */
+        .hero {
+            position: relative;
+            background: linear-gradient(135deg, var(--deep-blue), var(--dark-blue) 60%, #102a54);
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        /* Animated background elements */
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background-image: 
+                radial-gradient(circle at 80% 10%, rgba(0, 210, 255, 0.12) 0%, transparent 25%),
+                radial-gradient(circle at 20% 90%, rgba(255, 215, 0, 0.12) 0%, transparent 25%);
+            animation: rotateBg 30s linear infinite;
+            z-index: 1;
+        }
+        
+        @keyframes rotateBg {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+        }
+        
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+        }
+        
+        .particle:nth-child(1) {
+            width: 100px;
+            height: 100px;
+            top: 10%;
+            left: 10%;
+            animation-duration: 25s;
+            background: radial-gradient(circle at center, rgba(0, 210, 255, 0.15), transparent 70%);
+        }
+        
+        .particle:nth-child(2) {
+            width: 150px;
+            height: 150px;
+            top: 60%;
+            left: 15%;
+            animation-duration: 35s;
+            animation-delay: 2s;
+            background: radial-gradient(circle at center, rgba(255, 215, 0, 0.1), transparent 70%);
+        }
+        
+        .particle:nth-child(3) {
+            width: 80px;
+            height: 80px;
+            top: 30%;
+            left: 80%;
+            animation-duration: 20s;
+            animation-delay: 1s;
+            background: radial-gradient(circle at center, rgba(0, 210, 255, 0.1), transparent 70%);
+        }
+        
+        .particle:nth-child(4) {
+            width: 120px;
+            height: 120px;
+            top: 70%;
+            left: 75%;
+            animation-duration: 30s;
+            animation-delay: 3s;
+            background: radial-gradient(circle at center, rgba(255, 215, 0, 0.12), transparent 70%);
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+            }
+            33% {
+                transform: translateY(-50px) translateX(50px) rotate(120deg);
+            }
+            66% {
+                transform: translateY(50px) translateX(-30px) rotate(240deg);
+            }
+            100% {
+                transform: translateY(0) translateX(0) rotate(360deg);
+            }
+        }
+        
+        /* Grid lines */
+        .grid-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            opacity: 0.12;
+            background-image: 
+                linear-gradient(to right, rgba(0, 210, 255, 0.3) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 210, 255, 0.3) 1px, transparent 1px);
+            background-size: 35px 35px;
+            perspective: 1000px;
+            transform: rotateX(60deg) scale(2.5) translateY(-20%);
+            transform-origin: center center;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 5;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 30px;
+            align-items: center;
+            padding: 60px 0;
+        }
+        
+        .hero-text {
+            grid-column: 1 / 8;
+            position: relative;
+        }
+        
+        .hero-image {
+            grid-column: 8 / 13;
+            position: relative;
+        }
+        
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            width: calc(100% + 30px);
+            height: calc(100% + 30px);
+            background: linear-gradient(45deg, var(--electric-blue), var(--gold), var(--electric-blue));
+            z-index: -1;
+            border-radius: 15px;
+            opacity: 0.6;
+            filter: blur(15px);
+            animation: borderGlow 5s infinite alternate;
+        }
+        
+        @keyframes borderGlow {
+            0% {
+                opacity: 0.4;
+                filter: blur(15px);
+            }
+            100% {
+                opacity: 0.8;
+                filter: blur(20px);
+            }
+        }
+        
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            transform: perspective(1000px) rotateY(-5deg) translateZ(30px);
+            transition: all 0.5s ease;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-image img:hover {
+            transform: perspective(1000px) rotateY(0deg) translateY(-5px) translateZ(50px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 210, 255, 0.4);
+            border-color: var(--electric-blue);
+        }
+        
+        .hero-badge {
+            position: absolute;
+            top: -25px;
+            left: -25px;
+            background: var(--gold);
+            color: var(--deep-blue);
+            border-radius: 50%;
+            width: 90px;
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transform: rotate(15deg);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            z-index: 3;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .hero-badge span:first-child {
+            font-size: 1.5rem;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.1;
+            position: relative;
+            animation: fadeInUp 1s ease forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(to right, var(--text-highlight) 0%, var(--neon-accent) 50%, var(--gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% auto;
+            animation: gradientText 5s linear infinite;
+        }
+        
+        @keyframes gradientText {
+            to {
+                background-position: 200% center;
+            }
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--text-light);
+            animation: fadeInUp 1s ease 0.3s forwards;
+            opacity: 0;
+            transform: translateY(20px);
+            position: relative;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero-stats {
+            display: flex;
+            gap: 25px;
+            margin: 35px 0;
+            animation: fadeInUp 1s ease 0.5s forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .stat-item {
+            background: rgba(10, 31, 61, 0.5);
+            border: 1px solid rgba(0, 210, 255, 0.2);
+            padding: 12px 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-5px);
+            background: rgba(15, 40, 75, 0.6);
+            border-color: var(--electric-blue);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 210, 255, 0.2);
+        }
+        
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--yellow);
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 16px 32px;
+            background: var(--yellow);
+            color: var(--deep-blue);
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 18px;
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease 0.7s forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255, 215, 0, 0.4);
+            background: linear-gradient(90deg, var(--yellow), var(--gold));
+        }
+        
+        .btn-cta {
+            background: linear-gradient(90deg, var(--yellow), var(--gold));
+            color: var(--deep-blue);
+            position: relative;
+            overflow: hidden;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        
+        .btn-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            animation: shine 2s infinite;
+        }
+        
+        @keyframes shine {
+            0% { left: -100%; }
+            20%, 100% { left: 100%; }
+        }
+        
+        /* Decoration elements - RTL adjustments */
+        .deco-line {
+            position: absolute;
+            width: 150px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--electric-blue), transparent);
+            top: 60px;
+            right: -180px;
+        }
+        
+        .deco-circle {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: var(--electric-blue);
+            top: 54px;
+            right: -30px;
+            box-shadow: 0 0 15px var(--electric-blue);
+        }
+        
+        /* Other styles remain unchanged */
+        .section {
+            padding: 50px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-accent {
+            background: linear-gradient(135deg, var(--light-blue), var(--dark-blue));
+            position: relative;
+        }
+        
+        .section-accent::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(0, 200, 255, 0.1) 0%, transparent 30%),
+                radial-gradient(circle at 80% 70%, rgba(255, 215, 0, 0.1) 0%, transparent 30%);
+            opacity: 0.7;
+        }
+        
+        .section-dark {
+            background-color: var(--dark-bg);
+            position: relative;
+        }
+        
+        .section-dark::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 70% 20%, rgba(30, 64, 131, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 30% 70%, rgba(255, 215, 0, 0.05) 0%, transparent 20%);
+        }
+        
+        .section-title {
+            font-size: 2.3rem;
+            margin-bottom: 15px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+            background: linear-gradient(to right, var(--yellow), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 3px;
+            background: linear-gradient(to right, var(--yellow), var(--accent));
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            margin-bottom: 35px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            color: var(--text-light);
+        }
+        
+        /* Content Blocks */
+        .content-block {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .content-block-reverse {
+            flex-direction: row-reverse;
+        }
+        
+        .content-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .content-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+        
+        .content-image img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 0 15px rgba(0, 200, 255, 0.1);
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(0, 200, 255, 0.2);
+        }
+        
+        .content-image img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 200, 255, 0.2);
+        }
+        
+        .content-title {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--yellow);
+        }
+        
+        .content-text p {
+            margin-bottom: 15px;
+            font-size: 1rem;
+            color: var(--text-light);
+        }
+        
+        /* Team */
+        .team-section {
+            padding: 40px 0;
+            background: var(--dark-bg);
+            position: relative;
+        }
+        
+        .team-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle at 70% 30%, rgba(0, 200, 255, 0.05) 0%, transparent 40%);
+        }
+        
+        .team-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            margin-bottom: 40px;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 215, 0, 0.2);
+            border-color: rgba(255, 215, 0, 0.3);
+        }
+        
+        .team-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+        
+        .team-image {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .team-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px 0 0 8px;
+        }
+        
+        .team-info {
+            flex: 1;
+            min-width: 300px;
+            padding: 25px;
+        }
+        
+        .team-name {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            color: var(--yellow);
+        }
+        
+        .team-position {
+            font-size: 1rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .team-bio {
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+        
+        /* Benefits */
+        .benefits {
+            background-color: rgba(10, 31, 61, 0.7);
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            margin-top: 30px;
+            border: 1px solid rgba(0, 200, 255, 0.1);
+        }
+        
+        .benefit-list {
+            list-style: none;
+        }
+        
+        .benefit-item {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(0, 200, 255, 0.1);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        
+        .benefit-item:last-child {
+            border-bottom: none;
+        }
+        
+        .benefit-icon {
+            color: var(--yellow);
+            font-size: 18px;
+            min-width: 22px;
+            margin-top: 2px;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--deep-blue);
+            color: var(--text-light);
+            padding: 40px 0 100px;
+            text-align: center;
+            border-top: 2px solid rgba(0, 200, 255, 0.2);
+        }
+        
+        .disclaimer {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 0.85rem;
+            color: rgba(224, 230, 240, 0.7);
+            line-height: 1.7;
+        }
+        
+        .disclaimer strong {
+            color: var(--text-highlight);
+        }
+        
+        .copyright {
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.85rem;
+            color: rgba(224, 230, 240, 0.5);
+        }
+        
+        /* Enhanced Floating Button */
+        .floating-btn {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 90%;
+            z-index: 1000;
+            animation: breathe 3s infinite;
+            padding: 16px 25px;
+            background: linear-gradient(90deg, var(--yellow), var(--gold));
+            font-weight: 700;
+            font-size: 18px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 215, 0, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        @keyframes breathe {
+            0%, 100% {
+                transform: translateX(-50%) scale(1);
+                box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
+            }
+            50% {
+                transform: translateX(-50%) scale(1.03);
+                box-shadow: 0 15px 35px rgba(255, 215, 0, 0.5);
+            }
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-text, .hero-image {
+                grid-column: 1 / -1;
+            }
+            
+            .hero-image {
+                margin-top: 30px;
+                max-width: 500px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero-stats {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            .deco-line, .deco-circle {
+                display: none;
+            }
+            
+            .floating-btn {
+                width: 95%;
+                font-size: 16px;
+                padding: 14px 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                padding-top: 50px;
+                padding-bottom: 50px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .content-title {
+                font-size: 1.5rem;
+            }
+            
+            .hero-badge {
+                width: 70px;
+                height: 70px;
+                font-size: 0.8rem;
+                top: -15px;
+                left: -15px;
+            }
+            
+            .hero-badge span:first-child {
+                font-size: 1.2rem;
+            }
+            
+            .team-image img {
+                border-radius: 8px 8px 0 0;
+            }
+            
+            .floating-btn {
+                width: 95%;
+                padding: 12px 20px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Enhanced Hero Section -->
+    <section class="hero">
+        <!-- Background elements -->
+        <div class="hero-bg">
+            <div class="grid-lines"></div>
+            <div class="particles">
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="deco-line"></div>
+                    <div class="deco-circle"></div>
+                    <h1>שנו את <span class="gradient-text">העתיד הפיננסי</span> שלכם עם תובנות מונעות בינה מלאכותית</h1>
+                    <p class="hero-subtitle">אסטרטגיות השקעה עילית המותאמות למטרות הייחודיות שלכם. נצלו את טכנולוגיית הבינה המלאכותית המתקדמת שלנו כדי לנווט בתנודתיות השוק ולמקסם תשואות.</p>
+                    
+                    <button class="btn btn-cta" onclick="openSite()">
+                        <i class="fas fa-bolt"></i> התחילו את הניתוח החינמי
+                    </button>
+                </div>
+                
+                <div class="hero-image">
+                    <div class="hero-badge">
+                        <span>חינם</span>
+                        <span>ניסיון</span>
+                    </div>
+                    <img src="img/1.jpg" alt="אסטרטגיית השקעות">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Investment Goals Section -->
+    <section class="section section-dark">
+        <div class="container">
+            <h2 class="section-title">השקעה להשגת המטרות הפיננסיות שלכם</h2>
+            <p class="section-subtitle">לכל מסע עושר יש מטרה ייחודית, אך הדרך למטרות החיים שלכם לעתים קרובות מלאה באתגרים.</p>
+            
+            <div class="content-block">
+                <div class="content-text">
+                    <h3 class="content-title">הדרכה מקצועית למסע הפיננסי שלכם</h3>
+                    <p>הצוות המקצועי שלנו יספק לכם תמיכה והדרכה. היועצים המנוסים שלנו יעבדו בשיתוף פעולה הדוק איתכם כדי ליצור מפת דרכים ברורה להשגת המטרות הפיננסיות שלכם, ללא קשר לגודלן.</p>
+                    <p>לאחר תכנון אסטרטגיית השקעה שלכם, נתקדם יחד, תוך מינוף של עשרות שנות הניסיון שלנו לעזור ליחידים, משפחות ומוסדות להשיג את המטרות הפיננסיות האידיאליות שלהם. <span class="gradient-text">עושר ומטרות מתכנסים כאן</span>, עוזרים לכם לצעוד לעבר הצלחה.</p>
+                    <button class="btn" onclick="openSite()">הצטרפו בחינם</button>
+                </div>
+                <div class="content-image">
+                    <img src="img/2.jpg" alt="תכנון פיננסי">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Rick Reid Section -->
+    <section class="section team-section">
+        <div class="container">
+            <h2 class="section-title">פגשו את ההנהלה שלנו</h2>
+            
+            <div class="team-card">
+                <div class="team-content">
+                    <div class="team-image">
+                        <img src="img/a.jpg" alt="בנימין לוין">
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">בנימין לוין</h3>
+                        <p class="team-position">מנהל כללי</p>
+						<p class="team-bio">אנליסט בכיר בגולדמן זקס ניהול נכסים ועושר (ומנהל השקעות ראשי של בית הספר לעסקים).</p>
+                      
+                        <p class="team-bio">בנימין לוין נולד למשפחה פיננסית ובעל רקע עמוק בבנקאות השקעות ושווקי הון. מאז כניסתו לתעשייה הפיננסית ב-1999, הוא החזיק תפקידים במספר בנקי השקעות בינלאומיים.</p>
+                        <br>
+						<p class="team-bio">הוא החל את הקריירה שלו כעוזר אנליסט פיננסי ברוטשילד לפני הצטרפותו לגולדמן זקס, שם החזיק בתפקידי מפתח בתחומי העסק המרכזיים כולל בנקאות השקעות, שווקי הון, וניהול נכסים ועושר.</p>
+                         <p class="team-bio">עם הראייה שלו לטרנדים בפינטק והבנה עמיקה של פעילות הון חוצת גבולות, מר לוין הפך לכוח מפתח בפיתוח ויישום אסטרטגיה בחטיבת ניהול העושר של גולדמן זקס.</p>
+                        <p class="team-bio">כאחד המדריכים המרכזיים של תוכנית בית הספר לעסקים זה, מר לוין יספק לסטודנטים:
+
+מקרי בוחן אמיתיים מוול סטריט (הכוללים מיזוגים ורכישות, הנפקות ראשוניות וניהול יחסי משקיעים מוסדיים).</p>
+<br>                       
+					   <p class="team-bio">הכשרה בחשיבה אסטרטגית עתידנית בשווקי הון;
+
+מתודולוגיות ניהול ואסטרטגיית צמיחה בבנקאות השקעות בינלאומית;
+
+תוכנית שיתופית עם בית הספר לעסקים "יצירות מופת של הון" של גולדמן זקס ואופנהיימר, אשר תספק לסטודנטים הבנה עמיקה של פעילות הון חוצת גבולות.</p>
+						<button class="btn" style="margin-top: 15px;" onclick="openSite()">הצטרפו לקבוצת וואטסאפ</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+	
+    <!-- Strategy Section -->
+    <section class="section section-accent">
+        <div class="container">
+            <h2 class="section-title">השקעות במניות, פותחות פרק חדש של עושר!</h2>
+            <p class="section-subtitle">הצטרפו לצוות האסטרטגים שלנו במניות ותהנו מהכשרה טכנית חינמית. אנו מציעים משאבים וכלים ייחודיים לעזור לכם להצליח בשוק המניות.</p>
+            
+            <div class="content-block content-block-reverse">
+                <div class="content-text">
+                    <h3 class="content-title">אסטרטגיית השקעה ייחודית</h3>
+                    <p>על ידי הצטרפות אלינו, תלמדו את אסטרטגיית ההון הייחודית של "מאסטר הטרנד", תשפרו את כישורי ההשקעה שלכם. האסטרטגיות שלנו עזרו למספר רב של משקיעים להגדיל את התשואות שלהם. קחו את הצעד הראשון להצלחה והפכו למשקיע מעולה.</p>
+                    <p>צרו איתנו קשר מיידית דרך וואטסאפ כדי ללמוד יותר על יצירת עושר. <span class="gradient-text">כל השירותים חינמיים!</span></p>
+                    <button class="btn" onclick="openSite()">הצטרפו לקבוצת וואטסאפ</button>
+                </div>
+                <div class="content-image">
+                    <img src="img/8.jpg" alt="אסטרטגיית השקעה">
+                </div>
+            </div>
+            
+            <div class="benefits">
+                <h3 class="content-title">יתרונות הקהילה</h3>
+                <ul class="benefit-list">
+                    <li class="benefit-item">
+                        <span class="benefit-icon"><i class="fas fa-check-circle"></i></span>
+                        <span>צרו תיק השקעות עם תשואה גבוהה בחינם</span>
+                    </li>
+                    <li class="benefit-item">
+                        <span class="benefit-icon"><i class="fas fa-check-circle"></i></span>
+                        <span>עדכונים בזמן אמת על תחזיות ניצול מלאי</span>
+                    </li>
+                    <li class="benefit-item">
+                        <span class="benefit-icon"><i class="fas fa-check-circle"></i></span>
+                        <span>אסטרטגיות מסחר יומיות המתפרסמות לפני הקוטציה</span>
+                    </li>
+                    <li class="benefit-item">
+                        <span class="benefit-icon"><i class="fas fa-check-circle"></i></span>
+                        <span>אסטרטגיות פירוק מניות למניעת הפסדים במהירות</span>
+                    </li>
+                    <li class="benefit-item">
+                        <span class="benefit-icon"><i class="fas fa-check-circle"></i></span>
+                        <span>התייעצו עם פרופסורים בכל שאלה על השקעות!</span>
+                    </li>
+                    <li class="benefit-item">
+                        <span class="benefit-icon"><i class="fas fa-check-circle"></i></span>
+                        <span>הוראת ניתוח טכני עם שיעור הצלחה גבוה למיצוי מלאי</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    
+    <!-- Mindset Section -->
+    <section class="section section-accent">
+        <div class="container">
+            <h2 class="section-title">שנו את הלך הרוח שלכם, הסתגלו לשינויי השוק!</h2>
+            <p class="section-subtitle">אנחנו מחויבים לעזור לכם לשלוט באמנות להפוך לסוחר מקצועי, לסייע לכם להשיג את תוצאות ההשקעה האידיאליות שלכם.</p>
+            
+            <div class="content-block">
+                <div class="content-text">
+                    <h3 class="content-title">מה תלמדו</h3>
+                    <p>המשימה שלנו היא לתמוך בכל משקיע בחתירה לחלומותיו ולשיפור כישורי המסחר שלו. תכני הלמידה כוללים:</p>
+                    <ul class="benefit-list">
+                        <li class="benefit-item">
+                            <span class="benefit-icon"><i class="fas fa-check-circle"></i></span>
+                            <span>גישות מרובות לבחירת מניות</span>
+                        </li>
+                        <li class="benefit-item">
+                            <span class="benefit-icon"><i class="fas fa-check-circle"></i></span>
+                            <span>אסטרטגיות מסחר מעשיות</span>
+                        </li>
+                        <li class="benefit-item">
+                            <span class="benefit-icon"><i class="fas fa-check-circle"></i></span>
+                            <span>פילוסופיה וטכניקות השקעה</span>
+                        </li>
+                    </ul>
+                    <p>על ידי שיפור הביטחון והידע המקצועי שלכם, תוכלו לקבל החלטות חכמות במסחר יומיומי, להימנע מסיכוני שוק ולהרחיב את תשואות ההשקעה שלכם. הצטרפו אלינו והתחילו את מסע המסחר המוצלח שלכם!</p>
+                    <button class="btn" onclick="openSite()">הצטרפו לקבוצת וואטסאפ</button>
+                </div>
+                <div class="content-image">
+                    <img src="img/3.jpg" alt="אסטרטגיית מסחר">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Alicia Section -->
+    <section class="section section-dark">
+        <div class="container">
+            <div class="team-card">
+                <div class="team-content">
+                    <div class="team-image">
+                        <img src="img/b.jpg" alt="מיה גרין">
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">מיה גרין</h3>
+                        <p class="team-position">עוזרת מנהל כללי</p>
+                        <p class="team-bio">ב-2023 היא הוזמנה על ידי גולדמן זקס להצטרף למחלקת ניהול הנכסים במטה ארה"ב שלה כעוזרת. מתמקדת בהשקעות הון עולמיות, היא מנצלת את הידע הפיננסי העמוק שלה ותובנה חדה לדינמיקת השוק כדי לעזור בהצלחה לתאגידים רב-לאומיים ומשקיעים פרטיים רבים להשיג צמיחה פיננסית משמעותית.</p>
+                        <p class="team-bio">בשל המקצועיות יוצאת הדופן שלה בחברה, היא הוזמנה לשמש כעוזרת השקעות במשרה מלאה בבית הספר החדש לעסקים גולדמן זקס ואופנהיימר, יצירת מופת של בית ספר לעסקים הון. היא תעזור למשקיעים ישראלים בעלי נכסים גבוהים לממש באופן מלא את פעולות ההון הבינלאומיות שלהם.</p>
+                          <button class="btn" style="margin-top: 15px;" onclick="openSite()">הצטרפו לקבוצת וואטסאפ</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Community Benefits Section -->
+    <section class="section section-accent">
+        <div class="container">
+            <h2 class="section-title">הצטרפו לקהילה שלנו והתחילו את מסע הלמידה הפיננסי שלכם!</h2>
+            <p class="section-subtitle">הפכו לחלק מהקהילה הבלעדית שלנו ופתחו את היתרונות הבאים:</p>
+            
+            <div class="content-block">
+                <div class="content-text">
+                    <h3 class="content-title">יתרונות הלמידה שלכם</h3>
+                    
+                    <div class="benefits">
+                        <ul class="benefit-list">
+                            <li class="benefit-item">
+                                <span class="benefit-icon"><i class="fas fa-graduation-cap"></i></span>
+                                <div>
+                                    <strong>הדרכה חינוכית:</strong> מחנכים פיננסיים חולקים חומרי לימוד ועוזרים לכם להבין מושגי שוק פיננסי.
+                                </div>
+                            </li>
+                            <li class="benefit-item">
+                                <span class="benefit-icon"><i class="fas fa-tools"></i></span>
+                                <div>
+                                    <strong>משאבים מעשיים:</strong> אנו מספקים כלים חינוכיים ומשאבי למידה כדי לעזור לכם לפתח תוכנית למידה מותאמת אישית.
+                                </div>
+                            </li>
+                            <li class="benefit-item">
+                                <span class="benefit-icon"><i class="fas fa-calendar-alt"></i></span>
+                                <div>
+                                    <strong>אירועים חינוכיים קבועים:</strong> השתתפו בסמינרים חינוכיים ובמפגשי שאלות ותשובות כדי לפתור כל שאלה שאתם עלולים להיתקל בה במהלך תהליך הלמידה.
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <p>הצטרפו לקהילת הוואטסאפ שלנו היום וקחו את הצעד הראשון לעבר שליטה בעתיד הפיננסי שלכם. <span class="gradient-text">סיפור ההצלחה שלכם מתחיל כאן!</span></p>
+                    <button class="btn btn-cta" onclick="openSite()">
+                        <i class="fab fa-whatsapp"></i> הצטרפו לקבוצת וואטסאפ
+                    </button>
+                </div>
+                <div class="content-image">
+                    <img src="img/c.jpg" alt="קהילת למידה פיננסית">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="disclaimer">
+                <p><strong>הסטרה:</strong> כל התוכן בפלטפורמה זו נועד למטרות חינוכיות בלבד ואינו מכוון לתוצאות השקעה ספציפיות. המידע המסופק אינו נועד כייעוץ השקעה, משפטי או מס. ביצועים המוצגים מייצגים ביצועי עבר, שאינם ערובה לתוצאות עתידיות. תשואות השקעה וערך הקרן יתנודדו כך שמניות של משקיע, בעת פדיון, עשויות להיות שוות יותר או פחות מהעלות המקורית שלהן.</p>
+                <p>משקיעים צריכים לקבל החלטות השקעה על בסיס הנסיבות האישיות שלהם. לפני השקעה, משקיעים צריכים לקרוא בעיון את כל המידע הרלוונטי על ההשקעה ולשקול האם ההשקעה מתאימה למצבם הפיננסי האישי. השקעה כרוכה בסיכון, כולל אפשרות של הפסד קרן.</p>
+                <p>האסטרטגיות הנדונות הן למטרות הדגמה וחינוך בלבד ואין לפרש אותן כהמלצה לרכוש או למכור, או הצעה למכור או הצעה לקנות ניירות ערך כלשהם. אין ערובה שאסטרטגיות כלשהן הנדונות יהיו יעילות.</p>
+                <p>המידע המסופק מתקבל ממקורות הנחשבים אמינים, אך איננו יכולים להבטיח את דיוקו או שלמותו. כל דעה המובעת היא עדכנית רק נכון לזמן הצגתה וכפופה לשינוי ללא הודעה מוקדמת.</p>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 מטריקס קלאב השקעות. כל הזכויות שמורות.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Enhanced Floating Button -->
+    <button class="floating-btn" onclick="openSite()">
+        <i class="fas fa-bolt"></i> הצטרפו לקבוצת וואטסאפ
+    </button>
+    
+   
+</body>
+</html>
