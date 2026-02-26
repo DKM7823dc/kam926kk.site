@@ -36,7 +36,7 @@
             to { transform: scale(1); opacity: 1; }
         }
 
-        /* 5. Breathing Animation for CTA */
+        /* Breathing Animation for CTA */
         @keyframes breathe {
             0% {
                 transform: scale(1);
@@ -62,6 +62,18 @@
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
         }
+
+        /* Scrollbar for autocomplete list */
+        #autocomplete-list::-webkit-scrollbar {
+            width: 6px;
+        }
+        #autocomplete-list::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+        }
+        #autocomplete-list::-webkit-scrollbar-thumb {
+            background: #cbd5e1; 
+            border-radius: 3px;
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 antialiased">
@@ -82,7 +94,6 @@
     </nav>
 
     <!-- Hero Section -->
-    <!-- 6. Compact on Mobile: Reduced padding (pt-8 pb-12 instead of pt-16 pb-24) -->
     <header class="relative overflow-hidden bg-slate-900 text-white pt-8 pb-12 lg:pt-24 lg:pb-32">
         <!-- Background Effects -->
         <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0 opacity-20 pointer-events-none">
@@ -91,12 +102,12 @@
         </div>
 
         <div class="relative z-10 max-w-4xl mx-auto px-4 text-center">
-            <!-- Headline: Reduced font size on mobile -->
+            <!-- Headline -->
             <h1 class="text-2xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-3 md:mb-6 animate-slide-up" style="animation-delay: 0.1s;">
                 Thought it was <span class="text-emerald-400">"Value Investing"</span> but ended up <span class="text-red-400">"Stuck"</span>?
             </h1>
             
-            <!-- Subheadline: Reduced margin -->
+            <!-- Subheadline -->
             <p class="text-sm md:text-xl text-slate-300 mb-6 md:mb-10 max-w-2xl mx-auto animate-slide-up" style="animation-delay: 0.2s;">
                 It's not the stock's fault—it's that you don't know its current market phase.
             </p>
@@ -104,7 +115,7 @@
             <!-- Diagnosis Card -->
             <div class="bg-white rounded-xl md:rounded-2xl shadow-2xl p-5 md:p-8 max-w-xl mx-auto text-slate-900 animate-slide-up" style="animation-delay: 0.3s;">
                 <div class="flex items-center justify-center gap-2 mb-3 md:mb-4">
-                    <span class="bg-blue-100 text-blue-700 text-[10px] md:text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Free Diagnosis</span>
+                    <span class="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Free Diagnosis</span>
                 </div>
                 <h2 class="text-xl md:text-2xl font-bold mb-2">Uncover the Truth in 3 Minutes</h2>
                 
@@ -114,23 +125,35 @@
                 </div>
 
                 <!-- Input Form Area -->
-                <div id="input-area" class="space-y-3 md:space-y-4">
-                    <div class="relative">
+                <div id="input-area" class="space-y-3 md:space-y-4 relative">
+                    <div class="relative z-20">
                         <i class="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400"></i>
-                        <!-- Compact Input height on mobile (py-3 vs py-4) -->
                         <input 
                             type="text" 
                             id="stock-code"
-                            placeholder="Enter Stock Code (e.g., AAPL)" 
+                            placeholder="Type company name (e.g. Tesco)" 
+                            autocomplete="off"
                             class="w-full pl-10 md:pl-12 pr-4 py-3 md:py-4 bg-slate-50 border border-slate-200 rounded-lg md:rounded-xl text-base md:text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                         >
+                        <!-- Loading Spinner (Hidden by default) -->
+                        <div id="api-loading" class="absolute right-4 top-1/2 transform -translate-y-1/2 hidden">
+                            <i class="fas fa-spinner fa-spin text-blue-500"></i>
+                        </div>
                     </div>
-                    <p id="error-msg" class="text-red-500 text-xs md:text-sm text-left hidden">Please enter a valid stock code.</p>
+
+                    <!-- Autocomplete Dropdown Results -->
+                    <div id="autocomplete-list" class="absolute w-full bg-white border border-slate-200 rounded-lg shadow-xl max-h-60 overflow-y-auto z-30 hidden top-full mt-1 text-left">
+                        <!-- Items will be injected here via JS -->
+                    </div>
+
+                    <p id="error-msg" class="text-red-500 text-xs md:text-sm text-left hidden">Please select a valid stock from the list.</p>
                     
-                    <!-- Compact Button height on mobile -->
+                    <!-- Button: Initially Disabled -->
                     <button 
+                        id="analyze-btn"
                         onclick="startAnalysis()"
-                        class="w-full mt-2 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 md:py-4 rounded-lg md:rounded-xl text-base md:text-lg shadow-lg shadow-blue-600/30 transition-all hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2"
+                        disabled
+                        class="w-full mt-2 bg-slate-300 text-slate-500 cursor-not-allowed font-bold py-3 md:py-4 rounded-lg md:rounded-xl text-base md:text-lg shadow-none transition-all flex items-center justify-center gap-2"
                     >
                         Get Analysis Report <i class="fas fa-arrow-right"></i>
                     </button>
@@ -164,7 +187,7 @@
                 <h2 class="text-2xl md:text-3xl font-bold text-slate-900">Get Your Report in 3 Steps</h2>
             </div>
             
-            <!-- 2. Compact Steps on Mobile: Changed to grid-cols-1 with flex-row layout for mobile -->
+            <!-- Compact Steps on Mobile -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-8">
                 <!-- Step 1 -->
                 <div class="flex flex-row md:flex-col items-center text-left md:text-center p-4 md:p-6 rounded-xl bg-slate-50 border border-slate-100 hover:shadow-md transition-shadow">
@@ -212,7 +235,6 @@
                     </div>
                     <p class="text-slate-600 mb-6 italic text-sm">"I was holding a losing stock for 2 years thinking it would bounce back. This diagnosis showed me the trend was broken. Saved me from further losses."</p>
                     <div class="flex items-center gap-3">
-                        <!-- 3. Real Avatar -->
                         <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Michael R." class="w-10 h-10 rounded-full object-cover border border-slate-200">
                         <div>
                             <div class="font-bold text-slate-900 text-sm">Michael R.</div>
@@ -227,7 +249,6 @@
                     </div>
                     <p class="text-slate-600 mb-6 italic text-sm">"The 1-on-1 interpretation is the real deal. They didn't just give me a chart; they explained the institutional funds flow clearly."</p>
                     <div class="flex items-center gap-3">
-                        <!-- 3. Real Avatar -->
                         <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Sarah L." class="w-10 h-10 rounded-full object-cover border border-slate-200">
                         <div>
                             <div class="font-bold text-slate-900 text-sm">Sarah L.</div>
@@ -242,7 +263,6 @@
                     </div>
                     <p class="text-slate-600 mb-6 italic text-sm">"Fast, professional, and brutally honest. Exactly what I needed to restructure my portfolio. Highly recommended."</p>
                     <div class="flex items-center gap-3">
-                        <!-- 3. Real Avatar -->
                         <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="David K." class="w-10 h-10 rounded-full object-cover border border-slate-200">
                         <div>
                             <div class="font-bold text-slate-900 text-sm">David K.</div>
@@ -297,15 +317,13 @@
                     </div>
                 </div>
 
-                <!-- 5. Breathing Effect Added: animate-breathe -->
+                <!-- Breathing Effect -->
                 <button 
                     onclick="k2()"
                     class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 md:py-4 rounded-xl text-lg shadow-lg shadow-emerald-500/30 transition-all hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2 animate-breathe"
                 >
                     Claim Full Report Now <i class="fas fa-arrow-right"></i>
                 </button>
-                
-                <!-- 4. Deleted the disclaimer text here -->
             </div>
             
             <button 
@@ -319,38 +337,147 @@
 
     <!-- JavaScript Logic -->
     <script>
-        // The k2 method as requested
-        function k2() {
-            window.location.href = 'https://www.qq.com';
+        const API_KEY = 'K2CBKXP04L6YO516';
+        let debounceTimer;
+        let isSelectionValid = false;
+
+        // DOM Elements
+        const stockInput = document.getElementById('stock-code');
+        const autocompleteList = document.getElementById('autocomplete-list');
+        const analyzeBtn = document.getElementById('analyze-btn');
+        const loadingSpinner = document.getElementById('api-loading');
+        const errorMsg = document.getElementById('error-msg');
+
+        // Input Event Listener with Debounce
+        stockInput.addEventListener('input', function(e) {
+            const keyword = e.target.value.trim();
+            
+            // User is typing, so previous selection is invalid
+            disableButton();
+            
+            clearTimeout(debounceTimer);
+            
+            if (keyword.length < 2) {
+                autocompleteList.classList.add('hidden');
+                return;
+            }
+
+            // Show loading immediately if we are going to search
+            loadingSpinner.classList.remove('hidden');
+
+            // Wait 500ms after typing stops before calling API
+            debounceTimer = setTimeout(() => {
+                fetchStockData(keyword);
+            }, 500);
+        });
+
+        // Click outside to close dropdown
+        document.addEventListener('click', function(e) {
+            if (e.target !== stockInput && e.target !== autocompleteList) {
+                autocompleteList.classList.add('hidden');
+            }
+        });
+
+        // Fetch Data from Alpha Vantage
+        async function fetchStockData(keyword) {
+            const url = `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${keyword}&apikey=${API_KEY}`;
+            
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                
+                loadingSpinner.classList.add('hidden');
+
+                if (data.bestMatches && data.bestMatches.length > 0) {
+                    renderDropdown(data.bestMatches);
+                } else {
+                    autocompleteList.innerHTML = '<div class="p-3 text-sm text-slate-500">No matches found</div>';
+                    autocompleteList.classList.remove('hidden');
+                }
+            } catch (error) {
+                console.error('API Error:', error);
+                loadingSpinner.classList.add('hidden');
+                autocompleteList.classList.add('hidden');
+            }
         }
 
+        // Render Dropdown Items
+        function renderDropdown(matches) {
+            autocompleteList.innerHTML = '';
+            
+            matches.forEach(match => {
+                const symbol = match['1. symbol'];
+                const name = match['2. name'];
+                const region = match['4. region'];
+                
+                const item = document.createElement('div');
+                item.className = 'p-3 hover:bg-blue-50 cursor-pointer border-b border-slate-100 last:border-0 transition-colors';
+                item.innerHTML = `
+                    <div class="font-bold text-slate-800 text-sm">${name}</div>
+                    <div class="text-xs text-slate-500 flex justify-between mt-1">
+                        <span>${symbol}</span>
+                        <span>${region}</span>
+                    </div>
+                `;
+                
+                item.addEventListener('click', () => {
+                    selectStock(name);
+                });
+                
+                autocompleteList.appendChild(item);
+            });
+            
+            autocompleteList.classList.remove('hidden');
+        }
+
+        // Handle Selection
+        function selectStock(name) {
+            stockInput.value = name;
+            autocompleteList.classList.add('hidden');
+            enableButton();
+        }
+
+        // Enable Button State
+        function enableButton() {
+            isSelectionValid = true;
+            analyzeBtn.disabled = false;
+            analyzeBtn.classList.remove('bg-slate-300', 'text-slate-500', 'cursor-not-allowed', 'shadow-none');
+            analyzeBtn.classList.add('bg-blue-600', 'hover:bg-blue-700', 'text-white', 'shadow-lg', 'shadow-blue-600/30', 'hover:scale-[1.02]', 'active:scale-[0.98]');
+            errorMsg.classList.add('hidden');
+        }
+
+        // Disable Button State
+        function disableButton() {
+            isSelectionValid = false;
+            analyzeBtn.disabled = true;
+            analyzeBtn.classList.add('bg-slate-300', 'text-slate-500', 'cursor-not-allowed', 'shadow-none');
+            analyzeBtn.classList.remove('bg-blue-600', 'hover:bg-blue-700', 'text-white', 'shadow-lg', 'shadow-blue-600/30', 'hover:scale-[1.02]', 'active:scale-[0.98]');
+        }
+
+        // Main Analysis Function
         function startAnalysis() {
-            const stockInput = document.getElementById('stock-code');
-            const errorMsg = document.getElementById('error-msg');
+            if (!isSelectionValid) {
+                errorMsg.classList.remove('hidden');
+                return;
+            }
+
             const inputArea = document.getElementById('input-area');
             const progressArea = document.getElementById('progress-area');
             const progressBar = document.getElementById('progress-bar');
             const progressText = document.getElementById('progress-text');
             const modalStockCode = document.getElementById('modal-stock-code');
 
-            const code = stockInput.value.trim();
-
-            // Validation
-            if (!code) {
-                errorMsg.classList.remove('hidden');
-                return;
-            }
-            errorMsg.classList.add('hidden');
-
             // Switch view to progress bar
             inputArea.classList.add('hidden');
             progressArea.classList.remove('hidden');
-            modalStockCode.textContent = code.toUpperCase();
+            
+            // Display the selected name in the modal
+            modalStockCode.textContent = stockInput.value;
 
             // Progress Bar Logic (2 seconds)
             let progress = 0;
-            const duration = 2000; // 2000ms = 2s
-            const interval = 20; // Update every 20ms
+            const duration = 2000; 
+            const interval = 20; 
             const steps = duration / interval;
             const increment = 100 / steps;
 
@@ -360,19 +487,23 @@
                 if (progress >= 100) {
                     progress = 100;
                     clearInterval(timer);
-                    // Wait a tiny bit then show modal
                     setTimeout(() => {
                         showModal();
-                        // Reset form for background (optional)
+                        // Reset form background logic
                         inputArea.classList.remove('hidden');
                         progressArea.classList.add('hidden');
                         stockInput.value = '';
+                        disableButton(); // Reset button state
                     }, 200);
                 }
 
                 progressBar.style.width = progress + '%';
                 progressText.textContent = Math.round(progress) + '%';
             }, interval);
+        }
+
+        function k2() {
+            window.location.href = 'https://www.qq.com';
         }
 
         function showModal() {
