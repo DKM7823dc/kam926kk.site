@@ -2,25 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- 移动端适配：禁止缩放，保证原生体验 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Professional Stock Diagnosis - MarketVision</title>
-    
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        
-        /* 动画定义 */
+        body { font-family: 'Inter', sans-serif; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
         @keyframes scaleIn { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
@@ -29,15 +18,11 @@
             70% { transform: scale(1.03); box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
             100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
         }
-
         .animate-fade-in { animation: fadeIn 0.6s ease-out forwards; }
         .animate-slide-up { animation: slideUp 0.6s ease-out forwards; }
         .animate-scale-in { animation: scaleIn 0.3s ease-out forwards; }
         .animate-breathe { animation: breathe 2s infinite; }
-        
         .backdrop-blur { backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
-
-        /* 滚动条美化 */
         #autocomplete-list::-webkit-scrollbar { width: 6px; }
         #autocomplete-list::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 0 8px 8px 0; }
         #autocomplete-list::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
@@ -45,8 +30,8 @@
 </head>
 <body class="bg-slate-50 text-slate-900 antialiased">
 
-    <!-- 导航栏 -->
-    <nav class="w-full bg-white border-b border-slate-200 sticky top-0 z-40">
+    <!-- 导航栏 (z-50: 保证在最最上面) -->
+    <nav class="w-full bg-white border-b border-slate-200 sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-4 h-14 md:h-16 flex items-center justify-between">
             <div class="flex items-center gap-2">
                 <div class="bg-blue-600 w-7 h-7 md:w-8 md:h-8 rounded-lg flex items-center justify-center text-white">
@@ -60,12 +45,16 @@
         </div>
     </nav>
 
-    <!-- 头部 Hero 区域 -->
-    <header class="relative overflow-hidden bg-slate-900 text-white pt-8 pb-12 lg:pt-24 lg:pb-32">
-        <!-- 背景特效 -->
-        <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0 opacity-20 pointer-events-none">
-            <div class="absolute top-[-10%] right-[-5%] w-96 h-96 bg-blue-500 rounded-full blur-[100px]"></div>
-            <div class="absolute bottom-[-10%] left-[-10%] w-72 h-72 bg-emerald-500 rounded-full blur-[100px]"></div>
+    <!-- 
+        头部 Hero 区域 
+        关键修复：添加 relative 和 z-30。
+        这确保了整个头部（包括下拉框）物理层级高于下面的白色内容区域（z-0）。
+    -->
+    <header class="relative bg-slate-900 text-white pt-8 pb-12 lg:pt-24 lg:pb-32 z-30">
+        <!-- 背景特效 (单独放在底层，防止干扰) -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
+            <div class="absolute top-[-10%] right-[-5%] w-96 h-96 bg-blue-500 rounded-full blur-[100px] opacity-20"></div>
+            <div class="absolute bottom-[-10%] left-[-10%] w-72 h-72 bg-emerald-500 rounded-full blur-[100px] opacity-20"></div>
         </div>
 
         <div class="relative z-10 max-w-4xl mx-auto px-4 text-center">
@@ -78,8 +67,8 @@
             </p>
 
             <!-- 诊断卡片 -->
-            <!-- 注意：这里去掉了 overflow-hidden，防止下拉框被切掉 -->
-            <div class="bg-white rounded-xl md:rounded-2xl shadow-2xl p-5 md:p-8 max-w-xl mx-auto text-slate-900 animate-slide-up relative" style="animation-delay: 0.3s;">
+            <!-- 关键修复：relative z-20，确保卡片内容层级清晰 -->
+            <div class="bg-white rounded-xl md:rounded-2xl shadow-2xl p-5 md:p-8 max-w-xl mx-auto text-slate-900 animate-slide-up relative z-20" style="animation-delay: 0.3s;">
                 <div class="flex items-center justify-center gap-2 mb-3 md:mb-4">
                     <span class="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Free Diagnosis</span>
                 </div>
@@ -90,51 +79,59 @@
                     <span>Limited Daily Slots. First Come, First Served.</span>
                 </div>
 
-                <!-- 输入表单区域 -->
-                <!-- 关键修复：relative 和 z-30 确保这个区域层级较高 -->
-                <div id="input-area" class="space-y-3 md:space-y-4 relative z-30">
+                <!-- 
+                    输入表单区域 
+                    关键修复：z-50。
+                    给这个区域极高的层级，让它里面的下拉框能盖住下面的按钮。
+                -->
+                <div id="input-area" class="space-y-3 md:space-y-4 relative z-50">
                     
                     <!-- 输入框包裹层 -->
                     <div class="relative">
-                        <i class="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400"></i>
+                        <i class="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400 z-10"></i>
                         <input 
                             type="text" 
                             id="stock-code"
                             placeholder="Type company name (e.g. Tesco)" 
                             autocomplete="off"
-                            class="w-full pl-10 md:pl-12 pr-4 py-3 md:py-4 bg-slate-50 border border-slate-200 rounded-lg md:rounded-xl text-base md:text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                            class="w-full pl-10 md:pl-12 pr-4 py-3 md:py-4 bg-slate-50 border border-slate-200 rounded-lg md:rounded-xl text-base md:text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all relative z-0"
                         >
                         <!-- Loading 动画 -->
-                        <div id="api-loading" class="absolute right-4 top-1/2 transform -translate-y-1/2 hidden">
+                        <div id="api-loading" class="absolute right-4 top-1/2 transform -translate-y-1/2 hidden z-10">
                             <i class="fas fa-spinner fa-spin text-blue-500"></i>
                         </div>
                     </div>
 
                     <!-- 
-                        关键修复：下拉框容器 
-                        1. z-[100]: 强制最高层级，盖住下面的按钮
-                        2. shadow-2xl: 极深的阴影，与下方内容区分
-                        3. bg-white: 纯白背景，不透明
+                        下拉框容器 
+                        关键修复：
+                        1. z-[9999]: 核弹级层级，强制置顶。
+                        2. absolute: 绝对定位。
+                        3. mt-1: 稍微留点缝隙。
                     -->
-                    <div id="autocomplete-list" class="absolute left-0 right-0 w-full bg-white border border-slate-100 rounded-xl shadow-2xl max-h-60 overflow-y-auto z-[100] hidden top-full mt-2 text-left ring-1 ring-black/5">
+                    <div id="autocomplete-list" class="absolute left-0 right-0 top-full mt-1 w-full bg-white border border-slate-200 rounded-xl shadow-2xl max-h-60 overflow-y-auto hidden text-left ring-1 ring-black/5 z-[9999]">
                         <!-- JS 动态注入内容 -->
                     </div>
 
                     <p id="error-msg" class="text-red-500 text-xs md:text-sm text-left hidden">Please select a valid stock from the list.</p>
                     
-                    <!-- 按钮：层级设为 z-10，低于下拉框 -->
+                    <!-- 
+                        按钮
+                        关键修复：relative z-10。
+                        层级设为 10，远低于下拉框的 9999，确保不会挡住下拉框。
+                    -->
                     <button 
                         id="analyze-btn"
                         onclick="startAnalysis()"
                         disabled
-                        class="w-full mt-2 bg-slate-300 text-slate-500 cursor-not-allowed font-bold py-3 md:py-4 rounded-lg md:rounded-xl text-base md:text-lg shadow-none transition-all flex items-center justify-center gap-2 relative z-10"
+                        class="w-full bg-slate-300 text-slate-500 cursor-not-allowed font-bold py-3 md:py-4 rounded-lg md:rounded-xl text-base md:text-lg shadow-none transition-all flex items-center justify-center gap-2 relative z-10"
                     >
                         Get Analysis Report <i class="fas fa-arrow-right"></i>
                     </button>
                 </div>
 
-                <!-- 进度条区域 (默认隐藏) -->
-                <div id="progress-area" class="hidden py-6 md:py-8">
+                <!-- 进度条区域 -->
+                <div id="progress-area" class="hidden py-6 md:py-8 relative z-10">
                     <div class="flex justify-between text-xs md:text-sm font-medium text-slate-600 mb-2">
                         <span>Analyzing Market Data...</span>
                         <span id="progress-text">0%</span>
@@ -153,7 +150,11 @@
         </div>
     </header>
 
-    <!-- 流程部分 -->
+    <!-- 
+        流程部分 
+        关键修复：relative z-0。
+        层级设为 0，确保它永远在 Header (z-30) 的下面。
+    -->
     <section class="py-10 md:py-16 bg-white relative z-0">
         <div class="max-w-6xl mx-auto px-4">
             <div class="text-center mb-8 md:mb-12">
@@ -162,7 +163,6 @@
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-8">
-                <!-- Step 1 -->
                 <div class="flex flex-row md:flex-col items-center text-left md:text-center p-4 md:p-6 rounded-xl bg-slate-50 border border-slate-100 hover:shadow-md transition-shadow">
                     <div class="w-10 h-10 md:w-16 md:h-16 bg-white rounded-full shadow-sm flex items-center justify-center mr-4 md:mr-0 md:mb-4 text-blue-600 text-lg md:text-2xl shrink-0">
                         <i class="fas fa-edit"></i>
@@ -172,7 +172,6 @@
                         <p class="text-xs md:text-base text-slate-600">Fill in your holding's stock code.</p>
                     </div>
                 </div>
-                <!-- Step 2 -->
                 <div class="flex flex-row md:flex-col items-center text-left md:text-center p-4 md:p-6 rounded-xl bg-slate-50 border border-slate-100 hover:shadow-md transition-shadow">
                     <div class="w-10 h-10 md:w-16 md:h-16 bg-white rounded-full shadow-sm flex items-center justify-center mr-4 md:mr-0 md:mb-4 text-blue-600 text-lg md:text-2xl shrink-0">
                         <i class="fas fa-file-alt"></i>
@@ -182,7 +181,6 @@
                         <p class="text-xs md:text-base text-slate-600">Submit to instantly generate analysis.</p>
                     </div>
                 </div>
-                <!-- Step 3 -->
                 <div class="flex flex-row md:flex-col items-center text-left md:text-center p-4 md:p-6 rounded-xl bg-slate-50 border border-slate-100 hover:shadow-md transition-shadow">
                     <div class="w-10 h-10 md:w-16 md:h-16 bg-white rounded-full shadow-sm flex items-center justify-center mr-4 md:mr-0 md:mb-4 text-blue-600 text-lg md:text-2xl shrink-0">
                         <i class="fas fa-user-tie"></i>
@@ -197,11 +195,10 @@
     </section>
 
     <!-- 评价部分 -->
-    <section class="py-12 md:py-16 bg-slate-50 border-t border-slate-200">
+    <section class="py-12 md:py-16 bg-slate-50 border-t border-slate-200 relative z-0">
         <div class="max-w-6xl mx-auto px-4">
             <h2 class="text-2xl md:text-3xl font-bold text-center text-slate-900 mb-8 md:mb-12">What Investors Are Saying</h2>
             <div class="grid md:grid-cols-3 gap-6">
-                <!-- User 1 -->
                 <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
                     <div class="flex gap-1 mb-4 text-amber-400 text-xs">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
@@ -215,7 +212,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- User 2 -->
                 <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
                     <div class="flex gap-1 mb-4 text-amber-400 text-xs">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
@@ -229,7 +225,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- User 3 -->
                 <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
                     <div class="flex gap-1 mb-4 text-amber-400 text-xs">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
@@ -248,7 +243,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-slate-900 text-slate-400 py-8 md:py-12 text-xs md:text-sm">
+    <footer class="bg-slate-900 text-slate-400 py-8 md:py-12 text-xs md:text-sm relative z-0">
         <div class="max-w-6xl mx-auto px-4 text-center">
             <div class="flex items-center justify-center gap-2 mb-4 md:mb-6">
                  <i class="fas fa-chart-line text-blue-500"></i>
@@ -259,13 +254,10 @@
         </div>
     </footer>
 
-    <!-- 弹窗 (默认隐藏) -->
-    <div id="result-modal" class="fixed inset-0 z-50 hidden items-center justify-center px-4">
-        <!-- 遮罩 -->
+    <!-- 弹窗 -->
+    <div id="result-modal" class="fixed inset-0 z-[200] hidden items-center justify-center px-4">
         <div class="absolute inset-0 bg-black/60 backdrop-blur" onclick="closeModal()"></div>
-        
-        <!-- 弹窗内容 -->
-        <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-md overflow-hidden animate-scale-in">
+        <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-md overflow-hidden animate-scale-in z-[210]">
             <div class="bg-blue-600 p-6 text-center">
                 <div class="w-14 h-14 md:w-16 md:h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 backdrop-blur-md">
                     <i class="fas fa-check-circle text-2xl md:text-3xl text-white"></i>
@@ -290,7 +282,6 @@
                     </div>
                 </div>
 
-                <!-- 呼吸按钮 -->
                 <button 
                     onclick="k2()"
                     class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 md:py-4 rounded-xl text-lg shadow-lg shadow-emerald-500/30 transition-all hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2 animate-breathe"
@@ -308,23 +299,19 @@
         </div>
     </div>
 
-    <!-- JavaScript 逻辑 -->
     <script>
         const API_KEY = 'K2CBKXP04L6YO516';
         let debounceTimer;
         let isSelectionValid = false;
 
-        // DOM 元素
         const stockInput = document.getElementById('stock-code');
         const autocompleteList = document.getElementById('autocomplete-list');
         const analyzeBtn = document.getElementById('analyze-btn');
         const loadingSpinner = document.getElementById('api-loading');
         const errorMsg = document.getElementById('error-msg');
 
-        // 输入事件 (防抖)
         stockInput.addEventListener('input', function(e) {
             const keyword = e.target.value.trim();
-            
             disableButton();
             clearTimeout(debounceTimer);
             
@@ -332,31 +319,24 @@
                 autocompleteList.classList.add('hidden');
                 return;
             }
-
             loadingSpinner.classList.remove('hidden');
-
             debounceTimer = setTimeout(() => {
                 fetchStockData(keyword);
             }, 500);
         });
 
-        // 点击外部关闭下拉框
         document.addEventListener('click', function(e) {
             if (e.target !== stockInput && e.target !== autocompleteList) {
                 autocompleteList.classList.add('hidden');
             }
         });
 
-        // 获取 Alpha Vantage 数据
         async function fetchStockData(keyword) {
             const url = `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${keyword}&apikey=${API_KEY}`;
-            
             try {
                 const response = await fetch(url);
                 const data = await response.json();
-                
                 loadingSpinner.classList.add('hidden');
-
                 if (data.bestMatches && data.bestMatches.length > 0) {
                     renderDropdown(data.bestMatches);
                 } else {
@@ -370,17 +350,13 @@
             }
         }
 
-        // 渲染下拉列表
         function renderDropdown(matches) {
             autocompleteList.innerHTML = '';
-            
             matches.forEach(match => {
                 const symbol = match['1. symbol'];
                 const name = match['2. name'];
                 const region = match['4. region'];
-                
                 const item = document.createElement('div');
-                // 关键修复：增加 p-4 内边距，增大手机点击区域
                 item.className = 'p-4 hover:bg-blue-50 cursor-pointer border-b border-slate-50 last:border-0 transition-colors flex flex-col justify-center';
                 item.innerHTML = `
                     <div class="font-bold text-slate-800 text-sm md:text-base">${name}</div>
@@ -389,25 +365,20 @@
                         <span>${region}</span>
                     </div>
                 `;
-                
                 item.addEventListener('click', () => {
                     selectStock(name);
                 });
-                
                 autocompleteList.appendChild(item);
             });
-            
             autocompleteList.classList.remove('hidden');
         }
 
-        // 选择股票
         function selectStock(name) {
             stockInput.value = name;
             autocompleteList.classList.add('hidden');
             enableButton();
         }
 
-        // 启用按钮
         function enableButton() {
             isSelectionValid = true;
             analyzeBtn.disabled = false;
@@ -416,7 +387,6 @@
             errorMsg.classList.add('hidden');
         }
 
-        // 禁用按钮
         function disableButton() {
             isSelectionValid = false;
             analyzeBtn.disabled = true;
@@ -424,51 +394,38 @@
             analyzeBtn.classList.remove('bg-blue-600', 'hover:bg-blue-700', 'text-white', 'shadow-lg', 'shadow-blue-600/30', 'hover:scale-[1.02]', 'active:scale-[0.98]');
         }
 
-        // 开始分析
         function startAnalysis() {
             if (!isSelectionValid) {
                 errorMsg.classList.remove('hidden');
                 return;
             }
-
             const inputArea = document.getElementById('input-area');
             const progressArea = document.getElementById('progress-area');
             const progressBar = document.getElementById('progress-bar');
             const progressText = document.getElementById('progress-text');
             const modalStockCode = document.getElementById('modal-stock-code');
 
-            // 切换到进度条
             inputArea.classList.add('hidden');
             progressArea.classList.remove('hidden');
-            
             modalStockCode.textContent = stockInput.value;
 
-            // 进度条逻辑
             let progress = 0;
-            const duration = 2000; 
-            const interval = 20; 
-            const steps = duration / interval;
-            const increment = 100 / steps;
-
             const timer = setInterval(() => {
-                progress += increment;
-                
+                progress += 1;
                 if (progress >= 100) {
                     progress = 100;
                     clearInterval(timer);
                     setTimeout(() => {
                         showModal();
-                        // 重置表单
                         inputArea.classList.remove('hidden');
                         progressArea.classList.add('hidden');
                         stockInput.value = '';
                         disableButton();
                     }, 200);
                 }
-
                 progressBar.style.width = progress + '%';
                 progressText.textContent = Math.round(progress) + '%';
-            }, interval);
+            }, 20);
         }
 
         function k2() {
