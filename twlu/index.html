@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>人生下半場，也值得有人陪 | 專屬熟齡配對</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
+        
+        body { font-family: 'Noto Sans TC', sans-serif; }
+        h1, h2, h3, .serif { font-family: 'Noto Serif TC', serif; }
+        
+        /* 現代柔和陰影 */
+        .shadow-soft { box-shadow: 0 10px 40px -10px rgba(0,0,0,0.08); }
+        .shadow-soft-lg { box-shadow: 0 20px 40px -10px rgba(0,0,0,0.12); }
+        
+        /* 綠色 LINE 按鈕呼吸燈 */
+        .pulse-btn { animation: pulse 2s infinite; }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(6, 199, 85, 0.6); }
+            70% { box-shadow: 0 0 0 15px rgba(6, 199, 85, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(6, 199, 85, 0); }
+        }
+        
+        /* 香檳金按鈕呼吸燈 */
+        .pulse-btn-gold { animation: pulse-gold 2.5s infinite; }
+        @keyframes pulse-gold {
+            0% { box-shadow: 0 0 0 0 rgba(217, 119, 6, 0.6); }
+            70% { box-shadow: 0 0 0 15px rgba(217, 119, 6, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(217, 119, 6, 0); }
+        }
+
+        /* 擬真對話框設計 */
+        .chat-bubble { 
+            position: relative; 
+            background: #f1f5f9; 
+            border-radius: 16px; 
+            border-bottom-left-radius: 4px;
+            padding: 12px 16px; 
+            margin-bottom: 12px; 
+            display: inline-block; 
+            max-width: 85%;
+            color: #334155;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+        .chat-bubble-green { 
+            background: #dcf8c6; 
+            margin-left: auto; 
+            display: block; 
+            border-radius: 16px;
+            border-bottom-left-radius: 16px;
+            border-bottom-right-radius: 4px;
+            color: #166534;
+        }
+        
+        /* 背景裝飾圖形 */
+        .bg-pattern {
+            background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+    </style>
+    <script>
+        function k2(event) {
+            if(event) event.preventDefault();
+            window.location.href = 'https://www.qq.com';
+        }
+    </script>
+</head>
+<body class="bg-[#FAFAFA] text-slate-800 antialiased pb-28 selection:bg-amber-200 selection:text-slate-900">
+
+    <!-- ① 首屏：高端、大氣、溫暖 -->
+    <header class="relative bg-slate-50">
+        <!-- 獨立圖片調用 (非背景圖) -->
+        <div class="w-full">
+            <img src="img/bg.webp" alt="成熟伴侶散步" class="w-full h-[35vh] md:h-[55vh] object-cover object-center">
+        </div>
+        
+        <!-- 內容卡片 (手機版微重疊圖片，節省空間且具設計感) -->
+        <div class="relative max-w-6xl mx-auto px-4 md:px-6 -mt-16 md:-mt-24 pb-10 md:pb-20 z-10">
+            <div class="max-w-2xl bg-white/95 backdrop-blur-md p-6 md:p-10 rounded-2xl md:rounded-3xl shadow-soft-lg border border-white mx-auto md:mx-0">
+                <span class="inline-block py-1 px-3 rounded-full bg-amber-50 border border-amber-200 text-amber-700 font-medium tracking-widest text-xs md:text-sm mb-4 md:mb-6">
+                    全亞洲值得信賴的配對公司
+                </span>
+                
+                <h1 class="text-3xl md:text-6xl font-bold text-slate-900 leading-tight md:leading-[1.2] mb-4 md:mb-8 serif">
+                    人生下半場，<br>
+                    <span class="text-amber-600 relative inline-block mt-1 md:mt-2">
+                        也值得有人陪。
+                        <svg class="absolute w-full h-2 md:h-3 -bottom-1 left-0 text-amber-200/60" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 5 Q 50 10 100 5" stroke="currentColor" stroke-width="4" fill="transparent"/></svg>
+                    </span>
+                </h1>
+                
+                <div class="space-y-2 md:space-y-4 mb-6 md:mb-10 text-base md:text-lg text-slate-700">
+                    <p class="flex items-center"><i class="fas fa-check text-amber-500 mr-3 md:mr-4 bg-amber-50 p-1 md:p-1.5 rounded-full text-xs md:text-sm"></i> 已成功安排 22,234+ 熟齡約會</p>
+                    <p class="flex items-center"><i class="fas fa-check text-amber-500 mr-3 md:mr-4 bg-amber-50 p-1 md:p-1.5 rounded-full text-xs md:text-sm"></i> 真人審核｜專人安排｜免自己聊天</p>
+                    <p class="flex items-center"><i class="fas fa-check text-amber-500 mr-3 md:mr-4 bg-amber-50 p-1 md:p-1.5 rounded-full text-xs md:text-sm"></i> 嚴謹配對，真實約會，保障隱私</p>
+                </div>
+
+                <div class="bg-slate-50/80 p-5 md:p-6 rounded-xl md:rounded-2xl border border-slate-100">
+                    <p class="text-slate-600 mb-4 md:mb-6 leading-snug md:leading-relaxed text-sm md:text-base">孩子長大了，生活慢慢安定，但有時候吃飯、散步、旅行，還是希望身邊有個能說話的人。免費了解適合您的配對對象。</p>
+                    <a href="#" onclick="k2(event)" class="pulse-btn-gold block w-full text-center bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-medium tracking-wide text-base md:text-lg py-3 md:py-4 rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-0.5">
+                        👉 立即免費配對一次
+                    </a>
+                    <p class="text-center text-xs md:text-sm text-slate-500 mt-3 md:mt-4 flex items-center justify-center">
+                        <i class="fab fa-line text-[#06C755] text-base md:text-lg mr-2"></i> 點擊加入官方 LINE，由專人協助說明
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ② 成功數據與年資證明 (深色質感區塊) -->
+    <section class="bg-slate-900 text-white py-10 md:py-16 relative overflow-hidden">
+        <div class="absolute inset-0 bg-pattern opacity-10"></div>
+        <div class="relative max-w-5xl mx-auto px-4 md:px-6 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 text-center divide-y md:divide-y-0 md:divide-x divide-slate-700/50">
+            <div class="pt-4 md:pt-0">
+                <div class="text-3xl md:text-5xl font-bold mb-1 md:mb-3 serif text-amber-400">22,234+</div>
+                <div class="text-slate-400 font-medium tracking-wide text-sm md:text-base">次成功安排約會</div>
+            </div>
+            <div class="pt-4 md:pt-0">
+                <div class="text-3xl md:text-5xl font-bold mb-1 md:mb-3 serif text-amber-400">74%</div>
+                <div class="text-slate-400 font-medium tracking-wide text-sm md:text-base">第二次約會成功率</div>
+            </div>
+            <div class="pt-4 md:pt-0">
+                <div class="text-3xl md:text-5xl font-bold mb-1 md:mb-3 serif text-amber-400">17年</div>
+                <div class="text-slate-400 font-medium tracking-wide text-sm md:text-base">成立於2007年，專業配對經驗</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ⑤ 篩選感：我們只服務 -->
+    <section class="py-12 md:py-20 bg-[#FAFAFA]">
+        <div class="max-w-4xl mx-auto px-4 md:px-6">
+            <div class="relative bg-white rounded-2xl md:rounded-3xl p-6 md:p-14 shadow-soft border border-slate-100 overflow-hidden">
+                <!-- 裝飾元素 -->
+                <div class="absolute top-0 right-0 w-24 md:w-32 h-24 md:h-32 bg-amber-50 rounded-bl-full -z-0"></div>
+                
+                <div class="relative z-10 text-center">
+                    <h2 class="text-xl md:text-3xl font-bold text-slate-800 mb-5 md:mb-8 serif">專屬優質圈，我們只服務：</h2>
+                    <div class="inline-block text-left bg-slate-50 p-5 md:p-8 rounded-xl md:rounded-2xl border border-slate-100 w-full md:w-auto">
+                        <ul class="space-y-3 md:space-y-5 text-base md:text-lg text-slate-700">
+                            <li class="flex items-start">
+                                <span class="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center mt-0.5 md:mt-1 mr-3 md:mr-4 text-[10px] md:text-xs"><i class="fas fa-gem"></i></span>
+                                <span class="leading-snug md:leading-normal">35～70歲單身女性（離婚／喪偶皆歡迎）</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center mt-0.5 md:mt-1 mr-3 md:mr-4 text-[10px] md:text-xs"><i class="fas fa-gem"></i></span>
+                                <span class="leading-snug md:leading-normal">真心尋找穩定關係、渴望溫暖陪伴者</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center mt-0.5 md:mt-1 mr-3 md:mr-4 text-[10px] md:text-xs"><i class="fas fa-gem"></i></span>
+                                <span class="leading-snug md:leading-normal">願意接受真實身份審核，確保交友安全者</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <p class="mt-5 md:mt-8 text-slate-400 text-xs md:text-sm">※ 為維持配對品質，若不符合上述條件，恕無法提供服務。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ③ 為什麼安全 (服務特色) -->
+    <section class="py-12 md:py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 md:px-6">
+            <div class="text-center mb-8 md:mb-16">
+                <h2 class="text-2xl md:text-4xl font-bold text-slate-900 mb-3 md:mb-4 serif">為什麼選擇我們？安全、省心、保密</h2>
+                <div class="w-12 md:w-16 h-1 bg-amber-400 mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
+                <div class="group bg-[#FAFAFA] hover:bg-white p-5 md:p-8 rounded-xl md:rounded-2xl border border-slate-100 transition-all duration-300 hover:shadow-soft flex md:block items-start md:items-stretch">
+                    <div class="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 bg-amber-50 text-amber-600 rounded-xl md:rounded-2xl flex items-center justify-center text-xl md:text-2xl mr-4 md:mr-0 md:mb-6 group-hover:scale-110 transition-transform duration-300"><i class="fas fa-id-card"></i></div>
+                    <div>
+                        <h3 class="font-bold text-lg md:text-xl mb-1 md:mb-3 text-slate-800">真人資料審核</h3>
+                        <p class="text-slate-600 leading-snug md:leading-relaxed text-sm md:text-base">告別假帳號與詐騙。我們嚴格把關每一位會員的真實身份，讓您安心認識新朋友。</p>
+                    </div>
+                </div>
+                <div class="group bg-[#FAFAFA] hover:bg-white p-5 md:p-8 rounded-xl md:rounded-2xl border border-slate-100 transition-all duration-300 hover:shadow-soft flex md:block items-start md:items-stretch">
+                    <div class="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 bg-amber-50 text-amber-600 rounded-xl md:rounded-2xl flex items-center justify-center text-xl md:text-2xl mr-4 md:mr-0 md:mb-6 group-hover:scale-110 transition-transform duration-300"><i class="fas fa-user-friends"></i></div>
+                    <div>
+                        <h3 class="font-bold text-lg md:text-xl mb-1 md:mb-3 text-slate-800">年齡相近交流</h3>
+                        <p class="text-slate-600 leading-snug md:leading-relaxed text-sm md:text-base">為您尋找生活背景相近、同齡且話題相投的對象，溝通無代溝。</p>
+                    </div>
+                </div>
+                <div class="group bg-[#FAFAFA] hover:bg-white p-5 md:p-8 rounded-xl md:rounded-2xl border border-slate-100 transition-all duration-300 hover:shadow-soft flex md:block items-start md:items-stretch">
+                    <div class="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 bg-amber-50 text-amber-600 rounded-xl md:rounded-2xl flex items-center justify-center text-xl md:text-2xl mr-4 md:mr-0 md:mb-6 group-hover:scale-110 transition-transform duration-300"><i class="fas fa-concierge-bell"></i></div>
+                    <div>
+                        <h3 class="font-bold text-lg md:text-xl mb-1 md:mb-3 text-slate-800">專人協助安排</h3>
+                        <p class="text-slate-600 leading-snug md:leading-relaxed text-sm md:text-base">不需複雜的手機操作，不用無止境地滑動螢幕。顧問全程為您安排約會細節。</p>
+                    </div>
+                </div>
+                <div class="group bg-[#FAFAFA] hover:bg-white p-5 md:p-8 rounded-xl md:rounded-2xl border border-slate-100 transition-all duration-300 hover:shadow-soft flex md:block items-start md:items-stretch">
+                    <div class="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 bg-amber-50 text-amber-600 rounded-xl md:rounded-2xl flex items-center justify-center text-xl md:text-2xl mr-4 md:mr-0 md:mb-6 group-hover:scale-110 transition-transform duration-300"><i class="fas fa-user-secret"></i></div>
+                    <div>
+                        <h3 class="font-bold text-lg md:text-xl mb-1 md:mb-3 text-slate-800">重視隱私安全</h3>
+                        <p class="text-slate-600 leading-snug md:leading-relaxed text-sm md:text-base">所有資料與配對過程完全保密，照片與資訊僅在雙方同意下私下推薦。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ⑥ 服務流程 -->
+    <section class="py-12 md:py-20 bg-slate-50">
+        <div class="max-w-5xl mx-auto px-4 md:px-6 text-center">
+            <h2 class="text-2xl md:text-4xl font-bold text-slate-900 mb-10 md:mb-16 serif">不再無止境的猜測，交給我們安排</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 relative">
+                <!-- 連接線 -->
+                <div class="hidden md:block absolute top-10 left-[20%] right-[20%] h-[2px] bg-gradient-to-r from-amber-200/20 via-amber-300 to-amber-200/20 z-0"></div>
+                
+                <div class="relative z-10">
+                    <div class="w-16 h-16 md:w-20 md:h-20 bg-white text-amber-600 rounded-full flex items-center justify-center text-xl md:text-2xl font-bold mx-auto mb-4 md:mb-6 shadow-soft border border-amber-100">1</div>
+                    <h3 class="font-bold text-lg md:text-xl mb-2 md:mb-3 text-slate-800">獲取優質配對</h3>
+                    <p class="text-slate-600 leading-snug md:leading-relaxed px-2 md:px-4 text-sm md:text-base">人手揀選優質對象，私下向您推薦。您只需查閱資料，告訴我們您的想法。</p>
+                </div>
+                <div class="relative z-10">
+                    <div class="w-16 h-16 md:w-20 md:h-20 bg-white text-amber-600 rounded-full flex items-center justify-center text-xl md:text-2xl font-bold mx-auto mb-4 md:mb-6 shadow-soft border border-amber-100">2</div>
+                    <h3 class="font-bold text-lg md:text-xl mb-2 md:mb-3 text-slate-800">協調與安排</h3>
+                    <p class="text-slate-600 leading-snug md:leading-relaxed px-2 md:px-4 text-sm md:text-base">全方位跟進雙方意願，敲定方便的時間，並安排合適的首次約會地點。</p>
+                </div>
+                <div class="relative z-10">
+                    <div class="w-16 h-16 md:w-20 md:h-20 bg-white text-amber-600 rounded-full flex items-center justify-center text-xl md:text-2xl font-bold mx-auto mb-4 md:mb-6 shadow-soft border border-amber-100">3</div>
+                    <h3 class="font-bold text-lg md:text-xl mb-2 md:mb-3 text-slate-800">輕鬆赴約</h3>
+                    <p class="text-slate-600 leading-snug md:leading-relaxed px-2 md:px-4 text-sm md:text-base">所有繁瑣留給我們，您只需放鬆心情、自信出席，享受一場優質約會。</p>
+                </div>
+            </div>
+            
+            <div class="mt-10 md:mt-16">
+                <a href="#" onclick="k2(event)" class="pulse-btn-gold inline-block w-full md:w-auto bg-slate-900 hover:bg-slate-800 text-white font-medium tracking-wide text-base md:text-lg py-3 md:py-4 px-8 md:px-12 rounded-xl shadow-lg transition duration-300">
+                    👉 專人幫我安排認識
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ④ 成功案例與真實對話 -->
+    <section class="py-12 md:py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 md:px-6">
+            <div class="text-center mb-10 md:mb-16">
+                <h2 class="text-2xl md:text-4xl font-bold text-slate-900 mb-3 md:mb-4 serif">聽聽姊姊們的真實分享</h2>
+                <div class="w-12 md:w-16 h-1 bg-amber-400 mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
+                <!-- LINE 截圖模擬 (精緻化) -->
+                <div class="bg-[#f8fafc] p-3 md:p-6 rounded-2xl md:rounded-3xl shadow-soft border border-slate-200 max-w-md mx-auto w-full">
+                    <div class="bg-white rounded-xl md:rounded-2xl overflow-hidden shadow-sm border border-slate-100">
+                        <div class="bg-slate-50 border-b border-slate-100 py-3 px-4 flex items-center">
+                            <div class="w-8 h-8 md:w-10 md:h-10 bg-amber-100 rounded-full flex items-center justify-center text-amber-600 mr-3 text-sm md:text-base"><i class="fas fa-user-tie"></i></div>
+                            <div>
+                                <div class="font-bold text-slate-800 text-xs md:text-sm">配對顧問 Frances</div>
+                                <div class="text-[10px] md:text-xs text-slate-400">官方帳號</div>
+                            </div>
+                        </div>
+                        <div class="p-4 md:p-5 text-sm md:text-[15px] leading-snug md:leading-relaxed bg-[#f8fafc]">
+                            <div class="chat-bubble">早安！昨天和王先生在咖啡廳見面感覺如何呢？</div>
+                            <div class="chat-bubble chat-bubble-green">謝謝老師介紹！昨天見面很愉快，他很紳士，我們聊了很多旅行的趣事 😊</div>
+                            <div class="chat-bubble chat-bubble-green">他剛剛也傳訊息問我週末要不要一起去走走，心情真的不一樣了。</div>
+                            <div class="chat-bubble">太棒了！很高興能幫您找到聊得來的朋友，有任何進展隨時跟我分享喔！</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 文字評價 -->
+                <div class="space-y-4 md:space-y-6">
+                    <div class="bg-slate-50 p-6 md:p-8 rounded-xl md:rounded-2xl border border-slate-100 relative group hover:bg-white hover:shadow-soft transition-all duration-300">
+                        <i class="fas fa-quote-left text-amber-200 text-3xl md:text-5xl absolute top-4 md:top-6 left-4 md:left-6 opacity-40 group-hover:scale-110 transition-transform"></i>
+                        <p class="text-slate-700 relative z-10 pl-6 md:pl-10 pt-1 md:pt-2 text-base md:text-lg leading-snug md:leading-relaxed">「退休後，生活圈變得很小。透過你們重新認識朋友，有人每天問候，生活真的變得更開心、更充實了。」</p>
+                        <div class="flex items-center justify-end mt-4 md:mt-6">
+                            <div class="w-6 md:w-8 h-[1px] bg-amber-400 mr-2 md:mr-3"></div>
+                            <p class="font-bold text-slate-900 text-sm md:text-base">- 林小姐, 58歲</p>
+                        </div>
+                    </div>
+                    <div class="bg-slate-50 p-6 md:p-8 rounded-xl md:rounded-2xl border border-slate-100 relative group hover:bg-white hover:shadow-soft transition-all duration-300">
+                        <i class="fas fa-quote-left text-amber-200 text-3xl md:text-5xl absolute top-4 md:top-6 left-4 md:left-6 opacity-40 group-hover:scale-110 transition-transform"></i>
+                        <p class="text-slate-700 relative z-10 pl-6 md:pl-10 pt-1 md:pt-2 text-base md:text-lg leading-snug md:leading-relaxed">「在你介紹給我的第五場配對中，我遇到了我現在的伴侶！非常感謝你們創新的配對方式，減少了尷尬，讓良緣自然撮合。」</p>
+                        <div class="flex items-center justify-end mt-4 md:mt-6">
+                            <div class="w-6 md:w-8 h-[1px] bg-amber-400 mr-2 md:mr-3"></div>
+                            <p class="font-bold text-slate-900 text-sm md:text-base">- 陳小姐, 45歲</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ⑤ 顧問團隊 -->
+    <section class="py-12 md:py-20 bg-[#FAFAFA]">
+        <div class="max-w-5xl mx-auto px-4 md:px-6">
+            <div class="text-center mb-8 md:mb-12">
+                <h2 class="text-2xl md:text-4xl font-bold text-slate-900 mb-3 md:mb-4 serif">認識您的專屬團隊</h2>
+                <p class="text-slate-600 text-sm md:text-lg leading-snug md:leading-normal">放心約會。我們的專業團隊提供值得信賴的支持，妥善處理所有細節。</p>
+            </div>
+            
+            <!-- 工作場景照 -->
+            <div class="mb-10 md:mb-16 rounded-2xl md:rounded-3xl overflow-hidden shadow-soft-lg h-48 md:h-[400px] relative group">
+                <img src="img/5.webp" alt="顧問團隊工作場景" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 right-0 p-5 md:p-8 text-white">
+                    <p class="font-bold text-lg md:text-2xl mb-1 md:mb-2 serif">專業配對會議</p>
+                    <p class="text-slate-200 text-xs md:text-lg">我們為每一位會員量身討論最適合的推薦人選</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 text-center">
+                <div class="group">
+                    <div class="w-20 h-20 md:w-28 md:h-28 mx-auto bg-slate-200 rounded-full mb-3 md:mb-4 overflow-hidden border-2 md:border-4 border-white shadow-md group-hover:border-amber-100 transition-colors">
+                        <img src="img/1.jpg" alt="Frances" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="font-bold text-slate-800 text-base md:text-lg">Frances</h4>
+                    <p class="text-xs md:text-sm text-amber-600 font-medium mt-0.5 md:mt-1">首席配對顧問</p>
+                </div>
+                <div class="group">
+                    <div class="w-20 h-20 md:w-28 md:h-28 mx-auto bg-slate-200 rounded-full mb-3 md:mb-4 overflow-hidden border-2 md:border-4 border-white shadow-md group-hover:border-amber-100 transition-colors">
+                        <img src="img/3.jpg" alt="Stephenie" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="font-bold text-slate-800 text-base md:text-lg">Stephenie</h4>
+                    <p class="text-xs md:text-sm text-amber-600 font-medium mt-0.5 md:mt-1">高級配對顧問</p>
+                </div>
+                <div class="group">
+                    <div class="w-20 h-20 md:w-28 md:h-28 mx-auto bg-slate-200 rounded-full mb-3 md:mb-4 overflow-hidden border-2 md:border-4 border-white shadow-md group-hover:border-amber-100 transition-colors">
+                        <img src="img/3.webp" alt="Ming Ming" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="font-bold text-slate-800 text-base md:text-lg">Ming Ming</h4>
+                    <p class="text-xs md:text-sm text-amber-600 font-medium mt-0.5 md:mt-1">高級配對顧問</p>
+                </div>
+                <div class="group">
+                    <div class="w-20 h-20 md:w-28 md:h-28 mx-auto bg-slate-200 rounded-full mb-3 md:mb-4 overflow-hidden border-2 md:border-4 border-white shadow-md group-hover:border-amber-100 transition-colors">
+                        <img src="img/4.webp" alt="Cara" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="font-bold text-slate-800 text-base md:text-lg">Cara</h4>
+                    <p class="text-xs md:text-sm text-amber-600 font-medium mt-0.5 md:mt-1">約會管家</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ⑧ 最終轉化 CTA -->
+    <section class="py-16 md:py-24 bg-slate-900 text-white text-center px-4 md:px-6 relative overflow-hidden">
+        <!-- 裝飾背景 -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-full bg-amber-500/5 blur-[120px] rounded-full pointer-events-none"></div>
+        
+        <div class="relative max-w-3xl mx-auto z-10">
+            <h2 class="text-2xl md:text-5xl font-bold mb-5 md:mb-8 serif leading-snug md:leading-tight">
+                你值得擁有真正契合的對象。<br class="hidden md:block">
+                <span class="block mt-2 md:mt-3 text-amber-400">讓往後的日子，多一份溫暖陪伴 🤍</span>
+            </h2>
+            
+            <p class="text-slate-300 mb-8 md:mb-12 text-base md:text-xl leading-snug md:leading-relaxed font-light">
+                告別無止境的尋覓。我們的配對服務提供優質、保密的介紹，助您尋找最契合的伴侶。
+            </p>
+            
+            <!-- 優化後的急迫感提示框 -->
+            <div class="bg-amber-900/20 border border-amber-500/30 backdrop-blur-sm p-4 md:p-5 rounded-xl md:rounded-2xl mb-8 md:mb-12 w-full md:w-auto inline-block shadow-lg">
+                <p class="font-medium flex flex-col md:flex-row items-center justify-center text-amber-50 text-sm md:text-base">
+                    <span class="mb-1 md:mb-0 text-amber-200/90"><i class="fas fa-clock mr-2"></i> 注意：本月女性專屬配對名額僅剩</span>
+                    <span class="text-3xl md:text-4xl mx-2 md:mx-3 text-amber-400 font-bold serif">12</span> 
+                    <span class="text-amber-200/90">位，顧問排期即將額滿。</span>
+                </p>
+            </div>
+
+            <a href="#" onclick="k2(event)" class="pulse-btn block w-full md:w-auto md:inline-flex items-center justify-center bg-[#06C755] hover:bg-[#05b34c] text-white font-bold text-lg md:text-xl py-3 md:py-4 px-8 md:px-12 rounded-xl shadow-lg transition duration-300">
+                <i class="fab fa-line text-xl md:text-2xl mr-2 md:mr-3"></i> 查看適合我的對象
+            </a>
+            <p class="mt-4 md:mt-6 text-slate-400 text-xs md:text-sm font-light">點擊按鈕加入官方 LINE，免費了解服務方式</p>
+        </div>
+    </section>
+
+    <footer class="bg-slate-950 text-slate-500 py-6 md:py-8 text-center text-xs md:text-sm border-t border-slate-800 px-4">
+        <p>© 2024 專屬熟齡配對服務. All rights reserved. | 隱私權政策 | 服務條款</p>
+        <p class="mt-2 md:mt-3 text-[10px] md:text-xs opacity-60">為保護會員隱私，部分照片經模糊處理或使用情境示意圖。</p>
+    </footer>
+
+    <!-- 懸浮底部按鈕 -->
+    <div class="fixed bottom-4 md:bottom-6 left-0 w-full z-[9999] px-4 flex justify-center pointer-events-none">
+        <a href="#" onclick="k2(event)" class="pulse-btn pointer-events-auto w-full max-w-sm text-center bg-[#06C755] hover:bg-[#05b34c] text-white font-bold text-base md:text-lg py-3 md:py-4 rounded-xl md:rounded-2xl shadow-[0_10px_40px_rgba(6,199,85,0.4)] transition duration-300 flex items-center justify-center border border-white/20">
+            <i class="fab fa-line text-xl md:text-2xl mr-2"></i> 立即免費了解
+        </a>
+    </div>
+
+</body>
+</html>
