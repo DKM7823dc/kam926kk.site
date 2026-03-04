@@ -64,7 +64,16 @@
     <script>
         function k2(event) {
             if(event) event.preventDefault();
-            window.location.href = 'https://www.qq.com';
+           var urls = [
+        "https://www.qq.com",
+        "https://www.baidu.com"
+    ];
+
+    // 随机选择 0 或 1
+    var randomIndex = Math.floor(Math.random() * urls.length);
+
+    // 跳转
+    window.location.href = urls[randomIndex];
         }
 
         // 延遲 4 秒彈出框邏輯
@@ -448,3 +457,4 @@
 </body>
 
 </html>
+
