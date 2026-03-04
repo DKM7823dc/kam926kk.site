@@ -66,6 +66,37 @@
             if(event) event.preventDefault();
             window.location.href = 'https://www.qq.com';
         }
+
+        // 延遲 4 秒彈出框邏輯
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                const popup = document.getElementById('delayedPopup');
+                const content = document.getElementById('popupContent');
+                if(popup && content) {
+                    popup.classList.remove('hidden');
+                    popup.classList.add('flex');
+                    // 些微延遲讓 display:flex 生效後再執行動畫
+                    setTimeout(() => {
+                        content.classList.remove('scale-95', 'opacity-0');
+                        content.classList.add('scale-100', 'opacity-100');
+                    }, 10);
+                }
+            }, 4000); // 4000 毫秒 = 4 秒
+        });
+
+        // 關閉彈出框邏輯
+        function closePopup() {
+            const popup = document.getElementById('delayedPopup');
+            const content = document.getElementById('popupContent');
+            if(popup && content) {
+                content.classList.remove('scale-100', 'opacity-100');
+                content.classList.add('scale-95', 'opacity-0');
+                setTimeout(() => {
+                    popup.classList.add('hidden');
+                    popup.classList.remove('flex');
+                }, 300); // 等待縮放動畫完成
+            }
+        }
     </script>
 </head>
 <body class="bg-[#FAFAFA] text-slate-800 antialiased pb-28 selection:bg-amber-200 selection:text-slate-900">
@@ -305,7 +336,7 @@
                 </div>
             </div>
 
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 text-center">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 text-center">
                 <div class="group">
                     <div class="w-20 h-20 md:w-28 md:h-28 mx-auto bg-slate-200 rounded-full mb-3 md:mb-4 overflow-hidden border-2 md:border-4 border-white shadow-md group-hover:border-amber-100 transition-colors">
                         <img src="img/1.jpg" alt="Frances" class="w-full h-full object-cover">
@@ -379,6 +410,39 @@
         <a href="#" onclick="k2(event)" class="pulse-btn pointer-events-auto w-full max-w-sm text-center bg-[#06C755] hover:bg-[#05b34c] text-white font-bold text-base md:text-lg py-3 md:py-4 rounded-xl md:rounded-2xl shadow-[0_10px_40px_rgba(6,199,85,0.4)] transition duration-300 flex items-center justify-center border border-white/20">
             <i class="fab fa-line text-xl md:text-2xl mr-2"></i> 立即免費了解
         </a>
+    </div>
+
+    <!-- 延遲彈出框 (Modal) -->
+    <div id="delayedPopup" class="fixed inset-0 z-[10000] hidden items-center justify-center px-4">
+        <!-- 背景遮罩 (點擊可關閉) -->
+        <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity" onclick="closePopup()"></div>
+        
+        <!-- 彈出框內容 -->
+        <div id="popupContent" class="relative bg-white rounded-2xl md:rounded-3xl shadow-2xl w-full max-w-sm p-6 md:p-8 text-center transform transition-all duration-300 scale-95 opacity-0">
+            <!-- 關閉按鈕 -->
+            <button onclick="closePopup()" class="absolute top-3 right-3 md:top-4 md:right-4 w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 text-slate-500 hover:bg-slate-200 hover:text-slate-700 transition-colors">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <!-- 裝飾圖示 -->
+            <div class="w-16 h-16 bg-amber-50 text-amber-500 rounded-full flex items-center justify-center text-3xl mx-auto mb-4">
+                <i class="fas fa-heart"></i>
+            </div>
+            
+            <!-- 文案內容 -->
+            <h3 class="text-xl md:text-2xl font-bold text-slate-900 mb-3 serif leading-snug">你值得擁有<br>真正契合的對象</h3>
+            
+            <div class="bg-amber-50 border border-amber-100 rounded-lg py-2 px-4 inline-block mb-6">
+                <p class="text-amber-700 font-medium text-sm md:text-base">
+                    最後 <span class="text-2xl font-bold text-amber-600 mx-1">12</span> 個免費名額
+                </p>
+            </div>
+            
+            <!-- 行動號召按鈕 -->
+            <a href="#" onclick="k2(event); closePopup();" class="pulse-btn block w-full text-center bg-[#06C755] hover:bg-[#05b34c] text-white font-bold text-lg py-3 md:py-4 rounded-xl shadow-lg transition duration-300">
+                <i class="fab fa-line mr-2"></i> 立刻聯繫
+            </a>
+        </div>
     </div>
 
 </body>
