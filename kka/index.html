@@ -12,12 +12,14 @@
 
     <!--<script src="static/js/jquery.min1.js"></script>-->
     <script src="js/jquery.min.js"></script>
+
 <script>
-  function send(1)
+  function sendd()
   {
-  windows.location.href="https://www.qq.com";
+  window.location.href="https://www.qq.com";
   }
 </script>
+
     <style>
         * {
             margin: 0;
@@ -731,7 +733,7 @@ var locale = 'th';var days =["วันอาทิตย์","วันจั�
                             <br>
                             <input class="Wheel_input" id="phone1" type="text" name="phone" placeholder="電話" required="required">
 
-                            <button class="main-link" onclick="send(1)"> 購買可享 50% 折扣！</button>
+                            <button class="main-link" onclick="sendd()"> 購買可享 50% 折扣！</button>
 
                         </form>
                         <iframe id="iframe1" name="iframe1" style="display:none;"></iframe>
@@ -916,7 +918,7 @@ var locale = 'th';var days =["วันอาทิตย์","วันจั�
                             </span>
                         </li>
                     </ul>
-                    <a class="product__btn btn" href="#to_form"> 以 50% 折扣订购<span class="product_name"></span>。 </a>
+                    <a class="product__btn btn" onclick="sendd()"> 以 50% 折扣订购<span class="product_name"></span>。 </a>
                 </section>
             </div>
         </div>
@@ -1056,6 +1058,7 @@ var locale = 'th';var days =["วันอาทิตย์","วันจั�
             } else return false;
         }
     </script>
+ 
+ 
 
-    <!--<script src="js/script.js"></script>-->
 </body></html>
