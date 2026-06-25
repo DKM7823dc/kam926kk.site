@@ -1,7 +1,15 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
+   
 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>认识Lucy - 与新朋友建立联系</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+	
+	
 <!-- TikTok Pixel Code Start -->
 <script>
 !function (w, d, t) {
@@ -17,12 +25,6 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 <!-- TikTok Pixel Code End -->
 
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>认识她们 - 结交新朋友</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="https://cdn.tailwindcss.com">
-    </script>
     <script>
         tailwind.config = {
             theme: {
@@ -47,7 +49,6 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
                         'glow': 'glow 2s ease-in-out infinite',
                         'color-shift': 'colorShift 10s infinite',
                         'rotate-border': 'rotateBorder 4s linear infinite',
-                        'pulse-ring': 'pulseRing 2s ease-out infinite',
                     },
                     keyframes: {
                         float: {
@@ -65,11 +66,6 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
                         rotateBorder: {
                             '0%': { transform: 'rotate(0deg)' },
                             '100%': { transform: 'rotate(360deg)' },
-                        },
-                        pulseRing: {
-                            '0%': { transform: 'scale(0.8)', opacity: '0.8' },
-                            '70%': { transform: 'scale(1.1)', opacity: '0.2' },
-                            '100%': { transform: 'scale(1.3)', opacity: '0' },
                         }
                     }
                 }
@@ -234,22 +230,22 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
             gap: 0.5rem;
         }
 
-        .image-grid>div:nth-child(1) {
+        .image-grid > div:nth-child(1) {
             grid-column: 1 / 3;
             grid-row: 1 / 3;
         }
 
-        .image-grid>div:nth-child(2) {
+        .image-grid > div:nth-child(2) {
             grid-column: 3 / 5;
             grid-row: 1 / 2;
         }
 
-        .image-grid>div:nth-child(3) {
+        .image-grid > div:nth-child(3) {
             grid-column: 3 / 4;
             grid-row: 2 / 3;
         }
 
-        .image-grid>div:nth-child(4) {
+        .image-grid > div:nth-child(4) {
             grid-column: 4 / 5;
             grid-row: 2 / 3;
         }
@@ -260,22 +256,22 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
                 grid-template-rows: repeat(2, auto);
             }
 
-            .image-grid>div:nth-child(1) {
+            .image-grid > div:nth-child(1) {
                 grid-column: 1 / 2;
                 grid-row: 1 / 2;
             }
 
-            .image-grid>div:nth-child(2) {
+            .image-grid > div:nth-child(2) {
                 grid-column: 2 / 3;
                 grid-row: 1 / 2;
             }
 
-            .image-grid>div:nth-child(3) {
+            .image-grid > div:nth-child(3) {
                 grid-column: 1 / 2;
                 grid-row: 2 / 3;
             }
 
-            .image-grid>div:nth-child(4) {
+            .image-grid > div:nth-child(4) {
                 grid-column: 2 / 3;
                 grid-row: 2 / 3;
             }
@@ -308,54 +304,73 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
             font-weight: bold;
         }
 
-        /* 模糊照片 & 视频播放按钮动效 */
-        .blur-photo-wrapper {
+        /* Mobile Circular Avatar Styles */
+        .avatar-wrapper {
             position: relative;
+            width: 130px;
+            height: 130px;
+            flex-shrink: 0;
+        }
+
+        .avatar-border {
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg, #FF2ED2, #8A2EFF, #00EEFF, #FF2ED2);
+            animation: rotateBorder 4s linear infinite;
+        }
+
+        .avatar-inner {
+            position: absolute;
+            inset: 3px;
+            border-radius: 50%;
             overflow: hidden;
-            border-radius: 0.5rem;
-            cursor: pointer;
-            aspect-ratio: 1 / 1;
             background: #1A0536;
         }
 
-        .blur-photo-wrapper img {
+        .avatar-inner img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: blur(6px);
-            transition: filter 0.3s ease, transform 0.3s ease;
         }
 
-        .blur-photo-wrapper:hover img {
-            filter: blur(2px);
-            transform: scale(1.05);
-        }
-
-        .play-button-overlay {
+        .online-indicator {
             position: absolute;
-            inset: 0;
+            bottom: 8px;
+            right: 8px;
+            width: 18px;
+            height: 18px;
+            background: #25D366;
+            border-radius: 50%;
+            border: 3px solid #1A0536;
+            z-index: 10;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            50% { box-shadow: 0 0 0 8px rgba(37, 211, 102, 0); }
+        }
+
+        /* Desktop full image */
+        .desktop-image {
+            display: none;
+        }
+
+        /* Mobile header layout */
+        .mobile-header {
             display: flex;
             align-items: center;
-            justify-content: center;
-            background: rgba(0, 0, 0, 0.3);
-            transition: background 0.3s ease;
+            gap: 1rem;
         }
 
-        .play-button-overlay i {
-            font-size: 2.5rem;
-            color: rgba(255, 255, 255, 0.9);
-            text-shadow: 0 0 20px rgba(255, 46, 210, 0.8);
-            animation: pulseRing 2s ease-out infinite;
-            transition: transform 0.3s ease;
-            filter: drop-shadow(0 0 10px rgba(138, 46, 255, 0.6));
-        }
-
-        .blur-photo-wrapper:hover .play-button-overlay i {
-            transform: scale(1.1);
-        }
-
-        .blur-photo-wrapper .play-button-overlay i {
-            display: block;
+        @media (min-width: 769px) {
+            .mobile-header {
+                display: none;
+            }
+            .desktop-image {
+                display: block;
+            }
         }
 
         @media (max-width: 768px) {
@@ -367,225 +382,189 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
             .whatsapp-icon i {
                 font-size: 1.5rem;
             }
-            .play-button-overlay i {
-                font-size: 2rem;
-            }
-        }
-
-        /* 开头文案布局优化 */
-        .intro-text {
-            max-width: 850px;
-            margin-left: auto;
-            margin-right: auto;
         }
     </style>
 </head>
 <body class="min-h-screen">
-    <!-- WhatsApp 固定图标 -->
+    <!-- WhatsApp Fixed Icon -->
     <div id="executeButton" class="whatsapp-icon animate-pulse-fast" onclick="openSite()">
         <i class="fab fa-whatsapp text-white text-3xl"></i>
         <div class="notification">1</div>
     </div>
 
     <div class="relative min-h-screen">
-        <!-- 背景元素 -->
+        <!-- Background Elements -->
         <div class="absolute inset-0 bg-grid pointer-events-none"></div>
         <div class="absolute top-20 left-10 w-40 h-40 rounded-full bg-pink-dark/20 blur-3xl"></div>
         <div class="absolute bottom-20 right-10 w-60 h-60 rounded-full bg-purple-dark/20 blur-3xl"></div>
 
         <div class="container mx-auto px-4 py-6 relative z-10">
-            <!-- 主内容 -->
-            <div class="max-w-5xl mx-auto">
+            <!-- Main Content -->
+            <div class="max-w-4xl mx-auto">
 
-                <!-- 页面标题 & 通用开头文案 -->
-                <div class="text-center mb-8">
-                    <h1 class="text-3xl md:text-4xl font-bold neon-text-purple">
-                        <span class="bg-gradient-to-r from-pink to-purple text-transparent bg-clip-text">认识她们</span>
-                    </h1>
-                    <div class="glass-card rounded-2xl p-6 mt-4 intro-text text-left">
-                        <p class="text-gray-200 text-base leading-relaxed">
-                            我们有着不同的生活背景和兴趣爱好，但都怀着相同的期待——遇到一位彼此尊重、真诚相待的伙伴。无论是一起分享生活的点滴，还是探索新的城市与文化，我们都相信温暖的交流能带来美好的缘分。
-                        </p>
-                        <p class="text-gray-300 text-sm mt-3">
-                            <i class="fas fa-heart text-pink-light mr-1"></i>
-                            我们拒绝粗俗言论，不轻浮，不冒犯。期待与你开启一段真诚的对话。
-                        </p>
+                <!-- Mobile Header with Circular Avatar -->
+                <div class="mobile-header mb-6">
+                    <div class="avatar-wrapper">
+                        <div class="avatar-border"></div>
+                        <div class="avatar-inner">
+                            <img src="img/1.jpg" alt="Lucy">
+                        </div>
+                        <div class="online-indicator"></div>
                     </div>
-                </div>
-
-                <!-- 四个卡片网格 -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-                    <!-- 卡片 1: 张玫蓓 -->
-                    <div class="glass-card rounded-2xl p-5 flex flex-col">
-                        <div class="flex items-center gap-4 mb-3">
-                            <img src="img/a1.jpg" alt="张玫蓓" class="w-20 h-20 rounded-full object-cover border-2 border-pink shadow-lg">
-                            <div>
-                                <h2 class="text-xl font-bold">张玫蓓</h2>
-                                <p class="text-gray-300 text-sm">35岁 · 吉隆坡</p>
-                            </div>
+                    <div class="flex-1">
+                        <h1 class="text-2xl font-bold">
+                            <span class="bg-gradient-to-r from-pink to-purple text-transparent bg-clip-text">Lucy</span>
+                        </h1>
+                        <p class="text-gray-300 text-sm">35岁 • 吉隆坡</p>
+                        <div class="flex flex-wrap gap-1 mt-2">
+                            <span class="text-xs bg-pink/20 text-pink-light px-2 py-0.5 rounded-full">
+                                <i class="fas fa-plane mr-1"></i>旅行
+                            </span>
+                            <span class="text-xs bg-purple/20 text-purple-light px-2 py-0.5 rounded-full">
+                                <i class="fas fa-utensils mr-1"></i>美食
+                            </span>
+                            <span class="text-xs bg-teal/20 text-teal px-2 py-0.5 rounded-full">
+                                <i class="fas fa-camera mr-1"></i>摄影
+                            </span>
                         </div>
-                        <p class="text-gray-300 text-sm flex-1">来自吉隆坡，热爱旅行和美食，性格开朗，期待认识真诚的朋友。</p>
-                        <div class="grid grid-cols-3 gap-2 mt-3">
-                            <div class="blur-photo-wrapper" onclick="openSite()">
-                                <img src="img/a1.jpg" alt="模糊照片">
-                                <div class="play-button-overlay">
-                                    <i class="fas fa-play-circle"></i>
-                                </div>
-                            </div>
-                            <div class="blur-photo-wrapper" onclick="openSite()">
-                                <img src="img/a1.jpg" alt="模糊照片">
-                                <div class="play-button-overlay">
-                                    <i class="fas fa-play-circle"></i>
-                                </div>
-                            </div>
-                            <div class="blur-photo-wrapper" onclick="openSite()">
-                                <img src="img/a1.jpg" alt="模糊照片">
-                                <div class="play-button-overlay">
-                                    <i class="fas fa-play-circle"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <button onclick="openSite()" class="btn-neon w-full mt-4 py-2 rounded-full text-sm font-semibold">联系她</button>
-                    </div>
-
-                    <!-- 卡片 2: 张蔓钰 -->
-                    <div class="glass-card rounded-2xl p-5 flex flex-col">
-                        <div class="flex items-center gap-4 mb-3">
-                            <img src="img/a2.jpg" alt="张蔓钰" class="w-20 h-20 rounded-full object-cover border-2 border-pink shadow-lg">
-                            <div>
-                                <h2 class="text-xl font-bold">张蔓钰</h2>
-                                <p class="text-gray-300 text-sm">38岁 · 吉隆坡 · 单身</p>
-                            </div>
-                        </div>
-                        <p class="text-gray-300 text-sm flex-1">在美甲店工作，温柔细心，喜欢小动物，希望能遇到有共同话题的人。</p>
-                        <div class="grid grid-cols-3 gap-2 mt-3">
-                            <div class="blur-photo-wrapper" onclick="openSite()">
-                                <img src="img/a2.jpg" alt="模糊照片">
-                                <div class="play-button-overlay">
-                                    <i class="fas fa-play-circle"></i>
-                                </div>
-                            </div>
-                            <div class="blur-photo-wrapper" onclick="openSite()">
-                                <img src="img/a2.jpg" alt="模糊照片">
-                                <div class="play-button-overlay">
-                                    <i class="fas fa-play-circle"></i>
-                                </div>
-                            </div>
-                            <div class="blur-photo-wrapper" onclick="openSite()">
-                                <img src="img/a2.jpg" alt="模糊照片">
-                                <div class="play-button-overlay">
-                                    <i class="fas fa-play-circle"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <button onclick="openSite()" class="btn-neon w-full mt-4 py-2 rounded-full text-sm font-semibold">联系她</button>
-                    </div>
-
-                    <!-- 卡片 3: 林含诗 -->
-                    <div class="glass-card rounded-2xl p-5 flex flex-col">
-                        <div class="flex items-center gap-4 mb-3">
-                            <img src="img/a3.jpg" alt="林含诗" class="w-20 h-20 rounded-full object-cover border-2 border-pink shadow-lg">
-                            <div>
-                                <h2 class="text-xl font-bold">林含诗</h2>
-                                <p class="text-gray-300 text-sm">35岁 · 槟城</p>
-                            </div>
-                        </div>
-                        <p class="text-gray-300 text-sm flex-1">在外贸公司工作，喜欢阅读和运动，性格独立，希望找到志同道合的伙伴。</p>
-                        <div class="grid grid-cols-3 gap-2 mt-3">
-                            <div class="blur-photo-wrapper" onclick="openSite()">
-                                <img src="img/a3.jpg" alt="模糊照片">
-                                <div class="play-button-overlay">
-                                    <i class="fas fa-play-circle"></i>
-                                </div>
-                            </div>
-                            <div class="blur-photo-wrapper" onclick="openSite()">
-                                <img src="img/a3.jpg" alt="模糊照片">
-                                <div class="play-button-overlay">
-                                    <i class="fas fa-play-circle"></i>
-                                </div>
-                            </div>
-                            <div class="blur-photo-wrapper" onclick="openSite()">
-                                <img src="img/a3.jpg" alt="模糊照片">
-                                <div class="play-button-overlay">
-                                    <i class="fas fa-play-circle"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <button onclick="openSite()" class="btn-neon w-full mt-4 py-2 rounded-full text-sm font-semibold">联系她</button>
-                    </div>
-
-                    <!-- 卡片 4: 张芹青 -->
-                    <div class="glass-card rounded-2xl p-5 flex flex-col">
-                        <div class="flex items-center gap-4 mb-3">
-                            <img src="img/a4.jpg" alt="张芹青" class="w-20 h-20 rounded-full object-cover border-2 border-pink shadow-lg">
-                            <div>
-                                <h2 class="text-xl font-bold">张芹青</h2>
-                                <p class="text-gray-300 text-sm">35岁 · 吉隆坡 · 单身</p>
-                            </div>
-                        </div>
-                        <p class="text-gray-300 text-sm flex-1">热爱烹饪和电影，性格随和，期待遇见可以分享生活点滴的朋友。</p>
-                        <div class="grid grid-cols-3 gap-2 mt-3">
-                            <div class="blur-photo-wrapper" onclick="openSite()">
-                                <img src="img/a4.jpg" alt="模糊照片">
-                                <div class="play-button-overlay">
-                                    <i class="fas fa-play-circle"></i>
-                                </div>
-                            </div>
-                            <div class="blur-photo-wrapper" onclick="openSite()">
-                                <img src="img/a4.jpg" alt="模糊照片">
-                                <div class="play-button-overlay">
-                                    <i class="fas fa-play-circle"></i>
-                                </div>
-                            </div>
-                            <div class="blur-photo-wrapper" onclick="openSite()">
-                                <img src="img/a4.jpg" alt="模糊照片">
-                                <div class="play-button-overlay">
-                                    <i class="fas fa-play-circle"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <button onclick="openSite()" class="btn-neon w-full mt-4 py-2 rounded-full text-sm font-semibold">联系她</button>
-                    </div>
-
-                </div>
-
-                <!-- 第四张卡片下方的 CTA 文案提醒 -->
-                <div class="glass-card rounded-2xl p-6 mt-8 text-center">
-                    <h3 class="text-xl font-bold text-white mb-2">想了解更多关于她的介绍？</h3>
-                    <p class="text-gray-300 text-base leading-relaxed">
-                        她还有更多精彩的照片和故事等待与你分享。点击下方按钮，立即与她开启对话，发现更多美好吧！
-                    </p>
-                    <div class="flex justify-center mt-4">
-                        <button onclick="openSite()" class="btn-neon px-8 py-3 rounded-full text-base inline-flex items-center">
-                            <i class="fab fa-whatsapp mr-2 text-xl"></i>
-                            点击联系，解锁更多
+                        <button onclick="openSite()" class="btn-neon px-4 py-2 rounded-full text-sm mt-3 flex items-center">
+                            <i class="fab fa-whatsapp mr-2"></i>
+                            立即聊天
                         </button>
                     </div>
-                    
                 </div>
 
+                <!-- Desktop Layout -->
+                <div class="hidden md:flex flex-row gap-6 items-center mb-8">
+                    <div class="md:w-1/3 desktop-image">
+                        <div class="relative rounded-2xl overflow-hidden image-glow">
+                            <img src="img/1.jpg" alt="Lucy肖像" class="w-full h-auto object-cover" style="aspect-ratio: 2/3;">
+                        </div>
+                        <p class="text-white text-sm opacity-80 text-center mt-2">让我们建立联系，分享故事吧！</p>
+                    </div>
+
+                    <div class="md:w-2/3">
+                        <h1 class="text-4xl font-bold mb-3">
+                            <span class="bg-gradient-to-r from-pink to-purple text-transparent bg-clip-text neon-text">Lucy</span>
+                            <span class="text-white text-2xl block">35岁</span>
+                        </h1>
+
+                        <p class="text-gray-300 mb-4">
+                            你好，我叫Lucy，来自马来西亚吉隆坡。今年35岁，单身，没有孩子。我是一名市场专员，性格开朗独立。平时我喜欢旅行、摄影和探索各地美食，也享受瑜伽和阅读的宁静时光
+							
+                        </p>
+
+                        <p class="text-gray-300 mb-4">
+                            我希望遇到一个价值观相近、真诚成熟、有共同语言的人，一起分享生活的点滴美好。无论是旅行冒险、城市漫步，还是简单的晚餐时光，我都希望我们能彼此温暖、相互理解。
+                        </p>
+
+                        <p class="text-gray-300 mb-4">
+                            我欣赏尊重、有教养且互相体谅的沟通方式。
+                        </p>
+
+                        <div class="warning-box">
+                            <p class="text-white font-semibold mb-2">请注意：</p>
+                            <ul class="text-gray-300 text-sm">
+                                <li>我拒绝粗俗言论</li>
+                                <li>我不接受调情</li>
+                                <li>我不会回应任何不尊重或不恰当的信息</li>
+                            </ul>
+                        </div>
+
+                        <div class="flex flex-wrap mb-4 mt-4">
+                            <div class="profile-stat">
+                                <i class="fas fa-plane text-purple-light"></i>
+                                <span>旅行爱好者</span>
+                            </div>
+                            <div class="profile-stat">
+                                <i class="fas fa-utensils text-teal"></i>
+                                <span>美食家</span>
+                            </div>
+                            <div class="profile-stat">
+                                <i class="fas fa-camera text-pink-light"></i>
+                                <span>摄影迷</span>
+                            </div>
+                        </div>
+
+                        <button onclick="openSite()" class="btn-neon px-6 py-3 rounded-full animate-pulse-fast flex items-center justify-center text-lg w-full">
+                            <i class="fab fa-whatsapp mr-2"></i>
+                            在WhatsApp上与我聊天
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Mobile About Section -->
+                <div class="glass-card rounded-2xl p-4 mb-4 md:hidden">
+                    <h2 class="text-lg font-bold mb-2 neon-text-purple">关于我</h2>
+                    <p class="text-gray-300 text-sm mb-3">
+                        你好，我叫Lucy，来自吉隆坡。今年35岁，单身，没有孩子。我是一名市场专员，喜欢旅行、摄影和美食。上周参加了闺蜜在曼谷的婚礼，下个月计划去日本旅行。
+                    </p>
+                    <p class="text-gray-300 text-sm mb-3">
+                        希望遇到价值观相近、真诚成熟的人，一起分享生活美好，彼此温暖。
+                    </p>
+                    <div class="warning-box text-sm">
+                        <p class="text-white font-semibold mb-1">请注意：</p>
+                        <ul class="text-gray-300 text-xs">
+                            <li>我拒绝粗俗言论</li>
+                            <li>我不接受调情</li>
+                            <li>不尊重的消息不予回复</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Photo Gallery Section -->
+                <div class="glass-card rounded-2xl p-4 mb-6">
+                    <h2 class="text-xl font-bold mb-3 neon-text-purple">我的照片集</h2>
+
+                    <div class="image-grid">
+                        <div class="gradient-border rounded-lg overflow-hidden">
+                            <img src="img/2.jpg" alt="Lucy与花" class="w-full h-full object-cover">
+                        </div>
+
+                        <div class="gradient-border rounded-lg overflow-hidden">
+                            <img src="img/3.jpg" alt="Lucy坐着" class="w-full h-full object-cover">
+                        </div>
+
+                        <div class="gradient-border rounded-lg overflow-hidden">
+                            <img src="img/4.jpg" alt="Lucy肖像" class="w-full h-full object-cover">
+                        </div>
+
+                        <div class="gradient-border rounded-lg overflow-hidden">
+                            <img src="img/6.jpg" alt="Lucy自拍" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Call to Action -->
+                <div class="glass-card rounded-2xl p-6 text-center">
+                    <p class="text-gray-300 mb-4 italic">
+                        “感谢你的真诚和善意，期待遇到真正适合我的人。”
+                    </p>
+
+                    <button onclick="openSite()" class="btn-neon px-8 py-4 rounded-full text-lg inline-flex items-center mx-auto">
+                        <i class="fab fa-whatsapp mr-2 text-xl"></i>
+                        立即与我联系
+                    </button>
+
+                    <p class="text-xs text-gray-400 mt-4">
+                        我期待与你聊天，让我们一起创造有意义的连接吧！
+                    </p>
+                </div>
             </div>
         </div>
     </div>
 
-    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"373c7c119a7443a7a1cad01dc8e023ab","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous">
-    </script>
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"373c7c119a7443a7a1cad01dc8e023ab","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 
     <script>
         function openSite() {
-                // 追踪事件
+                     // 追踪事件
       ttq.track('ClickButton');
       ttq.track('Contact');
       ttq.track('AddToCart');
             ttq.track('Purchase');
       ttq.track('CompleteRegistration');
-
-            window.location.href = "https://ourl.cn/ZjnxV8";
-        }
-
-        function sh2owAl2ert() {
-          //  alert("联系她以查看完整照片和视频！");
+            window.location.href="https://www.qq.com";
         }
     </script>
 </body>
