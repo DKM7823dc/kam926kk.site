@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    
+       <script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '630384713310994');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<script>
+
+        function h2() {
+		
+	  fbq('track', 'AddToCart');
+      fbq('track', 'Purchase');
+        window.location.href="https://www.qq.com";
+        }
+</script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI股市應用指南 - 學習資源分享</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        accent: {
+                            50: '#fefcbf',
+                            100: '#fef08a',
+                            200: '#fde047',
+                            300: '#facc15',
+                            400: '#eab308',
+                            500: '#ca8a04',
+                            600: '#a16207',
+                            700: '#854d0e',
+                            800: '#713f12',
+                            900: '#422006',
+                        }
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'gentle-bounce': 'gentleBounce 2s ease-in-out infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;900&family=Noto+Serif+TC:wght@400;500;600;700;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            color: #1e293b;
+            line-height: 1.6;
+        }
+        
+        .font-serif {
+            font-family: 'Noto Serif TC', serif;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes gentleBounce {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+        }
+        
+        .card:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+        }
+        
+        .floating-cta {
+            position: fixed;
+            bottom: 16px;
+            left: 16px;
+            right: 16px;
+            z-index: 1000;
+        }
+        
+        @media (min-width: 768px) {
+            .floating-cta {
+                left: 50%;
+                right: auto;
+                transform: translateX(-50%);
+                width: auto;
+            }
+            
+            .floating-cta button {
+                width: auto;
+            }
+            
+            .container {
+                padding: 0 32px;
+            }
+        }
+        
+        .floating-cta button {
+            width: 100%;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #0ea5e9 0%, #0369a1 100%);
+        }
+        
+        .btn-accent {
+            background: linear-gradient(135deg, #ca8a04 0%, #854d0e 100%);
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #ca8a04, #eab308);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        input, textarea {
+            font-size: 16px;
+        }
+        
+        @media (max-width: 767px) {
+            .container {
+                padding: 0 12px;
+            }
+            
+            .card {
+                margin: 0 8px;
+            }
+            
+            .mobile-full-width {
+                width: 100%;
+                margin-left: 0;
+                margin-right: 0;
+            }
+            
+            .mobile-compact {
+                padding: 16px 12px;
+            }
+            
+            .mobile-text-center {
+                text-align: center;
+            }
+            
+            .mobile-stack {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .mobile-no-gap {
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-sm shadow-sm border-b border-gray-200">
+        <div class="container">
+            <div class="flex justify-between items-center h-16 md:h-20">
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 md:w-14 md:h-14 btn-primary rounded-lg flex items-center justify-center shadow-lg">
+                        <span class="text-white font-bold text-lg md:text-xl">📚</span>
+                    </div>
+                    <div>
+                        <h1 class="text-sm md:text-lg font-bold text-primary-900">AI股市應用指南分享</h1>
+                        <p class="text-xs md:text-sm text-primary-600">學習資源・教育內容</p>
+                    </div>
+                </div>
+                <button onclick="h2()" class="btn-primary text-white px-4 md:px-6 py-2 md:py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300 text-sm md:text-base">
+                    了解詳情
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="pt-20 md:pt-28 pb-12 md:pb-20 px-0">
+        <div class="container">
+            
+            <div class="text-center mb-6 md:mb-8 animate-fade-in">
+                <div class="inline-flex items-center bg-primary-100 text-primary-700 px-6 md:px-8 py-3 md:py-4 rounded-full font-semibold text-sm md:text-base shadow-sm mobile-full-width mobile-compact">
+                    <span class="w-2 h-2 bg-primary-500 rounded-full mr-3"></span>
+                    AI股市學習資源分享活動
+                </div>
+            </div>
+            
+            <div class="text-center mb-8 md:mb-12 animate-slide-up">
+                <h1 class="text-xl md:text-4xl lg:text-6xl font-serif font-bold text-primary-900 mb-6 md:mb-8 leading-tight px-4 md:px-0">
+                    📚 為海外<span class="text-gradient">學習者</span><br class="hidden md:block">
+                    提供<span class="text-accent-600">知識資源</span>
+                </h1>
+                
+                <div class="card p-4 md:p-8 mx-4 md:mx-auto max-w-5xl">
+                    <p class="text-base md:text-xl lg:text-2xl text-primary-700 leading-relaxed">
+                        我們致力於為海外學習者提供優質的學習資源。《AI股市應用指南》是一本專為想要了解AI技術在投資領域應用的讀者而編寫的教育性書籍。
+                    </p>
+                </div>
+            </div>
+            
+            <div class="text-center mb-8 md:mb-12 animate-fade-in px-4 md:px-0">
+                <button onclick="h2()" class="btn-primary text-white px-6 md:px-12 py-4 md:py-5 rounded-xl text-lg md:text-2xl font-bold shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 w-full md:w-auto">
+                    📖 申請學習資源
+                </button>
+            </div>
+            
+            <div class="flex flex-col md:flex-row justify-center gap-4 md:gap-6 animate-fade-in px-4 md:px-0">
+                <div class="card px-4 md:px-6 py-3 md:py-4 flex items-center space-x-3 mobile-full-width">
+                    <svg class="w-5 h-5 md:w-6 md:h-6 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="font-semibold text-primary-800 text-sm md:text-base">教育用途</span>
+                </div>
+                <div class="card px-4 md:px-6 py-3 md:py-4 flex items-center space-x-3 mobile-full-width">
+                    <svg class="w-5 h-5 md:w-6 md:h-6 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="font-semibold text-primary-800 text-sm md:text-base">學習支持</span>
+                </div>
+                <div class="card px-4 md:px-6 py-3 md:py-4 flex items-center space-x-3 mobile-full-width">
+                    <svg class="w-5 h-5 md:w-6 md:h-6 text-orange-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="font-semibold text-primary-800 text-sm md:text-base">申請條件</span>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8 md:mt-12 animate-fade-in px-4 md:px-0">
+                <div class="card p-4 md:p-8 max-w-4xl mx-auto border-l-4 border-accent-500">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+                        <div class="text-center">
+                            <h3 class="font-bold text-primary-900 mb-2">學習用途</h3>
+                            <p class="text-sm md:text-base text-primary-700">本活動旨在支持學習者獲得優質教育資源。</p>
+                        </div>
+                        <div class="text-center">
+                            <h3 class="font-bold text-primary-900 mb-2">申請流程</h3>
+                            <p class="text-sm md:text-base text-primary-700">符合條件的申請者將獲得學習資源支持。</p>
+                        </div>
+                        <div class="text-center">
+                            <h3 class="font-bold text-primary-900 mb-2">資源有限</h3>
+                            <p class="text-sm md:text-base text-primary-700">因資源限制，我們將優先考慮符合條件的申請。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <section class="py-12 md:py-20 px-0 bg-gray-50">
+        <div class="container">
+            
+            <div class="text-center mb-8 md:mb-16 px-4 md:px-0">
+                <div class="inline-block bg-blue-100 text-blue-700 px-6 md:px-8 py-3 md:py-4 rounded-full font-bold text-base md:text-lg mb-6 md:mb-8 mobile-full-width mobile-compact">
+                    學習挑戰與需求
+                </div>
+                <h2 class="text-2xl md:text-4xl lg:text-5xl font-serif font-bold text-primary-900 mb-6 md:mb-8">
+                    海外學習者常面臨的挑戰：
+                </h2>
+            </div>
+            
+            <div class="space-y-6 md:space-y-8 px-4 md:px-0">
+                
+                <div class="card p-4 md:p-8 animate-fade-in">
+                    <div class="flex flex-col lg:flex-row items-start gap-6 md:gap-8 mobile-stack">
+                        <div class="flex-1">
+                            <div class="bg-blue-500 text-white px-4 md:px-6 py-2 rounded-full font-bold text-xs md:text-sm mb-4 md:mb-6 inline-block">
+                                語言學習
+                            </div>
+                            <p class="text-primary-700 leading-relaxed text-base md:text-lg">
+                                在不同的語言環境中學習專業知識，需要更多的學習資源和支持來克服語言障礙。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card p-4 md:p-8 animate-fade-in" style="animation-delay: 0.2s;">
+                    <div class="flex flex-col lg:flex-row items-start gap-6 md:gap-8 mobile-stack">
+                        <div class="flex-1">
+                            <div class="bg-orange-500 text-white px-4 md:px-6 py-2 rounded-full font-bold text-xs md:text-sm mb-4 md:mb-6 inline-block">
+                                文化適應
+                            </div>
+                            <p class="text-primary-700 leading-relaxed text-base md:text-lg">
+                                適應不同的學習文化和教育體系，需要額外的指導和資源來幫助理解當地的學習方式。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card p-4 md:p-8 animate-fade-in" style="animation-delay: 0.4s;">
+                    <div class="flex flex-col lg:flex-row items-start gap-6 md:gap-8 mobile-stack">
+                        <div class="flex-1">
+                            <div class="bg-purple-500 text-white px-4 md:px-6 py-2 rounded-full font-bold text-xs md:text-sm mb-4 md:mb-6 inline-block">
+                                專業發展
+                            </div>
+                            <p class="text-primary-700 leading-relaxed text-base md:text-lg">
+                                在新的環境中建立專業能力，需要獲得相關的學習材料和指導來提升專業技能。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 md:py-20 px-0">
+        <div class="container">
+            
+            <div class="text-center mb-8 md:mb-16 px-4 md:px-0">
+                <div class="inline-block bg-primary-100 text-primary-700 px-6 md:px-8 py-3 md:py-4 rounded-full font-bold text-base md:text-lg mb-6 md:mb-8 mobile-full-width mobile-compact">
+                    📚 學習資源
+                </div>
+                <h2 class="text-2xl md:text-4xl lg:text-5xl font-serif font-bold text-primary-900 mb-4 md:mb-6">
+                    AI股市應用學習指南
+                </h2>
+                <h3 class="text-lg md:text-2xl lg:text-4xl font-bold text-gradient mb-6 md:mb-12">
+                    📖 綜合性學習資料：技術應用與實務知識
+                </h3>
+            </div>
+            
+            <div class="card p-2 md:p-6 mb-8 md:mb-16 mx-4 md:mx-0">
+                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl overflow-hidden">
+                    
+                    <div class="btn-primary p-4 md:p-8">
+                        <div class="flex flex-col lg:flex-row items-center gap-4 md:gap-8 mobile-stack">
+                            <div class="w-16 h-16 md:w-20 md:h-20 bg-white/20 rounded-xl flex items-center justify-center">
+                                <span class="text-2xl md:text-4xl">💼</span>
+                            </div>
+                            <div class="text-center lg:text-left">
+                                <h3 class="text-lg md:text-2xl lg:text-3xl font-bold text-white">
+                                    專業技能提升：學習AI技術在金融領域的應用方法
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="p-4 md:p-8">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                            
+                            <div class="card p-4 md:p-6 text-center">
+                                <div class="mb-4 md:mb-6">
+                                    <div class="w-16 h-16 md:w-20 md:h-20 mx-auto btn-primary rounded-xl flex items-center justify-center shadow-lg">
+                                        <span class="text-2xl md:text-3xl text-white">🌐</span>
+                                    </div>
+                                </div>
+                                <h4 class="text-lg md:text-xl font-bold text-primary-600 mb-3 md:mb-4">技術學習</h4>
+                                <div class="w-16 h-1 bg-gradient-to-r from-primary-500 to-accent-500 mx-auto mb-3 md:mb-4 rounded-full"></div>
+                                <p class="text-primary-700 leading-relaxed text-sm md:text-base">
+                                    學習如何應用AI工具進行數據分析和處理，提升技術能力和工作效率。
+                                </p>
+                            </div>
+                            
+                            <div class="card p-4 md:p-6 text-center">
+                                <div class="mb-4 md:mb-6">
+                                    <div class="w-16 h-16 md:w-20 md:h-20 mx-auto bg-blue-600 rounded-xl flex items-center justify-center shadow-lg">
+                                        <span class="text-2xl md:text-3xl text-white">🤝</span>
+                                    </div>
+                                </div>
+                                <h4 class="text-lg md:text-xl font-bold text-blue-600 mb-3 md:mb-4">實務應用</h4>
+                                <div class="w-16 h-1 bg-blue-600 mx-auto mb-3 md:mb-4 rounded-full"></div>
+                                <p class="text-primary-700 leading-relaxed text-sm md:text-base">
+                                    了解AI技術在實際工作場景中的應用案例，學習如何將理論知識轉化為實用技能。
+                                </p>
+                            </div>
+                            
+                            <div class="card p-4 md:p-6 text-center">
+                                <div class="mb-4 md:mb-6">
+                                    <div class="w-16 h-16 md:w-20 md:h-20 mx-auto bg-green-600 rounded-xl flex items-center justify-center shadow-lg">
+                                        <span class="text-2xl md:text-3xl text-white">🎯</span>
+                                    </div>
+                                </div>
+                                <h4 class="text-lg md:text-xl font-bold text-green-600 mb-3 md:mb-4">持續學習</h4>
+                                <div class="w-16 h-1 bg-green-600 mx-auto mb-3 md:mb-4 rounded-full"></div>
+                                <p class="text-primary-700 leading-relaxed text-sm md:text-base">
+                                    建立持續學習的框架，跟上技術發展的步伐，在變化中保持競爭力。
+                                </p>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card p-2 md:p-6 mx-4 md:mx-0">
+                <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl overflow-hidden">
+                    
+                    <div class="bg-gradient-to-r from-purple-600 to-pink-600 p-4 md:p-8">
+                        <div class="flex flex-col lg:flex-row items-center gap-4 md:gap-8 mobile-stack">
+                            <div class="w-16 h-16 md:w-20 md:h-20 bg-white/20 rounded-xl flex items-center justify-center">
+                                <span class="text-2xl md:text-4xl">📖</span>
+                            </div>
+                            <div class="text-center lg:text-left">
+                                <h3 class="text-lg md:text-2xl lg:text-3xl font-bold text-white">
+                                    學習支持與資源分享
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="p-4 md:p-8">
+                        <div class="mb-8 md:mb-12">
+                            <h4 class="text-lg md:text-2xl font-bold text-primary-900 mb-6 md:mb-8">常見學習需求：</h4>
+                            <div class="space-y-6 md:space-y-8">
+                                
+                                <div class="card p-4 md:p-6 border-l-4 border-blue-500">
+                                    <div class="flex items-start gap-4">
+                                        <span class="text-2xl">📚</span>
+                                        <div>
+                                            <h5 class="font-bold text-blue-600 mb-2">學習材料</h5>
+                                            <p class="text-primary-700 text-sm md:text-base">需要高質量的學習資源來提升專業技能。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="card p-4 md:p-6 border-l-4 border-green-500">
+                                    <div class="flex items-start gap-4">
+                                        <span class="text-2xl">💡</span>
+                                        <div>
+                                            <h5 class="font-bold text-green-600 mb-2">實用指導</h5>
+                                            <p class="text-primary-700 text-sm md:text-base">希望獲得實際應用的指導和建議。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-lg md:text-2xl font-bold text-primary-900 mb-6 md:mb-8">📖 資源內容概述</h4>
+                            <div class="space-y-6 md:space-y-8">
+                                
+                                <div class="card p-4 md:p-6">
+                                    <div class="flex flex-col lg:flex-row gap-4 md:gap-6 items-center mobile-stack mobile-no-gap">
+                                        <div class="flex-1 bg-blue-50 p-3 md:p-4 rounded-lg border-l-4 border-blue-500 mobile-full-width">
+                                            <div class="flex items-center mb-2">
+                                                <span class="text-xl md:text-2xl mr-2 md:mr-3">📖</span>
+                                                <h4 class="font-bold text-blue-600 text-sm md:text-base">學習需求</h4>
+                                            </div>
+                                            <p class="text-primary-700 text-sm md:text-base">理解AI技術基礎</p>
+                                        </div>
+                                        <div class="w-10 h-10 md:w-12 md:h-12 btn-primary rounded-full flex items-center justify-center text-white font-bold text-lg">
+                                            →
+                                        </div>
+                                        <div class="flex-1 bg-green-50 p-3 md:p-4 rounded-lg border-l-4 border-green-500 mobile-full-width">
+                                            <div class="flex items-center mb-2">
+                                                <span class="text-xl md:text-2xl mr-2 md:mr-3">💡</span>
+                                                <h4 class="font-bold text-green-600 text-sm md:text-base">學習資源</h4>
+                                            </div>
+                                            <p class="text-primary-700 text-sm md:text-base">提供系統性的學習材料和實用工具，幫助建立基礎知識框架。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="card p-4 md:p-6">
+                                    <div class="flex flex-col lg:flex-row gap-4 md:gap-6 items-center mobile-stack mobile-no-gap">
+                                        <div class="flex-1 bg-purple-50 p-3 md:p-4 rounded-lg border-l-4 border-purple-500 mobile-full-width">
+                                            <p class="text-primary-700 text-sm md:text-base">實際應用指導需求</p>
+                                        </div>
+                                        <div class="w-10 h-10 md:w-12 md:h-12 btn-primary rounded-full flex items-center justify-center text-white font-bold text-lg">
+                                            →
+                                        </div>
+                                        <div class="flex-1 bg-green-50 p-3 md:p-4 rounded-lg border-l-4 border-green-500 mobile-full-width">
+                                            <p class="text-primary-700 text-sm md:text-base">實用案例分析和操作指南，幫助將理論知識轉化為實際技能。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 md:py-20 px-0 bg-gray-50">
+        <div class="container">
+            
+            <div class="text-center mb-8 md:mb-16 px-4 md:px-0">
+                <h2 class="text-2xl md:text-4xl lg:text-6xl font-serif font-bold text-primary-900 mb-4 md:mb-6">
+                    📚 為什麼選擇這個學習資源？
+                </h2>
+                <p class="text-lg md:text-2xl lg:text-3xl font-bold text-accent-600">
+                    專業、實用的學習材料
+                </p>
+            </div>
+            
+            <div class="card p-4 md:p-12 mx-4 md:mx-0">
+                
+                <div class="text-center mb-8 md:mb-12">
+                    <div class="inline-block card p-4 md:p-8">
+                        <div class="w-48 md:w-72 lg:w-96 h-32 md:h-48 lg:h-60 mx-auto rounded-lg bg-gradient-to-br from-blue-100 to-indigo-100 flex items-center justify-center shadow-lg">
+                            <span class="text-4xl md:text-6xl">📖</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 mb-8 md:mb-12">
+                    
+                    <div class="card p-4 md:p-8">
+                        <div class="flex items-start gap-4 md:gap-6 mobile-stack">
+                            <div class="flex-shrink-0">
+                                <div class="w-14 h-14 md:w-16 md:h-16 bg-accent-500 rounded-xl flex items-center justify-center shadow-lg">
+                                    <span class="text-xl md:text-2xl text-white">📚</span>
+                                </div>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="text-lg md:text-2xl font-bold text-primary-900 mb-3 md:mb-4">高質量內容</h4>
+                                <p class="text-primary-700 leading-relaxed text-sm md:text-base">
+                                    經過專業編輯的學習材料，確保內容的準確性和實用性。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card p-4 md:p-8">
+                        <div class="flex items-start gap-4 md:gap-6 mobile-stack">
+                            <div class="flex-shrink-0">
+                                <div class="w-14 h-14 md:w-16 md:h-16 bg-blue-500 rounded-xl flex items-center justify-center shadow-lg">
+                                    <span class="text-xl md:text-2xl text-white">🛠️</span>
+                                </div>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="text-lg md:text-2xl font-bold text-primary-900 mb-3 md:mb-4">實用工具</h4>
+                                <p class="text-primary-700 leading-relaxed text-sm md:text-base mb-3">
+                                    包含實用的學習工具和參考資料，幫助您更好地理解和應用所學知識。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <div class="card p-4 md:p-8 mb-8 md:mb-12 border-l-4 border-accent-500">
+                    <div class="flex items-start gap-4 md:gap-6 mobile-stack">
+                        <div class="flex-shrink-0">
+                            <div class="w-14 h-14 md:w-16 md:h-16 bg-green-500 rounded-xl flex items-center justify-center shadow-lg">
+                                <span class="text-xl md:text-2xl text-white">🎓</span>
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="text-lg md:text-2xl font-bold text-primary-900 mb-4 md:mb-6">學習支持</h4>
+                            <div class="space-y-3 md:space-y-4 text-primary-700 text-base md:text-lg leading-relaxed">
+                                <p>
+                                    我們相信教育的力量，致力於為學習者提供優質的學習資源和支持。
+                                </p>
+                                <p class="font-bold text-green-600 text-xl md:text-2xl">
+                                    讓知識成為您前進的動力。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <p class="text-lg md:text-2xl lg:text-3xl font-bold text-blue-600 mb-6 md:mb-8">👉 了解申請方式！</p>
+                    <button onclick="h2()" class="btn-primary text-white px-8 md:px-20 py-4 md:py-6 rounded-xl text-lg md:text-2xl lg:text-3xl font-bold shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 w-full md:w-auto">
+                        📚 申請學習資源
+                    </button>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 md:py-20 px-0">
+        <div class="container">
+            
+            <div class="text-center mb-8 md:mb-16 px-4 md:px-0">
+                <div class="inline-block bg-blue-100 text-blue-700 px-6 md:px-8 py-3 md:py-4 rounded-full font-bold text-base md:text-lg mb-6 md:mb-8 mobile-full-width mobile-compact">
+                    🎓 額外支持
+                </div>
+                <h2 class="text-2xl md:text-4xl lg:text-5xl font-serif font-bold text-primary-900">
+                    學習支持服務
+                </h2>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 mb-8 md:mb-16 px-4 md:px-0">
+                
+                <div class="card p-4 md:p-10">
+                    <div class="flex items-start gap-4 md:gap-6 mobile-stack">
+                        <div class="flex-shrink-0">
+                            <div class="w-16 h-16 md:w-20 md:h-20 bg-blue-500 rounded-xl flex items-center justify-center shadow-lg">
+                                <span class="text-2xl md:text-3xl text-white">✅</span>
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl md:text-2xl font-bold text-primary-900 mb-2">優質材料</h3>
+                            <p class="text-primary-600 text-sm md:text-base mb-3">專業編輯製作</p>
+                            <p class="text-primary-700 text-base md:text-lg leading-relaxed">
+                                提供精心製作的學習輔助材料，讓學習過程更有系統性。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card p-4 md:p-10">
+                    <div class="flex items-start gap-4 md:gap-6 mobile-stack">
+                        <div class="flex-shrink-0">
+                            <div class="w-16 h-16 md:w-20 md:h-20 bg-green-500 rounded-xl flex items-center justify-center shadow-lg">
+                                <span class="text-2xl md:text-3xl text-white">✅</span>
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl md:text-2xl font-bold text-primary-900 mb-2">學習社群</h3>
+                            <p class="text-primary-600 text-sm md:text-base mb-3">同儕學習支持</p>
+                            <p class="text-primary-700 text-base md:text-lg leading-relaxed">
+                                提供學習者交流平台，促進知識分享和相互學習。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="card overflow-hidden mx-4 md:mx-0">
+                
+                <div class="btn-primary p-4 md:p-8 text-center">
+                    <h3 class="text-xl md:text-3xl lg:text-4xl font-bold text-white">申請須知</h3>
+                </div>
+                
+                <div class="p-4 md:p-8 lg:p-12">
+                    <div class="grid grid-cols-1 xl:grid-cols-2 gap-8 md:gap-12">
+                        
+                        <div class="space-y-4 md:space-y-6">
+                            <div class="bg-green-50 p-4 md:p-6 rounded-lg border-l-4 border-green-500">
+                                <div class="flex items-center">
+                                    <span class="text-green-600 mr-3 md:mr-4 text-xl md:text-2xl">✔️</span>
+                                    <span class="text-primary-800 font-semibold text-sm md:text-base lg:text-lg">教育用途申請</span>
+                                </div>
+                            </div>
+                            <div class="bg-blue-50 p-4 md:p-6 rounded-lg border-l-4 border-blue-500">
+                                <div class="flex items-center">
+                                    <span class="text-green-600 mr-3 md:mr-4 text-xl md:text-2xl">✔️</span>
+                                    <span class="text-primary-800 font-semibold text-sm md:text-base lg:text-lg">符合條件者優先</span>
+                                </div>
+                            </div>
+                            <div class="bg-yellow-50 p-4 md:p-6 rounded-lg border-l-4 border-yellow-500">
+                                <div class="flex items-center">
+                                    <span class="text-green-600 mr-3 md:mr-4 text-xl md:text-2xl">✔️</span>
+                                    <span class="text-primary-800 font-semibold text-sm md:text-base lg:text-lg">資源有限，需審核</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card p-4 md:p-8">
+                            <div class="flex items-start gap-3 md:gap-6 mb-4 md:mb-6 mobile-stack">
+                                <div class="flex-shrink-0">
+                                    <div class="w-14 h-14 md:w-16 md:h-16 bg-accent-500 rounded-xl flex items-center justify-center shadow-lg">
+                                        <span class="text-xl md:text-2xl text-white">📝</span>
+                                    </div>
+                                </div>
+                                <div class="flex-1">
+                                    <h4 class="text-lg md:text-2xl font-bold text-accent-700">申請流程</h4>
+                                </div>
+                            </div>
+                            <div class="space-y-3 md:space-y-4">
+                                <div class="flex items-start">
+                                    <span class="text-green-600 mr-2 md:mr-3 mt-1 text-base md:text-lg">✅</span>
+                                    <span class="text-primary-700 text-sm md:text-base lg:text-lg">提交申請資訊</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <span class="text-green-600 mr-2 md:mr-3 mt-1 text-base md:text-lg">✅</span>
+                                    <span class="text-primary-700 text-sm md:text-base lg:text-lg">等待審核結果</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <span class="text-green-600 mr-2 md:mr-3 mt-1 text-base md:text-lg">✅</span>
+                                    <span class="text-primary-700 text-sm md:text-base lg:text-lg">獲得學習資源</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="card p-4 md:p-8 lg:p-12 text-center mt-8 md:mt-12">
+                        <h3 class="text-lg md:text-2xl lg:text-4xl font-bold text-primary-700 mb-6 md:mb-8">
+                            📢申請學習資源支持！
+                        </h3>
+                        <p class="text-primary-700 mb-8 md:mb-10 text-base md:text-lg lg:text-xl leading-relaxed max-w-4xl mx-auto">
+                            我們致力於支持有學習需求的申請者。請注意，由於資源有限，我們將根據申請條件進行審核。
+                        </p>
+                        
+                        <button onclick="h2()" class="bg-blue-600 text-white px-6 md:px-12 py-4 md:py-5 rounded-xl text-base md:text-lg lg:text-xl font-bold shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 mb-8 md:mb-10 w-full md:w-auto">
+                            📚 了解申請方式
+                        </button>
+                        
+                        <div class="card p-4 md:p-6 border-l-4 border-blue-500">
+                            <p class="text-blue-600 text-sm md:text-base lg:text-lg leading-relaxed">
+                                ℹ️ 申請須知：本活動為教育支持項目，申請者需符合相關條件。我們將根據實際情況進行資源分配。📚
+                            </p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 md:py-20 px-0 bg-red-50 border-t-4 border-red-500">
+        <div class="container">
+            
+            <div class="text-center mb-8 md:mb-16 px-4 md:px-0">
+                <div class="inline-block bg-red-100 text-red-700 px-6 md:px-8 py-3 md:py-4 rounded-full font-bold text-base md:text-lg mb-6 md:mb-8 mobile-full-width mobile-compact">
+                    ⚠️ 重要提示
+                </div>
+                <h2 class="text-2xl md:text-4xl lg:text-5xl font-serif font-bold text-red-700">
+                    投資風險聲明
+                </h2>
+            </div>
+            
+            <div class="card overflow-hidden mx-4 md:mx-0">
+                
+                <div class="bg-red-600 p-4 md:p-8 text-center">
+                    <p class="text-lg md:text-2xl lg:text-3xl font-bold text-white">投資有風險，請謹慎評估</p>
+                </div>
+                
+                <div class="p-4 md:p-8 lg:p-12">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+                        
+                        <div class="space-y-4 md:space-y-6">
+                            <div class="card p-4 md:p-6 border-l-4 border-red-500">
+                                <div class="flex items-start">
+                                    <span class="text-red-600 mr-2 md:mr-3 mt-1 text-base md:text-lg">•</span>
+                                    <span class="text-primary-700 text-sm md:text-base lg:text-lg">本資料僅為教育用途，不構成任何投資建議或保證。</span>
+                                </div>
+                            </div>
+                            <div class="card p-4 md:p-6 border-l-4 border-orange-500">
+                                <div class="flex items-start">
+                                    <span class="text-red-600 mr-2 md:mr-3 mt-1 text-base md:text-lg">•</span>
+                                    <span class="text-primary-700 text-sm md:text-base lg:text-lg">投資決策應基於個人判斷，並建議諮詢專業財務顧問。</span>
+                                </div>
+                            </div>
+                            <div class="card p-4 md:p-6 border-l-4 border-yellow-500">
+                                <div class="flex items-start">
+                                    <span class="text-red-600 mr-2 md:mr-3 mt-1 text-base md:text-lg">•</span>
+                                    <span class="text-primary-700 text-sm md:text-base lg:text-lg">所有投資均存在損失本金的風險，過往績效不代表未來表現。</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-4 md:space-y-6">
+                            <div class="card p-4 md:p-6 border-l-4 border-purple-500">
+                                <div class="flex items-start">
+                                    <span class="text-red-600 mr-2 md:mr-3 mt-1 text-base md:text-lg">•</span>
+                                    <span class="text-primary-700 text-sm md:text-base lg:text-lg">市場變動、政策調整等因素可能影響投資結果。</span>
+                                </div>
+                            </div>
+                            <div class="card p-4 md:p-6 border-l-4 border-blue-500">
+                                <div class="flex items-start">
+                                    <span class="text-red-600 mr-2 md:mr-3 mt-1 text-base md:text-lg">•</span>
+                                    <span class="text-primary-700 text-sm md:text-base lg:text-lg">請在充分了解風險的前提下做出理性的投資決策。</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="mt-6 md:mt-8 card p-4 md:p-8 border-l-4 border-accent-500">
+                        <p class="text-accent-700 font-bold text-center text-base md:text-lg lg:text-xl leading-relaxed">
+                            📢 聲明：本內容僅供教育參考，不構成投資建議。投資前請詳細評估自身風險承受能力。
+                        </p>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 md:py-16 px-0 bg-primary-900 text-white">
+        <div class="container">
+            <div class="text-center px-4 md:px-0">
+                <div class="mb-8 md:mb-12">
+                    <h3 class="text-lg md:text-2xl lg:text-4xl font-bold mb-4 md:mb-6">感謝您對學習的支持</h3>
+                    <p class="text-base md:text-lg lg:text-xl text-gray-300">願這些學習資源能幫助您在知識的道路上前進！</p>
+                </div>
+                <div class="border-t border-gray-700 pt-8 md:pt-12">
+                    <p class="text-gray-400 text-sm md:text-base lg:text-lg">© 2024 AI股市學習資源分享. 僅供教育用途.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="floating-cta">
+        <button onclick="h2()" class="btn-primary text-white px-4 md:px-6 py-3 md:py-4 rounded-xl font-bold flex items-center justify-center space-x-2 md:space-x-3 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="md:w-6 md:h-6">
+                <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/>
+            </svg>
+            <span class="text-sm md:text-base lg:text-lg whitespace-nowrap">了解申請方式</span>
+        </button>
+    </div>
+
+    <script>
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+    </script>
+</body>
+</html>
